@@ -349,6 +349,7 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -396,6 +397,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\ProgrammersSport.Models\ProgrammersSpot.Business.Models.csproj">
+      <Project>{c4b33a7f-213d-4713-afc8-7b3e29b8aa3d}</Project>
+      <Name>ProgrammersSpot.Business.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ProgrammersSpot.Data\ProgrammersSpot.Business.Data.csproj">
+      <Project>{f12cab36-9ff4-4674-a993-4ebacbc0da6d}</Project>
+      <Name>ProgrammersSpot.Business.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
