@@ -9,6 +9,11 @@
     <div class="form-horizontal">
         <h4>Create a new account</h4>
         <hr />
+        <div class="form-group">
+            <div class="col-md-10">
+				<asp:DropDownList ID="UserType" runat="server"></asp:DropDownList>
+            </div>
+        </div>
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
