@@ -78,7 +78,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ProgrammersSpot.Business.Common\ProgrammersSpot.Business.Common.csproj">
+    <ProjectReference Include="..\ProgrammersSpot.Business.Common\ProgrammersSpot.Business.Common.csproj">
       <Project>{59aa86b4-6a88-4fc0-96ca-c4ac22ac12b3}</Project>
       <Name>ProgrammersSpot.Business.Common</Name>
     </ProjectReference>

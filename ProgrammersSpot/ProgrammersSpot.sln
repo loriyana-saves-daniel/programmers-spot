@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{0146C429-B33F-45B7-8C12-9405D802FB92}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{0146C429-B33F-45B7-8C12-9405D802FB92}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{92C464D5-D9BE-4431-BD04-36D790E9665C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4EF9D905-FEFB-4DD8-AD1E-1A647FCADFF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramersSpot.Client", "Client\ProgramersSpot.Client\ProgramersSpot.Client.csproj", "{41F1C9C1-73AE-44DD-B810-27AE80E54390}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.WebClient", "Clients\ProgrammersSpot.WebClient\ProgrammersSpot.WebClient.csproj", "{41F1C9C1-73AE-44DD-B810-27AE80E54390}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.MVP", "Business\ProgrammersSpot.Business.MVP\ProgrammersSpot.Business.MVP.csproj", "{07C56E35-9FE4-4700-B115-09C3238AAC79}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.Models", "Business\ProgrammersSport.Models\ProgrammersSpot.Business.Models.csproj", "{C4B33A7F-213D-4713-AFC8-7B3E29B8AA3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.Data", "ProgrammersSpot.Data\ProgrammersSpot.Business.Data.csproj", "{F12CAB36-9FF4-4674-A993-4EBACBC0DA6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.Data", "Business\ProgrammersSpot.Business.Data\ProgrammersSpot.Business.Data.csproj", "{F12CAB36-9FF4-4674-A993-4EBACBC0DA6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.Services", "ProgrammersSpot.Business.Services\ProgrammersSpot.Business.Services.csproj", "{D81AD7CA-7F30-4467-ACFE-7D4DE5EC2562}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.Services", "Business\ProgrammersSpot.Business.Services\ProgrammersSpot.Business.Services.csproj", "{D81AD7CA-7F30-4467-ACFE-7D4DE5EC2562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.Common", "ProgrammersSpot.Business.Common\ProgrammersSpot.Business.Common.csproj", "{59AA86B4-6A88-4FC0-96CA-C4AC22AC12B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.Common", "Business\ProgrammersSpot.Business.Common\ProgrammersSpot.Business.Common.csproj", "{59AA86B4-6A88-4FC0-96CA-C4AC22AC12B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
