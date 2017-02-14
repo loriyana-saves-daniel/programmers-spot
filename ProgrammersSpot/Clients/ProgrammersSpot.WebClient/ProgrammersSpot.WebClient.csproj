@@ -437,6 +437,10 @@
       <Project>{c4b33a7f-213d-4713-afc8-7b3e29b8aa3d}</Project>
       <Name>ProgrammersSpot.Business.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Business\ProgrammersSpot.Business.Identity\ProgrammersSpot.Business.Identity.csproj">
+      <Project>{AF9FC757-FDB2-4880-BE24-1D1353254EC9}</Project>
+      <Name>ProgrammersSpot.Business.Identity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Business\ProgrammersSpot.Business.MVP\ProgrammersSpot.Business.MVP.csproj">
       <Project>{07c56e35-9fe4-4700-b115-09c3238aac79}</Project>
       <Name>ProgrammersSpot.Business.MVP</Name>
@@ -444,10 +448,6 @@
     <ProjectReference Include="..\..\Business\ProgrammersSpot.Business.Data\ProgrammersSpot.Business.Data.csproj">
       <Project>{f12cab36-9ff4-4674-a993-4ebacbc0da6d}</Project>
       <Name>ProgrammersSpot.Business.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ProgrammersSpot.Business.Identity\ProgrammersSpot.Business.Identity.csproj">
-      <Project>{F71B3B5C-5F44-4D9F-8C14-5EF88058CC32}</Project>
-      <Name>ProgrammersSpot.Business.Identity</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -93,64 +93,6 @@ namespace ProgrammersSpot.WebClient.Account
             }
         }
 
-
-
-        //protected void CreateUser_Click(object sender, EventArgs e)
-        //{
-        //    var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-        //    var roleManager = Context.GetOwinContext().Get<ApplicationRoleManager>();
-        //    var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-
-        //    var user = new User();
-        //    var regUser = new RegularUser();
-
-
-        //    switch (UserType.SelectedItem.Value)
-        //    {
-        //        case "User":
-        //            user = new User() { UserName = Username.Text, Email = Email.Text };
-        //            regUser = new RegularUser() { FirstName = FirstName.Text, LastName = LastName.Text };
-                    
-        //            break;
-        //        case "Firm":
-        //            user = new User() { UserName = CompanyName.Text, Email = Email.Text };
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //    IdentityResult result = manager.Create(user, Password.Text);
-        //    if (result.Succeeded)
-        //    {
-        //        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-        //        //string code = manager.GenerateEmailConfirmationToken(user.Id);
-        //        //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-        //        //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-
-        //        manager.AddToRoles(user.Id, UserType.SelectedItem.Value);
-
-        //        signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
-        //        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-        //    }
-        //    else 
-        //    {
-        //        ErrorMessage.Text = result.Errors.FirstOrDefault();
-        //    }
-        //}
-
-        //protected void UserType_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (this.UserType.SelectedItem.Text != "User")
-        //    {
-        //        this.RegularUserRegisterForm.Visible = false;
-        //        this.FirmRegisterForm.Visible = true;
-        //    }
-        //    else
-        //    {
-        //        this.RegularUserRegisterForm.Visible = true;
-        //        this.FirmRegisterForm.Visible = false;
-        //    }
-        //}
-
         protected void UserType_TextChanged(object sender, EventArgs e)
         {
             if (this.UserType.SelectedItem.Text != "User")
