@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
-using ProgrammersSport.Business.Models.UserRoles;
+using ProgrammersSpot.Business.Models.UserRoles;
 using ProgrammersSpot.Business.Data;
 using System.Linq;
 

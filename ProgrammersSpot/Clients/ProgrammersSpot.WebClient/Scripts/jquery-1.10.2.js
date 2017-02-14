@@ -7619,20 +7619,20 @@ var
 	/* Prefilters
 	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
 	 * 2) These are called:
-	 *    - BEFORE asking for a transport
+	 *    - BEFORE asking for a tranSpot
 	 *    - AFTER param serialization (s.data is a string if s.processData is true)
 	 * 3) key is the dataType
 	 * 4) the catchall symbol "*" can be used
-	 * 5) execution will start with transport dataType and THEN continue down to "*" if needed
+	 * 5) execution will start with tranSpot dataType and THEN continue down to "*" if needed
 	 */
 	prefilters = {},
 
-	/* Transports bindings
+	/* TranSpots bindings
 	 * 1) key is the dataType
 	 * 2) the catchall symbol "*" can be used
-	 * 3) selection will start with transport dataType and THEN go to "*" if needed
+	 * 3) selection will start with tranSpot dataType and THEN go to "*" if needed
 	 */
-	transports = {},
+	tranSpots = {},
 
 	// Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
 	allTypes = "*/".concat("*");
@@ -7652,8 +7652,8 @@ try {
 // Segment location into parts
 ajaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];
 
-// Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
-function addToPrefiltersOrTransports( structure ) {
+// Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTranSpot
+function addToPrefiltersOrTranSpots( structure ) {
 
 	// dataTypeExpression is optional and defaults to "*"
 	return function( dataTypeExpression, func ) {
@@ -7684,23 +7684,23 @@ function addToPrefiltersOrTransports( structure ) {
 	};
 }
 
-// Base inspection function for prefilters and transports
-function inspectPrefiltersOrTransports( structure, options, originalOptions, jqXHR ) {
+// Base inspection function for prefilters and tranSpots
+function inspectPrefiltersOrTranSpots( structure, options, originalOptions, jqXHR ) {
 
 	var inspected = {},
-		seekingTransport = ( structure === transports );
+		seekingTranSpot = ( structure === tranSpots );
 
 	function inspect( dataType ) {
 		var selected;
 		inspected[ dataType ] = true;
 		jQuery.each( structure[ dataType ] || [], function( _, prefilterOrFactory ) {
-			var dataTypeOrTransport = prefilterOrFactory( options, originalOptions, jqXHR );
-			if( typeof dataTypeOrTransport === "string" && !seekingTransport && !inspected[ dataTypeOrTransport ] ) {
-				options.dataTypes.unshift( dataTypeOrTransport );
-				inspect( dataTypeOrTransport );
+			var dataTypeOrTranSpot = prefilterOrFactory( options, originalOptions, jqXHR );
+			if( typeof dataTypeOrTranSpot === "string" && !seekingTranSpot && !inspected[ dataTypeOrTranSpot ] ) {
+				options.dataTypes.unshift( dataTypeOrTranSpot );
+				inspect( dataTypeOrTranSpot );
 				return false;
-			} else if ( seekingTransport ) {
-				return !( selected = dataTypeOrTransport );
+			} else if ( seekingTranSpot ) {
+				return !( selected = dataTypeOrTranSpot );
 			}
 		});
 		return selected;
@@ -7881,8 +7881,8 @@ jQuery.extend({
 			ajaxExtend( jQuery.ajaxSettings, target );
 	},
 
-	ajaxPrefilter: addToPrefiltersOrTransports( prefilters ),
-	ajaxTransport: addToPrefiltersOrTransports( transports ),
+	ajaxPrefilter: addToPrefiltersOrTranSpots( prefilters ),
+	ajaxTranSpot: addToPrefiltersOrTranSpots( tranSpots ),
 
 	// Main method
 	ajax: function( url, options ) {
@@ -7910,7 +7910,7 @@ jQuery.extend({
 			// To know if global events are to be dispatched
 			fireGlobals,
 
-			transport,
+			tranSpot,
 			// Response headers
 			responseHeaders,
 			// Create the final options object
@@ -7995,8 +7995,8 @@ jQuery.extend({
 				// Cancel the request
 				abort: function( statusText ) {
 					var finalText = statusText || strAbort;
-					if ( transport ) {
-						transport.abort( finalText );
+					if ( tranSpot ) {
+						tranSpot.abort( finalText );
 					}
 					done( 0, finalText );
 					return this;
@@ -8036,7 +8036,7 @@ jQuery.extend({
 		}
 
 		// Apply prefilters
-		inspectPrefiltersOrTransports( prefilters, s, options, jqXHR );
+		inspectPrefiltersOrTranSpots( prefilters, s, options, jqXHR );
 
 		// If request was aborted inside a prefilter, stop there
 		if ( state === 2 ) {
@@ -8125,12 +8125,12 @@ jQuery.extend({
 			jqXHR[ i ]( s[ i ] );
 		}
 
-		// Get transport
-		transport = inspectPrefiltersOrTransports( transports, s, options, jqXHR );
+		// Get tranSpot
+		tranSpot = inspectPrefiltersOrTranSpots( tranSpots, s, options, jqXHR );
 
-		// If no transport, we auto-abort
-		if ( !transport ) {
-			done( -1, "No Transport" );
+		// If no tranSpot, we auto-abort
+		if ( !tranSpot ) {
+			done( -1, "No TranSpot" );
 		} else {
 			jqXHR.readyState = 1;
 
@@ -8147,7 +8147,7 @@ jQuery.extend({
 
 			try {
 				state = 1;
-				transport.send( requestHeaders, done );
+				tranSpot.send( requestHeaders, done );
 			} catch ( e ) {
 				// Propagate exception as error if not done
 				if ( state < 2 ) {
@@ -8177,9 +8177,9 @@ jQuery.extend({
 				clearTimeout( timeoutTimer );
 			}
 
-			// Dereference transport for early garbage collection
+			// Dereference tranSpot for early garbage collection
 			// (no matter how long the jqXHR object will be used)
-			transport = undefined;
+			tranSpot = undefined;
 
 			// Cache response headers
 			responseHeadersString = headers || "";
@@ -8479,10 +8479,10 @@ jQuery.ajaxPrefilter( "script", function( s ) {
 	}
 });
 
-// Bind script tag hack transport
-jQuery.ajaxTransport( "script", function(s) {
+// Bind script tag hack tranSpot
+jQuery.ajaxTranSpot( "script", function(s) {
 
-	// This transport only deals with cross domain requests
+	// This tranSpot only deals with cross domain requests
 	if ( s.crossDomain ) {
 
 		var script,
@@ -8662,10 +8662,10 @@ xhrSupported = jQuery.ajaxSettings.xhr();
 jQuery.support.cors = !!xhrSupported && ( "withCredentials" in xhrSupported );
 xhrSupported = jQuery.support.ajax = !!xhrSupported;
 
-// Create transport if the browser can provide an xhr
+// Create tranSpot if the browser can provide an xhr
 if ( xhrSupported ) {
 
-	jQuery.ajaxTransport(function( s ) {
+	jQuery.ajaxTranSpot(function( s ) {
 		// Cross domain only allowed if supported through XMLHttpRequest
 		if ( !s.crossDomain || jQuery.support.cors ) {
 

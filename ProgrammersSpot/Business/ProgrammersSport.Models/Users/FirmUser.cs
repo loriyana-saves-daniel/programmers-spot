@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ProgrammersSport.Business.Models.Users
+namespace ProgrammersSpot.Business.Models.Users
 {
     public class FirmUser : IFirmUser
     {
@@ -30,6 +30,8 @@ namespace ProgrammersSport.Business.Models.Users
         public string Website { get; set; }
 
         public bool IsApproved { get; set; }
+
+        public bool IsDeleted { get; set; }
 
         public virtual ICollection<IReview> FirmReviews
         {

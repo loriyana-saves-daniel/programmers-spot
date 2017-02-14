@@ -39,11 +39,11 @@ intellisense.annotate(jQuery, {
     ///   <param name="options" type="PlainObject">A set of key/value pairs that configure the default Ajax request. All options are optional.</param>
     /// </signature>
   },
-  'ajaxTransport': function() {
+  'ajaxTranSpot': function() {
     /// <signature>
     ///   <summary>Creates an object that handles the actual transmission of Ajax data.</summary>
     ///   <param name="dataType" type="String">A string identifying the data type to use</param>
-    ///   <param name="handler(options, originalOptions, jqXHR)" type="Function">A handler to return the new transport object to use with the data type provided in the first argument.</param>
+    ///   <param name="handler(options, originalOptions, jqXHR)" type="Function">A handler to return the new tranSpot object to use with the data type provided in the first argument.</param>
     /// </signature>
   },
   'boxModel': function() {

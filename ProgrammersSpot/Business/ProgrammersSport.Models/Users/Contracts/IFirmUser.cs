@@ -5,6 +5,8 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
 {
     public interface IFirmUser
     {
+        string Id { get; set; }
+
         string Address { get; set; }
 
         int EmployeesCount { get; set; }
@@ -14,6 +16,8 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
         string Website { get; set; }
 
         bool IsApproved { get; set; }
+
+        bool IsDeleted { get; set; }
 
         ICollection<IReview> FirmReviews { get; set; }
     }

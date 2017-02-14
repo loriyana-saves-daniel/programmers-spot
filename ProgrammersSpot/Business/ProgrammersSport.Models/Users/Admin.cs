@@ -1,11 +1,9 @@
-﻿using ProgrammersSport.Business.Models.Users.Contracts;
-using ProgrammersSpot.Business.Models.Users.Contracts;
-using ProgrammersSpot.Business.Models.Users;
+﻿using ProgrammersSpot.Business.Models.Users.Contracts;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ProgrammersSport.Business.Models.Users
+namespace ProgrammersSpot.Business.Models.Users
 {
     public class Admin : IAdmin
     {
@@ -20,6 +18,8 @@ namespace ProgrammersSport.Business.Models.Users
         public string Id { get; set; }
 
         public virtual User User { get; set; }
+
+        public bool IsDeleted { get; set; }
 
         public virtual ICollection<IFirmUser> FirmRegistrationRequests
         {

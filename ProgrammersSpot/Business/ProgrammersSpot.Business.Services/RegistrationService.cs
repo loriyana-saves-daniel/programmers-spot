@@ -1,14 +1,9 @@
 ﻿using Bytes2you.Validation;
-using ProgrammersSport.Business.Models.UserRoles;
-using ProgrammersSport.Business.Models.Users;
-using ProgrammersSport.Models.Users;
+using ProgrammersSpot.Business.Models.UserRoles;
+using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Services.Contracts;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProgrammersSpot.Business.Services
 {

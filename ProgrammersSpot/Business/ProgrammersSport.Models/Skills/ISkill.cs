@@ -1,7 +1,7 @@
 ﻿using ProgrammersSpot.Business.Models.Users;
 using System.Collections.Generic;
 
-namespace ProgrammersSport.Business.Models.Skills
+namespace ProgrammersSpot.Business.Models.Skills
 {
     public interface ISkill
     {

@@ -5,7 +5,7 @@ using ProgrammersSpot.Business.Models.Users;
 using System;
 using System.Collections.Generic;
 
-namespace ProgrammersSport.Business.Models.Skills
+namespace ProgrammersSpot.Business.Models.Skills
 {
     public class Skill : ISkill
     {

@@ -2,10 +2,6 @@
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using ProgrammersSpot.Business.Models.Users;
-using ProgrammersSport.Models.Users;
 using ProgrammersSpot.Business.Identity;
 using WebFormsMvp.Web;
 using ProgrammersSpot.Business.MVP.Views;

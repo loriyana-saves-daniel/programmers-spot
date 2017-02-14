@@ -5,11 +5,11 @@ using ProgrammersSpot.Business.Common;
 using ProgrammersSpot.Business.Models.Users.Contracts;
 using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Projects;
-using ProgrammersSport.Business.Models.Skills;
+using ProgrammersSpot.Business.Models.Skills;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ProgrammersSport.Models.Users
+namespace ProgrammersSpot.Business.Models.Users
 {
     public class RegularUser : IRegularUser
     {
@@ -43,7 +43,7 @@ namespace ProgrammersSport.Models.Users
 
         public string JobTitle { get; set; }
 
-        public string AvatarUrl { get; set; }
+        public bool IsDeleted { get; set; }
 
         public virtual ICollection<IProject> Projects
         {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace ProgrammersSport.Business.Models.UserRoles
+namespace ProgrammersSpot.Business.Models.UserRoles
 {
     public class Role : IdentityRole
     {

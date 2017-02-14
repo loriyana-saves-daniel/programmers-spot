@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using ProgrammersSport.Business.Models.Skills;
-using ProgrammersSport.Business.Models.Users;
-using ProgrammersSport.Models.Users;
+using ProgrammersSpot.Business.Models.Skills;
+using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Models.Projects;
 using ProgrammersSpot.Business.Models.Reviews;
