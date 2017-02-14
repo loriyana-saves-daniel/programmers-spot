@@ -2,10 +2,12 @@
 using ProgrammersSpot.Business.Models.Users.Contracts;
 using ProgrammersSpot.Business.Models.Users;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProgrammersSport.Business.Models.Users
 {
-    public class FirmUser : User, IFirmUser
+    public class FirmUser : IFirmUser
     {
         private ICollection<IReview> firmReviews;
 
@@ -13,6 +15,12 @@ namespace ProgrammersSport.Business.Models.Users
         {
             this.firmReviews = new List<IReview>();
         }
+
+        [Key, ForeignKey("User")]
+        public string Id { get; set; }
+
+        public virtual User User { get; set; }
+
         public string Address { get; set; }
 
         public int EmployeesCount { get; set; }     

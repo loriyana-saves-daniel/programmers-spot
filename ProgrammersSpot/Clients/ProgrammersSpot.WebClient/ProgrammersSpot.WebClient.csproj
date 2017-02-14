@@ -60,6 +60,10 @@
       <HintPath>..\..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.Extensions.Conventions.3.2.0.0\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject.Extensions.Factory, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Ninject.Extensions.Factory.3.2.1.0\lib\net45-full\Ninject.Extensions.Factory.dll</HintPath>
       <Private>True</Private>
@@ -373,6 +377,8 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\NinjectModules\DataModule.cs" />
+    <Compile Include="App_Start\NinjectModules\ServicesModule.cs" />
     <Compile Include="Factories\WebFormsMvpPresenterFactory.cs" />
     <Compile Include="Factories\Contracts\ICustomPresenterFactory.cs" />
     <Compile Include="App_Start\DbConfig.cs" />
@@ -399,7 +405,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -439,6 +444,10 @@
     <ProjectReference Include="..\..\Business\ProgrammersSpot.Business.Data\ProgrammersSpot.Business.Data.csproj">
       <Project>{f12cab36-9ff4-4674-a993-4ebacbc0da6d}</Project>
       <Name>ProgrammersSpot.Business.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ProgrammersSpot.Business.Identity\ProgrammersSpot.Business.Identity.csproj">
+      <Project>{F71B3B5C-5F44-4D9F-8C14-5EF88058CC32}</Project>
+      <Name>ProgrammersSpot.Business.Identity</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

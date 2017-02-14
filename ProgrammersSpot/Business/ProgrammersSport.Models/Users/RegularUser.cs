@@ -6,10 +6,12 @@ using ProgrammersSpot.Business.Models.Users.Contracts;
 using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Projects;
 using ProgrammersSport.Business.Models.Skills;
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProgrammersSport.Models.Users
 {
-    public class RegularUser : User, IRegularUser
+    public class RegularUser : IRegularUser
     {
         private ICollection<IReview> reviews;
 
@@ -23,6 +25,12 @@ namespace ProgrammersSport.Models.Users
             this.projects = new List<IProject>();
             this.skills = new HashSet<ISkill>();
         }
+
+        [Key, ForeignKey("User")]
+        public string Id { get; set; }
+
+        public virtual User User { get; set; }
+
         [MinLength(Constants.NameMinLength)]
         [MaxLength(Constants.NameMaxLength)]
         public string FirstName { get; set; }
@@ -34,7 +42,8 @@ namespace ProgrammersSport.Models.Users
         public int Age { get; set; }
 
         public string JobTitle { get; set; }
-        
+
+        public string AvatarUrl { get; set; }
 
         public virtual ICollection<IProject> Projects
         {
@@ -72,6 +81,5 @@ namespace ProgrammersSport.Models.Users
                 this.skills = value;
             }
         }
-        
     }
 }

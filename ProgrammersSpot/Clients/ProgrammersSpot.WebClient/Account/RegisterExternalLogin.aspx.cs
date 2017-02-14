@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ProgrammersSpot.Business.Models.Users;
+using ProgrammersSpot.Business.Identity;
 
 namespace ProgrammersSpot.WebClient.Account
 {

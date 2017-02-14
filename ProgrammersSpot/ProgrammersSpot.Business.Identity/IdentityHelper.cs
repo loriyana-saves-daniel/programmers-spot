@@ -1,23 +1,7 @@
 ﻿using System;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using System.Web;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using ProgrammersSpot.WebClient.Models;
 
-namespace ProgrammersSpot.WebClient.Models
-{
-    // You can add User data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    
-
-    
-}
-
-#region Helpers
-namespace ProgrammersSpot.WebClient
+namespace ProgrammersSpot.Business.Identity
 {
     public static class IdentityHelper
     {
@@ -72,4 +56,3 @@ namespace ProgrammersSpot.WebClient
         }
     }
 }
-#endregion

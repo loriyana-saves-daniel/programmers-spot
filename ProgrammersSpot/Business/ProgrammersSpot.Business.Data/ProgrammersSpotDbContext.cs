@@ -39,8 +39,6 @@ namespace ProgrammersSpot.Business.Data
 
         public virtual DbSet<Skill> Skills { get; set; }
 
-
-
         public virtual DbSet<RegularUser> RegularUsers { get; set; }
 
         public virtual DbSet<FirmUser> Firms { get; set; }

@@ -5,6 +5,7 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using ProgrammersSpot.Business.Models.Users;
+using ProgrammersSpot.Business.Identity;
 
 namespace ProgrammersSpot.WebClient.Account
 {

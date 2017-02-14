@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Owin;
-using ProgrammersSpot.WebClient.Models;
+using ProgrammersSpot.Business.Identity;
 
 namespace ProgrammersSpot.WebClient.Account
 {
