@@ -13,17 +13,17 @@ namespace ProgrammersSpot.Business.Models.Users
 {
     public class RegularUser : IRegularUser
     {
-        private ICollection<IReview> reviews;
+        private ICollection<Review> reviews;
 
-        private ICollection<IProject> projects;
+        private ICollection<Project> projects;
 
-        private ICollection<ISkill> skills;
+        private ICollection<Skill> skills;
 
         public RegularUser()
         {
-            this.reviews = new List<IReview>();
-            this.projects = new List<IProject>();
-            this.skills = new HashSet<ISkill>();
+            this.reviews = new List<Review>();
+            this.projects = new List<Project>();
+            this.skills = new HashSet<Skill>();
         }
 
         [Key, ForeignKey("User")]
@@ -45,7 +45,7 @@ namespace ProgrammersSpot.Business.Models.Users
 
         public bool IsDeleted { get; set; }
 
-        public virtual ICollection<IProject> Projects
+        public virtual ICollection<Project> Projects
         {
             get
             {
@@ -58,7 +58,7 @@ namespace ProgrammersSpot.Business.Models.Users
         }
         
 
-        public virtual ICollection<IReview> GivenReviews
+        public virtual ICollection<Review> GivenReviews
         {
             get
             {
@@ -70,7 +70,7 @@ namespace ProgrammersSpot.Business.Models.Users
             }
         }
 
-        public virtual ICollection<ISkill> Skills
+        public virtual ICollection<Skill> Skills
         {
             get
             {

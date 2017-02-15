@@ -9,11 +9,11 @@ namespace ProgrammersSpot.Business.Models.Skills
 {
     public class Skill : ISkill
     {
-        private ICollection<User> users;
+        private ICollection<RegularUser> users;
 
         public Skill()
         {
-            this.users = new HashSet<User>();
+            this.users = new HashSet<RegularUser>();
         }
 
         [Key]
@@ -27,7 +27,7 @@ namespace ProgrammersSpot.Business.Models.Skills
 
         public bool IsDeleted { get; set; }
 
-        public virtual ICollection<User> Users
+        public virtual ICollection<RegularUser> Users
         {
             get
             {

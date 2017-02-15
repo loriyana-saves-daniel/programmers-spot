@@ -12,7 +12,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
     {
         [TestCase("37827383hg37362g372")]
         [TestCase("382-82328-j3j3828h")]
-        public void Id_ShouldBeSetAndGetCorrectly(string adminId)
+        public void Id_ShouldBeSetAndGottenCorrectly(string adminId)
         {
             // Arrange & Act
             var admin = new Admin() { Id = adminId };
@@ -23,7 +23,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase("dhwdwhddh73783ge3e3ye7")]
         [TestCase("eugete762-2832ydf")]
-        public void User_ShouldBeSetAndGetCorrectly(string testUserId)
+        public void User_ShouldBeSetAndGottenCorrectly(string testUserId)
         {
             // Arrange & Act         
             var user = new User { Id = testUserId };
@@ -35,7 +35,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase(true)]
         [TestCase(false)]
-        public void IsDeleted_ShouldBeSetAndGetCorrectly(bool isDeleted)
+        public void IsDeleted_ShouldBeSetAndGottenCorrectly(bool isDeleted)
         {
             // Arrange & Act
             var admin = new Admin() { IsDeleted = isDeleted };
@@ -61,15 +61,15 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
             var firmRegistrationRequests = admin.FirmRegistrationRequests;
 
-            Assert.That(firmRegistrationRequests, Is.Not.Null.And.InstanceOf<ICollection<IFirmUser>>());
+            Assert.That(firmRegistrationRequests, Is.Not.Null.And.InstanceOf<ICollection<FirmUser>>());
         }
 
         [TestCase("3737883jh3bu38")]
         [TestCase("838287fb-3738h")]
-        public void FirmRegistrationRequestsCollection_ShouldBeSetAndGetCorrectly(string firmUserId)
+        public void FirmRegistrationRequestsCollection_ShouldBeSetAndGottenCorrectly(string firmUserId)
         {
             var firm = new FirmUser() { Id = firmUserId };
-            var set = new List<IFirmUser> { firm };
+            var set = new List<FirmUser> { firm };
 
             var admin = new Admin { FirmRegistrationRequests = set };
 

@@ -18,7 +18,11 @@ namespace ProgrammersSpot.Business.Models.Reviews
 
         public string AuthorId { get; set; }
 
-        public virtual User Author { get; set; }
+        public virtual RegularUser Author { get; set; }
+
+        public string FirmId { get; set; }
+
+        public virtual FirmUser Firm { get; set; }
     }
 }
 

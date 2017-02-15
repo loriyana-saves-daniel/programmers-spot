@@ -11,6 +11,6 @@ namespace ProgrammersSpot.Business.Models.Skills
 
         bool IsDeleted { get; set; }
 
-        ICollection<User> Users { get; set; }
+        ICollection<RegularUser> Users { get; set; }
     }
 }

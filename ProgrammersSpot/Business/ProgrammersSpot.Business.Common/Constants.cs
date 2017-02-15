@@ -13,5 +13,11 @@
 
         public const int MinReviewLength = 10;
         public const int MaxReviewLength = 1000;
+
+        public const int MinAddressLength = 4;
+        public const int MaxAddressLength = 30;
+
+        public const int MinProjectDescriptionLength = 10;
+        public const int MaxProjectDescriptionLength = 1000;
     }
 }

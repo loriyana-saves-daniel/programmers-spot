@@ -22,10 +22,10 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
 
         User User { get; set; }
 
-        ICollection<IReview> GivenReviews { get; set; }
+        ICollection<Review> GivenReviews { get; set; }
 
-        ICollection<IProject> Projects { get; set; }
+        ICollection<Project> Projects { get; set; }
 
-        ICollection<ISkill> Skills { get; set; }
+        ICollection<Skill> Skills { get; set; }
     }
 }

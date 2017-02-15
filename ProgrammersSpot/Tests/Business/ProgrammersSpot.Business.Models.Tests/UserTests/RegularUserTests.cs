@@ -47,7 +47,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase("Ivan")]
         [TestCase("Blagoi")]
-        public void FirstName_ShouldBeSetAndGetCorrectly(string testName)
+        public void FirstName_ShouldBeSetAndGottenCorrectly(string testName)
         {
             // Arrange & Act
             var user = new RegularUser() { FirstName = testName };
@@ -88,7 +88,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase("Ivanov")]
         [TestCase("Georgiev")]
-        public void LastName_ShouldBeSetAndGetCorrectly(string testName)
+        public void LastName_ShouldBeSetAndGottenCorrectly(string testName)
         {
             // Arrange & Act
             var user = new RegularUser() { LastName = testName };
@@ -99,7 +99,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase(20)]
         [TestCase(45)]
-        public void Age_ShouldBeSetAndGetCorrectly(int testAge)
+        public void Age_ShouldBeSetAndGottenCorrectly(int testAge)
         {
             // Arrange & Act
             var user = new RegularUser() { Age = testAge };
@@ -110,7 +110,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase("Junior Developer")]
         [TestCase("Senior QA Engineer")]
-        public void JobTitle_ShouldBeSetAndGetCorrectly(string testJobTitle)
+        public void JobTitle_ShouldBeSetAndGottenCorrectly(string testJobTitle)
         {
             // Arrange & Act
             var user = new RegularUser() { JobTitle = testJobTitle };
@@ -121,7 +121,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase(true)]
         [TestCase(false)]
-        public void IsDeleted_ShouldBeSetAndGetCorrectly(bool isDeleted)
+        public void IsDeleted_ShouldBeSetAndGottenCorrectly(bool isDeleted)
         {
             // Arrange & Act
             var user = new RegularUser() { IsDeleted = isDeleted };
@@ -132,7 +132,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase("37827383hg37362g372")]
         [TestCase("382-82328-j3j3828h")]
-        public void Id_ShouldBeSetAndGetCorrectly(string userId)
+        public void Id_ShouldBeSetAndGottenCorrectly(string userId)
         {
             // Arrange & Act
             var user = new RegularUser() { Id = userId };
@@ -158,7 +158,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
             var reviews = user.GivenReviews;
 
-            Assert.That(reviews, Is.Not.Null.And.InstanceOf<ICollection<IReview>>());
+            Assert.That(reviews, Is.Not.Null.And.InstanceOf<ICollection<Review>>());
         }
 
         [Test]
@@ -168,7 +168,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
             var projects = user.Projects;
 
-            Assert.That(projects, Is.Not.Null.And.InstanceOf<ICollection<IProject>>());
+            Assert.That(projects, Is.Not.Null.And.InstanceOf<ICollection<Project>>());
         }
 
         [Test]
@@ -178,15 +178,15 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
             var skills = user.Skills;
 
-            Assert.That(skills, Is.Not.Null.And.InstanceOf<HashSet<ISkill>>());
+            Assert.That(skills, Is.Not.Null.And.InstanceOf<HashSet<Skill>>());
         }
 
         [TestCase(1)]
         [TestCase(342)]
-        public void GivenReviewsCollection_ShouldBeSetAndGetCorrectly(int reviewId)
+        public void GivenReviewsCollection_ShouldBeSetAndGottenCorrectly(int reviewId)
         {
             var review = new Review() { Id = reviewId };
-            var set = new List<IReview> { review };
+            var set = new List<Review> { review };
 
             var user = new RegularUser { GivenReviews = set };
 
@@ -195,10 +195,10 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase(1)]
         [TestCase(342)]
-        public void ProjectsCollection_ShouldBeSetAndGetCorrectly(int projectId)
+        public void ProjectsCollection_ShouldBeSetAndGottenCorrectly(int projectId)
         {
             var project = new Project() { Id = projectId };
-            var set = new List<IProject> { project };
+            var set = new List<Project> { project };
 
             var user = new RegularUser { Projects = set };
 
@@ -207,10 +207,10 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase(1)]
         [TestCase(342)]
-        public void SkillsCollection_ShouldBeSetAndGetCorrectly(int skillId)
+        public void SkillsCollection_ShouldBeSetAndGottenCorrectly(int skillId)
         {
             var skill = new Skill() { Id = skillId };
-            var set = new List<ISkill> { skill };
+            var set = new List<Skill> { skill };
 
             var user = new RegularUser { Skills = set };
 
@@ -219,7 +219,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase("dhwdwhddh73783ge3e3ye7")]
         [TestCase("eugete762-2832ydf")]
-        public void User_ShouldBeSetAndGetCorrectly(string testUserId)
+        public void User_ShouldBeSetAndGottenCorrectly(string testUserId)
         {
             // Arrange & Act         
             var user = new User { Id = testUserId };

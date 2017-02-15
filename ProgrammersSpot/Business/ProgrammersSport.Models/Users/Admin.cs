@@ -7,11 +7,11 @@ namespace ProgrammersSpot.Business.Models.Users
 {
     public class Admin : IAdmin
     {
-        private ICollection<IFirmUser> firmRegistrationRequests;
+        private ICollection<FirmUser> firmRegistrationRequests;
 
         public Admin()
         {
-            this.firmRegistrationRequests = new List<IFirmUser>();
+            this.firmRegistrationRequests = new List<FirmUser>();
         }
 
         [Key, ForeignKey("User")]
@@ -21,7 +21,7 @@ namespace ProgrammersSpot.Business.Models.Users
 
         public bool IsDeleted { get; set; }
 
-        public virtual ICollection<IFirmUser> FirmRegistrationRequests
+        public virtual ICollection<FirmUser> FirmRegistrationRequests
         {
             get
             {

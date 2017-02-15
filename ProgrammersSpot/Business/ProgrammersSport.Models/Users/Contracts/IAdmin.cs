@@ -11,6 +11,6 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
 
         bool IsDeleted { get; set; }
 
-        ICollection<IFirmUser> FirmRegistrationRequests { get; set; }
+        ICollection<FirmUser> FirmRegistrationRequests { get; set; }
     }
 }

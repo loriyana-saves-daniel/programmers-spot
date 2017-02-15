@@ -12,6 +12,10 @@ namespace ProgrammersSpot.Business.Models.Reviews
 
         string AuthorId { get; set; }
 
-        User Author { get; set; }
+        RegularUser Author { get; set; }
+
+        string FirmId { get; set; }
+
+        FirmUser Firm { get; set; }
     }
 }

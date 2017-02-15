@@ -3,6 +3,8 @@ using ProgrammersSpot.Business.Models.Users;
 using System.Collections.Generic;
 using ProgrammersSpot.Business.Models.Reviews;
 using System.Linq;
+using System.ComponentModel.DataAnnotations;
+using ProgrammersSpot.Business.Common;
 
 namespace ProgrammersSpot.Business.Models.Tests.UserTests
 {
@@ -11,7 +13,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
     {
         [TestCase("37827383hg37362g372")]
         [TestCase("382-82328-j3j3828h")]
-        public void Id_ShouldBeSetAndGetCorrectly(string firmId)
+        public void Id_ShouldBeSetAndGottenCorrectly(string firmId)
         {
             // Arrange & Act
             var firm = new FirmUser() { Id = firmId };
@@ -22,7 +24,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase("dhwdwhddh73783ge3e3ye7")]
         [TestCase("eugete762-2832ydf")]
-        public void User_ShouldBeSetAndGetCorrectly(string testUserId)
+        public void User_ShouldBeSetAndGottenCorrectly(string testUserId)
         {
             // Arrange & Act         
             var user = new User { Id = testUserId };
@@ -34,7 +36,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase("Al. Malinov")]
         [TestCase("Lozenec")]
-        public void Address_ShouldBeSetAndGetCorrectly(string address)
+        public void Address_ShouldBeSetAndGottenCorrectly(string address)
         {
             // Arrange & Act
             var firm = new FirmUser() { Address = address };
@@ -43,9 +45,39 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
             Assert.AreEqual(firm.Address, address);
         }
 
+        [Test]
+        public void Address_ShouldHaveCorrectMinLength()
+        {
+            // Arrange
+            var addressProperty = typeof(FirmUser).GetProperty("Address");
+
+            // Act
+            var minLengthAttribute = addressProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
+                .Cast<MinLengthAttribute>()
+                .FirstOrDefault();
+
+            // Assert
+            Assert.That(minLengthAttribute.Length, Is.Not.Null.And.EqualTo(Constants.MinAddressLength));
+        }
+
+        [Test]
+        public void Address_ShouldHaveCorrectMaxLength()
+        {
+            // Arrange
+            var addressProperty = typeof(FirmUser).GetProperty("Address");
+
+            // Act
+            var maxLengthAttribute = addressProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
+                .Cast<MaxLengthAttribute>()
+                .FirstOrDefault();
+
+            // Assert
+            Assert.That(maxLengthAttribute.Length, Is.Not.Null.And.EqualTo(Constants.MaxAddressLength));
+        }
+
         [TestCase(21)]
         [TestCase(4566)]
-        public void EmployeesCount_ShouldBeSetAndGetCorrectly(int employeesCount)
+        public void EmployeesCount_ShouldBeSetAndGottenCorrectly(int employeesCount)
         {
             // Arrange & Act
             var firm = new FirmUser() { EmployeesCount = employeesCount };
@@ -56,7 +88,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase(10)]
         [TestCase(6)]
-        public void Rating_ShouldBeSetAndGetCorrectly(int rating)
+        public void Rating_ShouldBeSetAndGottenCorrectly(int rating)
         {
             // Arrange & Act
             var firm = new FirmUser() { Rating = rating };
@@ -67,7 +99,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase("www.telerik.com")]
         [TestCase("www.vmware.com")]
-        public void Website_ShouldBeSetAndGetCorrectly(string website)
+        public void Website_ShouldBeSetAndGottenCorrectly(string website)
         {
             // Arrange & Act
             var firm = new FirmUser() { Website = website };
@@ -78,7 +110,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase(true)]
         [TestCase(false)]
-        public void IsDeleted_ShouldBeSetAndGetCorrectly(bool isDeleted)
+        public void IsDeleted_ShouldBeSetAndGottenCorrectly(bool isDeleted)
         {
             // Arrange & Act
             var firm = new FirmUser() { IsDeleted = isDeleted };
@@ -89,7 +121,7 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
         [TestCase(true)]
         [TestCase(false)]
-        public void IsApproved_ShouldBeSetAndGetCorrectly(bool isApproved)
+        public void IsApproved_ShouldBeSetAndGottenCorrectly(bool isApproved)
         {
             // Arrange & Act
             var firm = new FirmUser() { IsApproved = isApproved };
@@ -115,15 +147,15 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
             var reviews = firm.FirmReviews;
 
-            Assert.That(reviews, Is.Not.Null.And.InstanceOf<ICollection<IReview>>());
+            Assert.That(reviews, Is.Not.Null.And.InstanceOf<ICollection<Review>>());
         }
 
         [TestCase(87)]
         [TestCase(342)]
-        public void FirmReviewsCollection_ShouldBeSetAndGetCorrectly(int reviewId)
+        public void FirmReviewsCollection_ShouldBeSetAndGottenCorrectly(int reviewId)
         {
             var review = new Review() { Id = reviewId };
-            var set = new List<IReview> { review };
+            var set = new List<Review> { review };
 
             var firm = new FirmUser { FirmReviews = set };
 

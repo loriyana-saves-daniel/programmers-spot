@@ -19,6 +19,6 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
 
         bool IsDeleted { get; set; }
 
-        ICollection<IReview> FirmReviews { get; set; }
+        ICollection<Review> FirmReviews { get; set; }
     }
 }

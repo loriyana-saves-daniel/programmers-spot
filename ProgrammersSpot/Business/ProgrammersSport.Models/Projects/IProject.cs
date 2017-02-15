@@ -6,6 +6,8 @@ namespace ProgrammersSpot.Business.Models.Projects
     {
         int Id { get; set; }
 
+        string Name { get; set; }
+
         bool IsDeleted { get; set; }
 
         string Description { get; set; }
@@ -14,6 +16,6 @@ namespace ProgrammersSpot.Business.Models.Projects
 
         string AuthorId { get; set; }
 
-        User Author { get; set; }
+        RegularUser Author { get; set; }
     }
 }

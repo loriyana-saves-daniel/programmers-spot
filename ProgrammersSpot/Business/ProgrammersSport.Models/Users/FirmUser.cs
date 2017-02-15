@@ -4,16 +4,17 @@ using ProgrammersSpot.Business.Models.Users;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ProgrammersSpot.Business.Common;
 
 namespace ProgrammersSpot.Business.Models.Users
 {
     public class FirmUser : IFirmUser
     {
-        private ICollection<IReview> firmReviews;
+        private ICollection<Review> firmReviews;
 
         public FirmUser()
         {
-            this.firmReviews = new List<IReview>();
+            this.firmReviews = new List<Review>();
         }
 
         [Key, ForeignKey("User")]
@@ -21,6 +22,9 @@ namespace ProgrammersSpot.Business.Models.Users
 
         public virtual User User { get; set; }
 
+        [Required]
+        [MinLength(Constants.MinAddressLength)]
+        [MaxLength(Constants.MaxAddressLength)]
         public string Address { get; set; }
 
         public int EmployeesCount { get; set; }     
@@ -33,7 +37,7 @@ namespace ProgrammersSpot.Business.Models.Users
 
         public bool IsDeleted { get; set; }
 
-        public virtual ICollection<IReview> FirmReviews
+        public virtual ICollection<Review> FirmReviews
         {
             get
             {

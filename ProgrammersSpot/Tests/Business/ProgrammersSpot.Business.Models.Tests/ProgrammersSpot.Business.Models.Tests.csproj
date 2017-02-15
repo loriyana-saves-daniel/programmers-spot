@@ -73,7 +73,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ProjectTests\ProjectTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReviewTests\ReviewTests.cs" />
+    <Compile Include="SkillTests\SkillTests.cs" />
+    <Compile Include="UserRoleTests\RoleTests.cs" />
     <Compile Include="UserTests\AdminTests.cs" />
     <Compile Include="UserTests\FirmUserTests.cs" />
     <Compile Include="UserTests\RegularUserTests.cs" />
