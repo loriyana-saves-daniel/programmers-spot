@@ -7,6 +7,8 @@ using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Users;
 using System;
 using System.Data.Entity;
+using ProgrammersSport.Business.Models.Locations;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace ProgrammersSpot.Business.Data
 {
@@ -32,17 +34,21 @@ namespace ProgrammersSpot.Business.Data
             base.SaveChanges();
         }
 
-        public virtual DbSet<Review> Reviews { get; set; }
+        public virtual IDbSet<Review> Reviews { get; set; }
 
-        public virtual DbSet<Project> Projects { get; set; }
+        public virtual IDbSet<Project> Projects { get; set; }
 
-        public virtual DbSet<Skill> Skills { get; set; }
+        public virtual IDbSet<Skill> Skills { get; set; }
 
-        public virtual DbSet<RegularUser> RegularUsers { get; set; }
+        public virtual IDbSet<City> Cities { get; set; }
 
-        public virtual DbSet<FirmUser> Firms { get; set; }
+        public virtual IDbSet<Country> Countries { get; set; }
 
-        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual IDbSet<RegularUser> RegularUsers { get; set; }
+
+        public virtual IDbSet<FirmUser> Firms { get; set; }
+
+        public virtual IDbSet<Admin> Admins { get; set; }
     }
     
 }

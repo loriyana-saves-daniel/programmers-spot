@@ -21,6 +21,22 @@ namespace ProgrammersSpot.Business.Data.Repositories
             this.dbSet = this.context.Set<T>();
         }
 
+        protected IProgrammersSpotDbContext DbContext
+        {
+            get
+            {
+                return this.context;
+            }
+        }
+
+        protected IDbSet<T> DbSet
+        {
+            get
+            {
+                return this.dbSet;
+            }
+        }
+
         public IQueryable<T> Entities
         {
             get { return this.dbSet; }
@@ -34,11 +50,6 @@ namespace ProgrammersSpot.Business.Data.Repositories
         public virtual T GetById(object id)
         {
             return this.dbSet.Find(id);
-        }
-
-        public T GetByName(object name)
-        {
-            return this.dbSet.Find(name);
         }
 
         public virtual void Add(T entity)

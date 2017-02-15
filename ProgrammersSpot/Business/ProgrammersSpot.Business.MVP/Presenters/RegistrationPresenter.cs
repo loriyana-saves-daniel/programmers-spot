@@ -14,13 +14,16 @@ namespace ProgrammersSpot.Business.MVP.Presenters
     public class RegistrationPresenter : Presenter<IRegistrationView>
     {
         private readonly IRegistrationService registrationService;
+        private readonly ILocationService locationService;
 
-        public RegistrationPresenter(IRegistrationView view, IRegistrationService registrationService)
+        public RegistrationPresenter(IRegistrationView view, IRegistrationService registrationService,
+            ILocationService locationService)
             : base(view)
         {
             Guard.WhenArgument(registrationService, "registrationService").IsNull().Throw();
 
             this.registrationService = registrationService;
+            this.locationService = locationService;
 
             this.View.EventRegisterUser += RegisterUser;
             this.View.EventBindPageData += BindPageData;
@@ -39,7 +42,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             var user = new User()
             {
                 Email = e.Email,             
-                UserName = e.UserName,
+                UserName = e.Email,
             };
 
             IdentityResult result = manager.Create(user, e.Password);
@@ -52,7 +55,9 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             }
             else if (e.UserType == "Firm")
             {
-                this.registrationService.CreateFirm(user.Id, e.Address);
+                var country = this.locationService.GetCountryByName(e.Country);
+                var city = this.locationService.GetCityByName(e.City);
+                this.registrationService.CreateFirm(user.Id, e.FirmName, country, city, e.Address);
             }
 
             signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);

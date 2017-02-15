@@ -1,10 +1,10 @@
 ﻿using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Users.Contracts;
-using ProgrammersSpot.Business.Models.Users;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using ProgrammersSpot.Business.Common;
+using ProgrammersSport.Business.Models.Locations;
 
 namespace ProgrammersSpot.Business.Models.Users
 {
@@ -20,7 +20,17 @@ namespace ProgrammersSpot.Business.Models.Users
         [Key, ForeignKey("User")]
         public string Id { get; set; }
 
+        public string FirmName { get; set; }
+
         public virtual User User { get; set; }
+
+        public int CountryId { get; set; }
+
+        public virtual Country Country { get; set; }
+
+        public int CityId { get; set; }
+
+        public virtual City City { get; set; }
 
         [Required]
         [MinLength(Constants.MinAddressLength)]

@@ -4,6 +4,8 @@ using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Services.Contracts;
 using System.Collections.Generic;
+using ProgrammersSport.Business.Models.Locations;
+using ProgrammersSport.Business.Models.Locations.Contracts;
 
 namespace ProgrammersSpot.Business.Services
 {
@@ -33,7 +35,7 @@ namespace ProgrammersSpot.Business.Services
             return this.userRolesRepo.All();        
         }
 
-        public void CreateFirm(string firmId, string address)
+        public void CreateFirm(string firmId, string firmName, Country country, City city, string address)
         {
             Guard.WhenArgument(firmId, "firmId").IsNullOrEmpty().Throw();
 
@@ -42,6 +44,9 @@ namespace ProgrammersSpot.Business.Services
                 this.firmsRepo.Add(new FirmUser()
                 {
                     Id = firmId,
+                    Country = country,
+                    FirmName = firmName,
+                    City = city,
                     Address = address
                 });
 

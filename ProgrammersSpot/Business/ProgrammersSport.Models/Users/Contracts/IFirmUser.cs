@@ -7,6 +7,8 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
     {
         string Id { get; set; }
 
+        string FirmName { get; set; }
+
         string Address { get; set; }
 
         int EmployeesCount { get; set; }

@@ -10,8 +10,6 @@ namespace ProgrammersSpot.Business.Data.Contracts
 
         T GetById(object id);
 
-        T GetByName(object name);
-
         void Add(T entity);
 
         void Update(T entity);

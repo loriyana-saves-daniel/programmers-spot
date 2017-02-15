@@ -40,14 +40,6 @@
                 </div>
             </div>
             <div class="form-group">
-                <asp:Label runat="server" AssociatedControlID="Username" CssClass="col-md-2 control-label">Username</asp:Label>
-                <div class="col-md-10">
-                    <asp:TextBox runat="server" ID="Username" CssClass="form-control" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Username"
-                        CssClass="text-danger" ErrorMessage="The username field is required." />
-                </div>
-            </div>
-            <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
                 <div class="col-md-10">
                     <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
@@ -82,6 +74,22 @@
                     <asp:TextBox runat="server" ID="CompanyName" CssClass="form-control" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="CompanyName"
                         CssClass="text-danger" ErrorMessage="The company name field is required." />
+                </div>
+            </div>
+            <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="Country" CssClass="col-md-2 control-label">Country</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox runat="server" ID="Country" CssClass="form-control" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Country"
+                        CssClass="text-danger" ErrorMessage="The country field is required." />
+                </div>
+            </div>
+            <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="City" CssClass="col-md-2 control-label">City</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox runat="server" ID="City" CssClass="form-control" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="City"
+                        CssClass="text-danger" ErrorMessage="The city field is required." />
                 </div>
             </div>
             <div class="form-group">

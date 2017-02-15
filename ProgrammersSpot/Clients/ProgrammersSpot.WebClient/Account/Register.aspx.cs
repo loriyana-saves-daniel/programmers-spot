@@ -55,7 +55,6 @@ namespace ProgrammersSpot.WebClient.Account
                     Email = this.Email.Text,
                     FirstName = this.FirstName.Text,
                     LastName = this.LastName.Text,
-                    UserName = this.Username.Text,
                     UserType = this.UserType.SelectedItem.Text,
                     Password = this.Password.Text,
                     ConfirmedPassword = this.ConfirmPassword.Text
@@ -67,7 +66,9 @@ namespace ProgrammersSpot.WebClient.Account
                 {
                     OwinCtx = owinCtx,
                     Email = this.FirmEmail.Text,
-                    UserName = this.CompanyName.Text,
+                    FirmName = this.CompanyName.Text,
+                    Country = this.Country.Text,
+                    City = this.City.Text,
                     Address = this.Address.Text,
                     UserType = this.UserType.SelectedItem.Text,
                     Password = this.FirmPassword.Text,

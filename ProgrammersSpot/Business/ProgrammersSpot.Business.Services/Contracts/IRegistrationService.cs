@@ -1,4 +1,5 @@
-﻿using ProgrammersSpot.Business.Models.UserRoles;
+﻿using ProgrammersSport.Business.Models.Locations;
+using ProgrammersSpot.Business.Models.UserRoles;
 using System.Collections.Generic;
 
 namespace ProgrammersSpot.Business.Services.Contracts
@@ -9,6 +10,6 @@ namespace ProgrammersSpot.Business.Services.Contracts
 
         void CreateRegularUser(string userId, string firstName, string lastName);
 
-        void CreateFirm(string firmId, string address);
+        void CreateFirm(string firmId, string firmName, Country country, City city, string address);
     }
 }
