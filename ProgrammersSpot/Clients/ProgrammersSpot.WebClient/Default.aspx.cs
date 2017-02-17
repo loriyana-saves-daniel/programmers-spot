@@ -1,22 +1,12 @@
-﻿using ProgrammersSpot.Business.MVP.Presenters;
-using ProgrammersSpot.Business.MVP.ViewModels;
-using ProgrammersSpot.Business.MVP.Views;
-using System;
-using WebFormsMvp;
-using WebFormsMvp.Web;
+﻿using System;
+using System.Web.UI;
 
 namespace ProgrammersSpot.WebClient
 {
-    [PresenterBinding(typeof(TestPresenter))]
-    public partial class _Default : MvpPage<TestViewModel>, ITestView
+    public partial class _Default : Page
     {
-        public event EventHandler MyInit;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.MyInit?.Invoke(sender, e);
-
-            this.MessageLabel.Text = this.Model.Message;
         }
     }
 }
