@@ -1,0 +1,22 @@
+﻿button[name="provider"] {
+    width: 160px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+    button[name="provider"][value="Google"] {
+        background-image:url("Images/sign-in-with-google.png");
+    }
+
+    button[name="provider"][value="Facebook"] {
+        background-image: url("Images/sign-in-with-facebook.png");
+    }
+
+    button[name="provider"][value="Twitter"] {
+        background-image:url("Images/sign-in-with-twitter.png");
+    }
+
+button[name="provider"]:hover {
+    opacity: 0.85
+}
