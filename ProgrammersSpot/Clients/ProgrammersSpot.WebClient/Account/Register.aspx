@@ -32,7 +32,7 @@
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName"
                         CssClass="text-danger" ErrorMessage="The first name field is required." />
                     <asp:RegularExpressionValidator runat="server" ControlToValidate="FirstName" SetFocusOnError="true" 
-                        ValidationExpression="[a-zA-Z}" CssClass="text-danger"  
+                        ValidationExpression="[a-zA-Z]{2,20}" CssClass="text-danger"  
                         ErrorMessage="The first name must be between 2 and 20 sybmols." EnableClientScript="true" Enabled="true" EnableViewState="true"/>
                 </div>
             </div>
