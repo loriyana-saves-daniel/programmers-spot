@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Security.Claims;
-using Microsoft.AspNet.Identity;
+using System.Threading.Tasks;
 
 namespace ProgrammersSpot.Business.Models.Users
 {

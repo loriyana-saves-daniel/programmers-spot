@@ -1,9 +1,9 @@
-﻿using System;
-using System.Web;
-using System.Web.UI;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using ProgrammersSpot.Business.Identity;
+using System;
+using System.Web;
+using System.Web.UI;
 
 namespace ProgrammersSpot.WebClient.Account
 {

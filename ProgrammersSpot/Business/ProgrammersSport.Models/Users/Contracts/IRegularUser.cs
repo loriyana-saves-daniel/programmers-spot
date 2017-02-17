@@ -1,7 +1,6 @@
-﻿using ProgrammersSpot.Business.Models.Skills;
-using ProgrammersSpot.Business.Models.Projects;
+﻿using ProgrammersSpot.Business.Models.Projects;
 using ProgrammersSpot.Business.Models.Reviews;
-using System;
+using ProgrammersSpot.Business.Models.Skills;
 using System.Collections.Generic;
 
 namespace ProgrammersSpot.Business.Models.Users.Contracts

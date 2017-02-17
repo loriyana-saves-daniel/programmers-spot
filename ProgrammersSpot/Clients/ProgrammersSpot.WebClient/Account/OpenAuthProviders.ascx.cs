@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using ProgrammersSpot.Business.Identity;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
-using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security;
-using ProgrammersSpot.Business.Identity;
 
 namespace ProgrammersSpot.WebClient.Account
 {

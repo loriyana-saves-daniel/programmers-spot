@@ -1,12 +1,8 @@
-﻿using ProgrammersSpot.Business.Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProgrammersSport.Business.Models.Locations;
+﻿using Bytes2you.Validation;
 using ProgrammersSpot.Business.Data.Contracts;
-using Bytes2you.Validation;
+using ProgrammersSpot.Business.Models.Locations;
+using ProgrammersSpot.Business.Services.Contracts;
+using System.Collections.Generic;
 
 namespace ProgrammersSpot.Business.Services
 {

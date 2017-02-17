@@ -1,13 +1,10 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using ProgrammersSpot.Business.Data.Contracts;
-using ProgrammersSpot.Business.Models.Projects;
-using Moq;
-using ProgrammersSpot.Business.Services;
+using ProgrammersSpot.Business.Models.Locations;
 using ProgrammersSpot.Business.Models.UserRoles;
 using ProgrammersSpot.Business.Models.Users;
-using ProgrammersSpot.Business.Models.Users.Contracts;
-using ProgrammersSport.Business.Models.Locations.Contracts;
-using ProgrammersSport.Business.Models.Locations;
+using ProgrammersSpot.Business.Services;
 
 namespace ProgrammersSpot.Business.Data.Tests.ProgrammersSpotDbContextTests
 {

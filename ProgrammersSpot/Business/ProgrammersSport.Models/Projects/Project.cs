@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using ProgrammersSpot.Business.Common;
 using ProgrammersSpot.Business.Models.Users;
-using ProgrammersSpot.Business.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProgrammersSpot.Business.Models.Projects
 {

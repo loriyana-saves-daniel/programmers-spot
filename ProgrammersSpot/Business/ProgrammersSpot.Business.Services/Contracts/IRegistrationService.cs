@@ -1,4 +1,4 @@
-﻿using ProgrammersSport.Business.Models.Locations;
+﻿using ProgrammersSpot.Business.Models.Locations;
 using ProgrammersSpot.Business.Models.UserRoles;
 using System.Collections.Generic;
 

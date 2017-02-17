@@ -1,9 +1,5 @@
-﻿using ProgrammersSport.Business.Models.Locations;
-using System;
+﻿using ProgrammersSpot.Business.Models.Locations;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProgrammersSpot.Business.Services.Contracts
 {

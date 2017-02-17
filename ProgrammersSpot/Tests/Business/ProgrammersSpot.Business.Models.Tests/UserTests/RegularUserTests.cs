@@ -1,14 +1,12 @@
-﻿using System;
-using NUnit.Framework;
-using ProgrammersSpot.Business.Models.Users;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using NUnit.Framework;
 using ProgrammersSpot.Business.Common;
-using System.Collections.Generic;
-using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Projects;
+using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Skills;
 using ProgrammersSpot.Business.Models.Users;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace ProgrammersSpot.Business.Models.Tests.UserTests
 {

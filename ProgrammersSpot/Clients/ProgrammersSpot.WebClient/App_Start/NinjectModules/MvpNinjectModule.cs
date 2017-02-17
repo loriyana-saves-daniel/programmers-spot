@@ -3,13 +3,12 @@ using Ninject.Activation;
 using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using Ninject.Parameters;
+using ProgrammersSpot.WebClient.Factories;
+using ProgrammersSpot.WebClient.Factories.Contracts;
 using System;
 using System.Linq;
 using WebFormsMvp;
 using WebFormsMvp.Binder;
-
-using ProgrammersSpot.WebClient.Factories;
-using ProgrammersSpot.WebClient.Factories.Contracts;
 
 namespace ProgrammersSpot.WebClient.App_Start.NinjectModules
 {

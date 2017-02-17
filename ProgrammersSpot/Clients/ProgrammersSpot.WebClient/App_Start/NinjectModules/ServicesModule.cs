@@ -1,5 +1,5 @@
-﻿using Ninject.Modules;
-using Ninject.Extensions.Conventions;
+﻿using Ninject.Extensions.Conventions;
+using Ninject.Modules;
 
 namespace ProgrammersSpot.WebClient.App_Start.NinjectModules
 {

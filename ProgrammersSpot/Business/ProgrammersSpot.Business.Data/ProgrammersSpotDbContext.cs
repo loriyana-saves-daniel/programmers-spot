@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using ProgrammersSpot.Business.Models.Skills;
-using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Data.Contracts;
+using ProgrammersSpot.Business.Models.Locations;
 using ProgrammersSpot.Business.Models.Projects;
 using ProgrammersSpot.Business.Models.Reviews;
+using ProgrammersSpot.Business.Models.Skills;
 using ProgrammersSpot.Business.Models.Users;
-using System;
 using System.Data.Entity;
-using ProgrammersSport.Business.Models.Locations;
-using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace ProgrammersSpot.Business.Data
 {

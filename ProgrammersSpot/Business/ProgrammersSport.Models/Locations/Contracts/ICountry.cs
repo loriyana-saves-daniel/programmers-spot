@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ProgrammersSport.Business.Models.Locations.Contracts
+namespace ProgrammersSpot.Business.Models.Locations.Contracts
 {
     public interface ICountry
     {

@@ -1,10 +1,10 @@
 ﻿using NUnit.Framework;
+using ProgrammersSpot.Business.Common;
+using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Users;
 using System.Collections.Generic;
-using ProgrammersSpot.Business.Models.Reviews;
-using System.Linq;
 using System.ComponentModel.DataAnnotations;
-using ProgrammersSpot.Business.Common;
+using System.Linq;
 
 namespace ProgrammersSpot.Business.Models.Tests.UserTests
 {

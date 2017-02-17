@@ -1,12 +1,12 @@
-﻿using System;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Data;
 using ProgrammersSpot.Business.Identity;
+using ProgrammersSpot.Business.Models.Users;
+using System;
 
 namespace ProgrammersSpot.WebClient
 {

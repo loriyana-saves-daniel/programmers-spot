@@ -1,6 +1,6 @@
 namespace ProgrammersSpot.Business.Data.Migrations
 {
-    using ProgrammersSport.Business.Models.Locations;
+    using ProgrammersSpot.Business.Models.Locations;
     using System.Data.Entity.Migrations;
     using System.Linq;
 

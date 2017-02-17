@@ -1,9 +1,9 @@
-﻿using Ninject.Modules;
+﻿using Ninject.Extensions.Conventions;
+using Ninject.Modules;
 using ProgrammersSpot.Business.Data;
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Data.Repositories;
 using ProgrammersSpot.Business.Data.UnitOfWork;
-using Ninject.Extensions.Conventions;
 
 namespace ProgrammersSpot.WebClient.App_Start.NinjectModules
 {

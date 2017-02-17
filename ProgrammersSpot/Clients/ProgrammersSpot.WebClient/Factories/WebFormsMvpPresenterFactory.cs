@@ -1,9 +1,8 @@
 ﻿using Bytes2you.Validation;
+using ProgrammersSpot.WebClient.Factories.Contracts;
 using System;
 using WebFormsMvp;
 using WebFormsMvp.Binder;
-
-using ProgrammersSpot.WebClient.Factories.Contracts;
 
 namespace ProgrammersSpot.WebClient.Factories
 {

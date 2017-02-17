@@ -1,10 +1,10 @@
-﻿using ProgrammersSpot.Business.Models.Reviews;
+﻿using ProgrammersSpot.Business.Common;
+using ProgrammersSpot.Business.Models.Locations;
+using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Users.Contracts;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using ProgrammersSpot.Business.Common;
-using ProgrammersSport.Business.Models.Locations;
 
 namespace ProgrammersSpot.Business.Models.Users
 {

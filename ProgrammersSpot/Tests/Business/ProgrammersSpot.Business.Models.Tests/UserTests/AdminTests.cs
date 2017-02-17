@@ -1,8 +1,6 @@
-﻿using System;
+﻿using NUnit.Framework;
 using ProgrammersSpot.Business.Models.Users;
-using NUnit.Framework;
 using System.Collections.Generic;
-using ProgrammersSpot.Business.Models.Users.Contracts;
 using System.Linq;
 
 namespace ProgrammersSpot.Business.Models.Tests.UserTests

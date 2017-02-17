@@ -1,11 +1,6 @@
-﻿using ProgrammersSport.Business.Models.Locations;
-using ProgrammersSpot.Business.Data.Contracts;
-using ProgrammersSpot.Business.Data.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using ProgrammersSpot.Business.Data.Contracts;
+using ProgrammersSpot.Business.Models.Locations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProgrammersSpot.Business.Data.Repositories
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using ProgrammersSpot.Business.Models.UserRoles;
 
 namespace ProgrammersSpot.Business.Models.Tests.UserRoleTests

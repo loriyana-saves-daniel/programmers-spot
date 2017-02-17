@@ -1,8 +1,7 @@
 ﻿using Bytes2you.Validation;
+using ProgrammersSpot.Business.MVP.Views;
 using System;
 using WebFormsMvp;
-
-using ProgrammersSpot.Business.MVP.Views;
 
 namespace ProgrammersSpot.Business.MVP.Presenters
 {

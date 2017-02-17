@@ -1,10 +1,9 @@
-﻿using System;
-using WebFormsMvp;
-using WebFormsMvp.Web;
-
-using ProgrammersSpot.Business.MVP.Presenters;
+﻿using ProgrammersSpot.Business.MVP.Presenters;
 using ProgrammersSpot.Business.MVP.ViewModels;
 using ProgrammersSpot.Business.MVP.Views;
+using System;
+using WebFormsMvp;
+using WebFormsMvp.Web;
 
 namespace ProgrammersSpot.WebClient
 {

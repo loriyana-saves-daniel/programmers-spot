@@ -1,7 +1,6 @@
-﻿using System;
+﻿using ProgrammersSpot.Business.MVP.ViewModels;
+using System;
 using WebFormsMvp;
-
-using ProgrammersSpot.Business.MVP.ViewModels;
 
 namespace ProgrammersSpot.Business.MVP.Views
 {

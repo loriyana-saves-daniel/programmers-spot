@@ -1,10 +1,10 @@
-﻿using System;
-using System.Web;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Identity;
+using ProgrammersSpot.Business.Models.Users;
+using System;
+using System.Web;
 
 namespace ProgrammersSpot.WebClient.Account
 {

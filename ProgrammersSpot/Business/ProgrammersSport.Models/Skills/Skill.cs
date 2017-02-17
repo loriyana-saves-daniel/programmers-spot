@@ -1,9 +1,8 @@
 ﻿using ProgrammersSpot.Business.Common;
+using ProgrammersSpot.Business.Models.Users;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using ProgrammersSpot.Business.Models.Users;
-using System;
-using System.Collections.Generic;
 
 namespace ProgrammersSpot.Business.Models.Skills
 {

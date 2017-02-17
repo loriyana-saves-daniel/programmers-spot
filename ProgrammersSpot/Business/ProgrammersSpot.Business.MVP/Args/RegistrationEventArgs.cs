@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Owin;
-using ProgrammersSport.Business.Models.Locations;
+﻿using Microsoft.Owin;
+using System;
 
 namespace ProgrammersSpot.Business.MVP.Args
 {

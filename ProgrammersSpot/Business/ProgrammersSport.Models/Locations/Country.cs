@@ -1,10 +1,10 @@
-﻿using ProgrammersSport.Business.Models.Locations.Contracts;
-using ProgrammersSpot.Business.Common;
+﻿using ProgrammersSpot.Business.Common;
+using ProgrammersSpot.Business.Models.Locations.Contracts;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ProgrammersSport.Business.Models.Locations
+namespace ProgrammersSpot.Business.Models.Locations
 {
     public class Country : ICountry
     {

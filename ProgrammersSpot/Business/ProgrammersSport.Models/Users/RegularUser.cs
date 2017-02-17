@@ -1,12 +1,10 @@
-﻿using ProgrammersSpot.Business.Models.Users;
+﻿using ProgrammersSpot.Business.Common;
+using ProgrammersSpot.Business.Models.Projects;
+using ProgrammersSpot.Business.Models.Reviews;
+using ProgrammersSpot.Business.Models.Skills;
+using ProgrammersSpot.Business.Models.Users.Contracts;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using ProgrammersSpot.Business.Common;
-using ProgrammersSpot.Business.Models.Users.Contracts;
-using ProgrammersSpot.Business.Models.Reviews;
-using ProgrammersSpot.Business.Models.Projects;
-using ProgrammersSpot.Business.Models.Skills;
-using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProgrammersSpot.Business.Models.Users

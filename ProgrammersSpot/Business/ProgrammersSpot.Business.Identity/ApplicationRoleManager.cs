@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
-using ProgrammersSpot.Business.Models.UserRoles;
 using ProgrammersSpot.Business.Data;
+using ProgrammersSpot.Business.Models.UserRoles;
 using System.Linq;
 
 namespace ProgrammersSpot.Business.Identity
