@@ -15,7 +15,7 @@ namespace ProgrammersSpot.Business.Data
     public class ProgrammersSpotDbContext : IdentityDbContext<User>, IProgrammersSpotDbContext
     {
         public ProgrammersSpotDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ProgrammersSpotDb", throwIfV1Schema: false)
         {
         }
 
