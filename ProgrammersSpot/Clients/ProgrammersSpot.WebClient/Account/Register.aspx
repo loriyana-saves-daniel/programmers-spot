@@ -15,10 +15,12 @@
 				    <asp:DropDownList 
                         ID="UserType" 
                         runat="server" 
-                        AutoPostBack="True" 
+                        AutoPostBack="True"
                         OnTextChanged="UserType_TextChanged"
                         DataTextField="Name" 
-                        DataValueField="Name"></asp:DropDownList>
+                        DataValueField="Name">
+                        <asp:ListItem Text="<Select Registration Type>" Value="0" />
+				    </asp:DropDownList>
                 </div>
             </div>
         </div>
@@ -29,21 +31,27 @@
                     <asp:TextBox runat="server" ID="FirstName" CssClass="form-control" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName"
                         CssClass="text-danger" ErrorMessage="The first name field is required." />
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="FirstName" SetFocusOnError="true" 
+                        ValidationExpression="[a-zA-Z]{2,20}" CssClass="text-danger"  
+                        ErrorMessage="The first name must be between 2 and 20 sybmols." EnableClientScript="true" Enabled="true" EnableViewState="true"/>
                 </div>
             </div>
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="LastName" CssClass="col-md-2 control-label">Last name</asp:Label>
                 <div class="col-md-10">
                     <asp:TextBox runat="server" ID="LastName" CssClass="form-control" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="LastName"
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="LastName" 
                         CssClass="text-danger" ErrorMessage="The last name field is required." />
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="LastName" 
+                        ValidationExpression="^[\s\S]{2,20}$" CssClass="text-danger" 
+                        ErrorMessage="The last name must be between 2 and 20 sybmols." />
                 </div>
             </div>
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
                 <div class="col-md-10">
                     <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Email" 
                         CssClass="text-danger" ErrorMessage="The email field is required." />
                 </div>
             </div>
@@ -53,6 +61,9 @@
                     <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
                         CssClass="text-danger" ErrorMessage="The password field is required." />
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="Password"
+                        ValidationExpression="^[\s\S]{6,}$" CssClass="text-danger" 
+                        ErrorMessage="The password must be at least 6 symbols." />
                 </div>
             </div>
             <div class="form-group">
@@ -63,6 +74,9 @@
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
                     <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="ConfirmPassword"
+                        ValidationExpression="^[\s\S]{6,}$" CssClass="text-danger" 
+                        ErrorMessage="The password must be at least 6 symbols." />
                 </div>
             </div>
         </div>
@@ -74,12 +88,22 @@
                     <asp:TextBox runat="server" ID="CompanyName" CssClass="form-control" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="CompanyName"
                         CssClass="text-danger" ErrorMessage="The company name field is required." />
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="CompanyName"
+                        ValidationExpression="^[\s\S]{2,20}$" CssClass="text-danger" 
+                        ErrorMessage="The company name must be between 2 and 20 symbols." />
                 </div>
             </div>
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="Country" CssClass="col-md-2 control-label">Country</asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox runat="server" ID="Country" CssClass="form-control" />
+				    <asp:DropDownList 
+                        ID="Country" 
+                        runat="server" 
+                        AutoPostBack="True"
+                        OnSelectedIndexChanged ="Country_SelectedIndexChanged"
+                        DataTextField="Name" 
+                        DataValueField="Name">
+				    </asp:DropDownList>
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Country"
                         CssClass="text-danger" ErrorMessage="The country field is required." />
                 </div>
@@ -87,8 +111,12 @@
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="City" CssClass="col-md-2 control-label">City</asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox runat="server" ID="City" CssClass="form-control" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="City"
+				    <asp:DropDownList 
+                        ID="City" 
+                        runat="server"
+                        DataTextField="Name" 
+                        DataValueField="Name"></asp:DropDownList>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="City" Type="String"
                         CssClass="text-danger" ErrorMessage="The city field is required." />
                 </div>
             </div>
@@ -98,14 +126,18 @@
                     <asp:TextBox runat="server" ID="Address" CssClass="form-control" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Address"
                         CssClass="text-danger" ErrorMessage="The address field is required." />
+                     <asp:RegularExpressionValidator runat="server" ControlToValidate="Address"
+                        ValidationExpression="^[\s\S]{4,30}$" CssClass="text-danger" 
+                        ErrorMessage="The address must be between 4 and 30 symbols." />
                 </div>
             </div>
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
                 <div class="col-md-10">
                     <asp:TextBox runat="server" ID="FirmEmail" CssClass="form-control" TextMode="Email" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="FirmEmail" Type="String"
                         CssClass="text-danger" ErrorMessage="The email field is required." />
+                    
                 </div>
             </div>
             <div class="form-group">
@@ -114,6 +146,9 @@
                     <asp:TextBox runat="server" ID="FirmPassword" TextMode="Password" CssClass="form-control" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="FirmPassword"
                         CssClass="text-danger" ErrorMessage="The password field is required." />
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="FirmPassword"
+                        ValidationExpression="^[\s\S]{6,}$" CssClass="text-danger" 
+                        ErrorMessage="The password must be at least 6 symbols." />
                 </div>
             </div>
             <div class="form-group">
@@ -124,13 +159,16 @@
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
                     <asp:CompareValidator runat="server" ControlToCompare="FirmPassword" ControlToValidate="FirmConfirmPassword"
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="ConfirmPassword"
+                        ValidationExpression="^[\s\S]{6,}$" CssClass="text-danger" 
+                        ErrorMessage="The password must be at least 6 symbols." />
                 </div>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
+                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default"  />
             </div>
         </div>
     </div>

@@ -29,10 +29,12 @@ namespace ProgrammersSpot.Business.Models.Users
 
         public virtual User User { get; set; }
 
+        [Required]
         [MinLength(Constants.NameMinLength)]
         [MaxLength(Constants.NameMaxLength)]
         public string FirstName { get; set; }
 
+        [Required]
         [MinLength(Constants.NameMinLength)]
         [MaxLength(Constants.NameMaxLength)]
         public string LastName { get; set; }
