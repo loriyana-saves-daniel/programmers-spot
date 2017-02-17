@@ -23,10 +23,20 @@ namespace ProgrammersSpot.WebClient.Account
             if (!Page.IsPostBack)
             {
                 this.EventBindPageData(this, e);
+
                 this.UserType.DataSource = this.Model.UserRoles.Where(r => r.Name == "User" || r.Name=="Firm").ToList();
                 this.UserType.DataBind();
+                this.UserType.SelectedIndex = this.UserType.Items.IndexOf(this.UserType.Items.FindByText("User"));
+        
+                this.Country.DataSource = this.Model.Countries.ToList();
+                this.Country.DataBind();
+                this.Country.SelectedIndex = this.Country.Items.IndexOf(this.Country.Items.FindByText("Bulgaria"));
 
-                this.UserType.SelectedIndex = 0;
+                this.City.DataSource = this.Model.Cities
+                .Where(x => x.Country.Name == this.Country.SelectedItem.Text).ToList();
+                this.City.DataBind();
+                this.City.SelectedIndex = this.City.Items.IndexOf(this.City.Items.FindByText("Sofia"));
+
 
                 if (this.UserType.SelectedItem.Text != "User")
                 {
@@ -67,8 +77,8 @@ namespace ProgrammersSpot.WebClient.Account
                     OwinCtx = owinCtx,
                     Email = this.FirmEmail.Text,
                     FirmName = this.CompanyName.Text,
-                    Country = this.Country.Text,
-                    City = this.City.Text,
+                    Country = this.Country.SelectedItem.Text,
+                    City = this.City.SelectedItem.Text,
                     Address = this.Address.Text,
                     UserType = this.UserType.SelectedItem.Text,
                     Password = this.FirmPassword.Text,
@@ -102,6 +112,14 @@ namespace ProgrammersSpot.WebClient.Account
                 this.RegularUserRegisterForm.Visible = true;
                 this.FirmRegisterForm.Visible = false;
             }
+        }
+
+        protected void Country_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.EventBindPageData(this, e);
+            this.City.DataSource = this.Model.Cities
+                .Where(x => x.Country.Name == this.Country.SelectedItem.Text).ToList();
+            this.City.DataBind();
         }
     }
 }

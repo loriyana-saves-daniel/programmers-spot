@@ -32,6 +32,8 @@ namespace ProgrammersSpot.Business.MVP.Presenters
         private void BindPageData(object sender, EventArgs e)
         {
             this.View.Model.UserRoles = this.registrationService.GetAllUserRoles();
+            this.View.Model.Countries = this.locationService.GetAllCountries();
+            this.View.Model.Cities = this.locationService.GetAllCities();
         }
 
         private void RegisterUser(object sender, RegistrationEventArgs e)

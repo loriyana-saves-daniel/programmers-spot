@@ -467,7 +467,7 @@ function ValidatorTrim(s) {
 function RequiredFieldValidatorEvaluateIsValid(val) {
     return (ValidatorTrim(ValidatorGetValue(val.controltovalidate)) != ValidatorTrim(val.initialvalue))
 }
-function RangeValidatorEvaluateIsValid(val) {
+function RegularExpressionValidatorEvaluateIsValid(val) {
     var value = ValidatorGetValue(val.controltovalidate);
     if (ValidatorTrim(value).length == 0)
         return true;
