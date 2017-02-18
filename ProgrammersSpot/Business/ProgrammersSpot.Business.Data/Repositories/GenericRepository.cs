@@ -15,13 +15,13 @@ namespace ProgrammersSpot.Business.Data.Repositories
         {
             if(context == null)
             {
-                throw new ArgumentException("An instance of DbContext is required to use this repository.", "context");
+                throw new ArgumentNullException("An instance of DbContext is required to use this repository.", "context");
             }
             this.context = context;
             this.dbSet = this.context.Set<T>();
         }
 
-        protected IProgrammersSpotDbContext DbContext
+        public IProgrammersSpotDbContext DbContext
         {
             get
             {
@@ -29,7 +29,7 @@ namespace ProgrammersSpot.Business.Data.Repositories
             }
         }
 
-        protected IDbSet<T> DbSet
+        public IDbSet<T> DbSet
         {
             get
             {

@@ -1,4 +1,5 @@
-﻿using ProgrammersSpot.Business.Models.Reviews;
+﻿using ProgrammersSpot.Business.Models.Locations;
+using ProgrammersSpot.Business.Models.Reviews;
 using System.Collections.Generic;
 
 namespace ProgrammersSpot.Business.Models.Users.Contracts
@@ -8,6 +9,10 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
         string Id { get; set; }
 
         string FirmName { get; set; }
+
+        Country Country { get; set; }
+
+        City City { get; set; }
 
         string Address { get; set; }
 

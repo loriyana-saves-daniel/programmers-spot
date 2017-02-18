@@ -49,7 +49,7 @@
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox runat="server" ID="Email" CssClass="form-control" Display="Dynamic" TextMode="Email" />
+                    <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Email" 
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The email field is required." />
                     <asp:RegularExpressionValidator runat="server" ControlToValidate="Email" 
@@ -115,8 +115,8 @@
                         runat="server"
                         DataTextField="Name" 
                         DataValueField="Name"></asp:DropDownList>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="City" Type="String"
-                        CssClass="text-danger" ErrorMessage="The city field is required." />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="City"
+                        CssClass="text-danger" ErrorMessage="The country field is required." />
                 </div>
             </div>
             <div class="form-group">
@@ -134,7 +134,7 @@
                 <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
                 <div class="col-md-10">
                     <asp:TextBox runat="server" ID="FirmEmail" CssClass="form-control" TextMode="Email" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="FirmEmail" Type="String"
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="FirmEmail"
                         CssClass="text-danger" ErrorMessage="The email field is required." />             
                 </div>
             </div>

@@ -9,11 +9,7 @@ namespace ProgrammersSpot.Business.Services.Contracts
 
         IEnumerable<City> GetAllCities();
 
-        Country GetCountryById(int id);
-
         Country GetCountryByName(string name);
-
-        City GetCityById(int id);
 
         City GetCityByName(string name);
     }
