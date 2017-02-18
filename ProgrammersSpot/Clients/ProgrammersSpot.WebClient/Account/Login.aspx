@@ -21,14 +21,21 @@
                         <div class="col-md-10">
                             <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
-                                CssClass="text-danger" ErrorMessage="The email field is required." />
+                                CssClass="text-danger" Display="Dynamic" ErrorMessage="The email field is required." />
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Email" 
+					            ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+					            CssClass="text-danger" Display="Dynamic" ErrorMessage="Invalid Email!" />
                         </div>
                     </div>
                     <div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
                         <div class="col-md-10">
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" 
+                                Display="Dynamic" ErrorMessage="The password field is required." />
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Password"
+                                ValidationExpression="^[\s\S]{6,}$" CssClass="text-danger" Display="Dynamic"
+                                ErrorMessage="The password must be at least 6 symbols." />
                         </div>
                     </div>
                     <div class="form-group">

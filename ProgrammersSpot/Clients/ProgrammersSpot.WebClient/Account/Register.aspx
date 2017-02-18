@@ -52,6 +52,9 @@
                     <asp:TextBox runat="server" ID="Email" CssClass="form-control" Display="Dynamic" TextMode="Email" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Email" 
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The email field is required." />
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="Email" 
+					    ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+					    CssClass="text-danger" Display="Dynamic" ErrorMessage="Invalid Email!" />
                 </div>
             </div>
             <div class="form-group">
