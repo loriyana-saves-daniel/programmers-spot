@@ -53,51 +53,54 @@ namespace ProgrammersSpot.WebClient.Account
 
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var owinCtx = Context.GetOwinContext();
-            var selectedRole = this.UserType.SelectedItem.Value;
-
-            var eventArgs = new RegistrationEventArgs();
-            if (this.UserType.SelectedItem.Text == "User")
+            if (Page.IsValid)
             {
-                eventArgs = new RegistrationEventArgs()
+                var owinCtx = Context.GetOwinContext();
+                var selectedRole = this.UserType.SelectedItem.Value;
+
+                var eventArgs = new RegistrationEventArgs();
+                if (this.UserType.SelectedItem.Text == "User")
                 {
-                    OwinCtx = owinCtx,
-                    Email = this.Email.Text,
-                    FirstName = this.FirstName.Text,
-                    LastName = this.LastName.Text,
-                    UserType = this.UserType.SelectedItem.Text,
-                    Password = this.Password.Text,
-                    ConfirmedPassword = this.ConfirmPassword.Text
-                };
-            }
-            else if(this.UserType.SelectedItem.Text == "Firm")
-            {
-                eventArgs = new RegistrationEventArgs()
+                    eventArgs = new RegistrationEventArgs()
+                    {
+                        OwinCtx = owinCtx,
+                        Email = this.Email.Text,
+                        FirstName = this.FirstName.Text,
+                        LastName = this.LastName.Text,
+                        UserType = this.UserType.SelectedItem.Text,
+                        Password = this.Password.Text,
+                        ConfirmedPassword = this.ConfirmPassword.Text
+                    };
+                }
+                else if (this.UserType.SelectedItem.Text == "Firm")
                 {
-                    OwinCtx = owinCtx,
-                    Email = this.FirmEmail.Text,
-                    FirmName = this.CompanyName.Text,
-                    Country = this.Country.SelectedItem.Text,
-                    City = this.City.SelectedItem.Text,
-                    Address = this.Address.Text,
-                    UserType = this.UserType.SelectedItem.Text,
-                    Password = this.FirmPassword.Text,
-                    ConfirmedPassword = this.FirmConfirmPassword.Text
-                };
-            }
-            
-            EventRegisterUser(this, eventArgs);
+                    eventArgs = new RegistrationEventArgs()
+                    {
+                        OwinCtx = owinCtx,
+                        Email = this.FirmEmail.Text,
+                        FirmName = this.CompanyName.Text,
+                        Country = this.Country.SelectedItem.Text,
+                        City = this.City.SelectedItem.Text,
+                        Address = this.Address.Text,
+                        UserType = this.UserType.SelectedItem.Text,
+                        Password = this.FirmPassword.Text,
+                        ConfirmedPassword = this.FirmConfirmPassword.Text
+                    };
+                }
 
-            var result = this.Model.Result;
+                EventRegisterUser(this, eventArgs);
 
-            if (result.Succeeded)
-            {
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-            }
-            else
-            {
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
-            }
+                var result = this.Model.Result;
+
+                if (result.Succeeded)
+                {
+                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                }
+                else
+                {
+                    ErrorMessage.Text = result.Errors.FirstOrDefault();
+                }
+            }        
         }
 
         protected void UserType_TextChanged(object sender, EventArgs e)
