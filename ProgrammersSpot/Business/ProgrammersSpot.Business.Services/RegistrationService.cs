@@ -1,6 +1,7 @@
 ﻿using Bytes2you.Validation;
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Models.Locations;
+using ProgrammersSpot.Business.Models.Locations.Contracts;
 using ProgrammersSpot.Business.Models.UserRoles;
 using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Services.Contracts;
@@ -37,6 +38,10 @@ namespace ProgrammersSpot.Business.Services
         public void CreateFirm(string firmId, string firmName, Country country, City city, string address)
         {
             Guard.WhenArgument(firmId, "firmId").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(firmName, "firmName").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(country, "country").IsNull().Throw();
+            Guard.WhenArgument(city, "city").IsNull().Throw();
+            Guard.WhenArgument(address, "address").IsNullOrEmpty().Throw();
 
             using (var uow = this.unitOfWork)
             {
@@ -56,6 +61,8 @@ namespace ProgrammersSpot.Business.Services
         public void CreateRegularUser(string userId, string firstName, string lastName)
         {
             Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(firstName, "firstName").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(lastName, "lastName").IsNullOrEmpty().Throw();
 
             using (var uow = this.unitOfWork)
             {

@@ -33,19 +33,9 @@ namespace ProgrammersSpot.Business.Services
             return this.countriesRepo.All();
         }
 
-        public City GetCityById(int id)
-        {
-            return this.citiesRepo.GetById(id);
-        }
-
         public City GetCityByName(string name)
         {
             return this.citiesRepo.GetByName(name);
-        }
-
-        public Country GetCountryById(int id)
-        {
-            return this.countriesRepo.GetById(id);
         }
 
         public Country GetCountryByName(string name)

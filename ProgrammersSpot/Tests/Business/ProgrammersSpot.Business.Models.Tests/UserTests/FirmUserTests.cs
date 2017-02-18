@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using ProgrammersSpot.Business.Common;
+using ProgrammersSpot.Business.Models.Locations;
 using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Users;
 using System.Collections.Generic;
@@ -20,6 +21,17 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
             //Assert
             Assert.AreEqual(firm.Id, firmId);
+        }
+
+        [TestCase("Telerik")]
+        [TestCase("Progress")]
+        public void FirmName_ShouldBeSetAndGottenCorrectly(string name)
+        {
+            // Arrange & Act
+            var firm = new FirmUser() { FirmName = name };
+
+            //Assert
+            Assert.AreEqual(firm.FirmName, name);
         }
 
         [TestCase("dhwdwhddh73783ge3e3ye7")]
@@ -160,6 +172,52 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
             var firm = new FirmUser { FirmReviews = set };
 
             Assert.AreEqual(firm.FirmReviews.First().Id, reviewId);
+        }
+
+        [TestCase(234)]
+        [TestCase(2)]
+        public void Country_ShouldBeSetAndGottenCorrectly(int testCountryId)
+        {
+            // Arrange & Act         
+            var country = new Country { Id = testCountryId };
+            var firm = new FirmUser { Country = country };
+
+            //Assert
+            Assert.AreEqual(firm.Country.Id, testCountryId);
+        }
+
+        [TestCase(3)]
+        [TestCase(236)]
+        public void CointryId_ShouldBeSetAndGottenCorrectly(int countryId)
+        {
+            // Arrange & Act
+            var firm = new FirmUser { CountryId = countryId };
+
+            //Assert
+            Assert.AreEqual(countryId, firm.CountryId);
+        }
+
+        [TestCase(234)]
+        [TestCase(2)]
+        public void City_ShouldBeSetAndGottenCorrectly(int testCityId)
+        {
+            // Arrange & Act         
+            var city = new City { Id = testCityId };
+            var firm = new FirmUser { City = city };
+
+            //Assert
+            Assert.AreEqual(firm.City.Id, testCityId);
+        }
+
+        [TestCase(3)]
+        [TestCase(236)]
+        public void CityId_ShouldBeSetAndGottenCorrectly(int cityId)
+        {
+            // Arrange & Act
+            var firm = new FirmUser { CityId = cityId };
+
+            //Assert
+            Assert.AreEqual(cityId, firm.CityId);
         }
     }
 }

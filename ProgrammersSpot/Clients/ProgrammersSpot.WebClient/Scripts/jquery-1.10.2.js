@@ -3351,7 +3351,7 @@ jQuery.support = (function( support ) {
 	opt = select.appendChild( document.createElement("option") );
 	input = div.getElementsByTagName("input")[ 0 ];
 
-	a.style.cssText = "top:1px;float:left;opacity:.5";
+	a.style.cssText = "top:1px;float:left;opacountry:.5";
 
 	// Test setAttribute on camelCase class. If it works, we need attrFixes when doing get/setAttribute (ie6/7)
 	support.getSetAttribute = div.className !== "t";
@@ -3375,10 +3375,10 @@ jQuery.support = (function( support ) {
 	// (IE normalizes it by default)
 	support.hrefNormalized = a.getAttribute("href") === "/a";
 
-	// Make sure that element opacity exists
+	// Make sure that element opacountry exists
 	// (IE uses filter instead)
 	// Use a regex to work around a WebKit issue. See #5145
-	support.opacity = /^0.5/.test( a.style.opacity );
+	support.opacountry = /^0.5/.test( a.style.opacountry );
 
 	// Verify style float existence
 	// (IE uses styleFloat instead of cssFloat)
@@ -6807,7 +6807,7 @@ jQuery.fn.extend({
 });
 var iframe, getStyles, curCSS,
 	ralpha = /alpha\([^)]*\)/i,
-	ropacity = /opacity\s*=\s*([^)]*)/,
+	ropacountry = /opacountry\s*=\s*([^)]*)/,
 	rposition = /^(top|right|bottom|left)$/,
 	// swappable if display is none or starts with table except "table", "table-cell", or "table-caption"
 	// see here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
@@ -6959,11 +6959,11 @@ jQuery.extend({
 	// Add in style property hooks for overriding the default
 	// behavior of getting and setting a style property
 	cssHooks: {
-		opacity: {
+		opacountry: {
 			get: function( elem, computed ) {
 				if ( computed ) {
-					// We should always get a number back from opacity
-					var ret = curCSS( elem, "opacity" );
+					// We should always get a number back from opacountry
+					var ret = curCSS( elem, "opacountry" );
 					return ret === "" ? "1" : ret;
 				}
 			}
@@ -6973,10 +6973,10 @@ jQuery.extend({
 	// Don't automatically add "px" to these possibly-unitless properties
 	cssNumber: {
 		"columnCount": true,
-		"fillOpacity": true,
+		"fillOpacountry": true,
 		"fontWeight": true,
 		"lineHeight": true,
-		"opacity": true,
+		"opacountry": true,
 		"order": true,
 		"orphans": true,
 		"widows": true,
@@ -7345,11 +7345,11 @@ jQuery.each([ "height", "width" ], function( i, name ) {
 	};
 });
 
-if ( !jQuery.support.opacity ) {
-	jQuery.cssHooks.opacity = {
+if ( !jQuery.support.opacountry ) {
+	jQuery.cssHooks.opacountry = {
 		get: function( elem, computed ) {
-			// IE uses filters for opacity
-			return ropacity.test( (computed && elem.currentStyle ? elem.currentStyle.filter : elem.style.filter) || "" ) ?
+			// IE uses filters for opacountry
+			return ropacountry.test( (computed && elem.currentStyle ? elem.currentStyle.filter : elem.style.filter) || "" ) ?
 				( 0.01 * parseFloat( RegExp.$1 ) ) + "" :
 				computed ? "1" : "";
 		},
@@ -7357,15 +7357,15 @@ if ( !jQuery.support.opacity ) {
 		set: function( elem, value ) {
 			var style = elem.style,
 				currentStyle = elem.currentStyle,
-				opacity = jQuery.isNumeric( value ) ? "alpha(opacity=" + value * 100 + ")" : "",
+				opacountry = jQuery.isNumeric( value ) ? "alpha(opacountry=" + value * 100 + ")" : "",
 				filter = currentStyle && currentStyle.filter || style.filter || "";
 
-			// IE has trouble with opacity if it does not have layout
+			// IE has trouble with opacountry if it does not have layout
 			// Force it by setting the zoom level
 			style.zoom = 1;
 
-			// if setting opacity to 1, and no other filters exist - attempt to remove filter attribute #6652
-			// if value === "", then remove inline opacity #12685
+			// if setting opacountry to 1, and no other filters exist - attempt to remove filter attribute #6652
+			// if value === "", then remove inline opacountry #12685
 			if ( ( value >= 1 || value === "" ) &&
 					jQuery.trim( filter.replace( ralpha, "" ) ) === "" &&
 					style.removeAttribute ) {
@@ -7375,7 +7375,7 @@ if ( !jQuery.support.opacity ) {
 				// style.removeAttribute is IE Only, but so apparently is this code path...
 				style.removeAttribute( "filter" );
 
-				// if there is no filter style applied in a css rule or unset inline opacity, we are done
+				// if there is no filter style applied in a css rule or unset inline opacountry, we are done
 				if ( value === "" || currentStyle && !currentStyle.filter ) {
 					return;
 				}
@@ -7383,8 +7383,8 @@ if ( !jQuery.support.opacity ) {
 
 			// otherwise, set new filter values
 			style.filter = ralpha.test( filter ) ?
-				filter.replace( ralpha, opacity ) :
-				filter + " " + opacity;
+				filter.replace( ralpha, opacountry ) :
+				filter + " " + opacountry;
 		}
 	};
 }
@@ -9305,11 +9305,11 @@ jQuery.each([ "toggle", "show", "hide" ], function( i, name ) {
 jQuery.fn.extend({
 	fadeTo: function( speed, to, easing, callback ) {
 
-		// show any hidden elements after setting opacity to 0
-		return this.filter( isHidden ).css( "opacity", 0 ).show()
+		// show any hidden elements after setting opacountry to 0
+		return this.filter( isHidden ).css( "opacountry", 0 ).show()
 
 			// animate to the value specified
-			.end().animate({ opacity: to }, speed, easing, callback );
+			.end().animate({ opacountry: to }, speed, easing, callback );
 	},
 	animate: function( prop, speed, easing, callback ) {
 		var empty = jQuery.isEmptyObject( prop ),
@@ -9437,7 +9437,7 @@ function genFx( type, includeWidth ) {
 	}
 
 	if ( includeWidth ) {
-		attrs.opacity = attrs.width = type;
+		attrs.opacountry = attrs.width = type;
 	}
 
 	return attrs;
@@ -9448,9 +9448,9 @@ jQuery.each({
 	slideDown: genFx("show"),
 	slideUp: genFx("hide"),
 	slideToggle: genFx("toggle"),
-	fadeIn: { opacity: "show" },
-	fadeOut: { opacity: "hide" },
-	fadeToggle: { opacity: "toggle" }
+	fadeIn: { opacountry: "show" },
+	fadeOut: { opacountry: "hide" },
+	fadeToggle: { opacountry: "toggle" }
 }, function( name, props ) {
 	jQuery.fn[ name ] = function( speed, easing, callback ) {
 		return this.animate( props, speed, easing, callback );

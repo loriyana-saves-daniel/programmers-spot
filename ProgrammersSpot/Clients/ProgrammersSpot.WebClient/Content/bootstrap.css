@@ -2042,8 +2042,8 @@ textarea.input-lg {
 fieldset[disabled] .btn {
   pointer-events: none;
   cursor: not-allowed;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
+  opacountry: 0.65;
+  filter: alpha(opacountry=65);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -2369,13 +2369,13 @@ input[type="button"].btn-block {
 }
 
 .fade {
-  opacity: 0;
-  -webkit-transition: opacity 0.15s linear;
-          transition: opacity 0.15s linear;
+  opacountry: 0;
+  -webkit-transition: opacountry 0.15s linear;
+          transition: opacountry 0.15s linear;
 }
 
 .fade.in {
-  opacity: 1;
+  opacountry: 1;
 }
 
 .collapse {
@@ -5579,8 +5579,8 @@ a.list-group-item:focus {
   line-height: 1;
   color: #000000;
   text-shadow: 0 1px 0 #ffffff;
-  opacity: 0.2;
-  filter: alpha(opacity=20);
+  opacountry: 0.2;
+  filter: alpha(opacountry=20);
 }
 
 .close:hover,
@@ -5588,8 +5588,8 @@ a.list-group-item:focus {
   color: #000000;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacountry: 0.5;
+  filter: alpha(opacountry=50);
 }
 
 button.close {
@@ -5669,13 +5669,13 @@ body.modal-open,
 }
 
 .modal-backdrop.fade {
-  opacity: 0;
-  filter: alpha(opacity=0);
+  opacountry: 0;
+  filter: alpha(opacountry=0);
 }
 
 .modal-backdrop.in {
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacountry: 0.5;
+  filter: alpha(opacountry=50);
 }
 
 .modal-header {
@@ -5758,14 +5758,14 @@ body.modal-open,
   display: block;
   font-size: 12px;
   line-height: 1.4;
-  opacity: 0;
-  filter: alpha(opacity=0);
+  opacountry: 0;
+  filter: alpha(opacountry=0);
   visibility: visible;
 }
 
 .tooltip.in {
-  opacity: 0.9;
-  filter: alpha(opacity=90);
+  opacountry: 0.9;
+  filter: alpha(opacountry=90);
 }
 
 .tooltip.top {
@@ -6076,8 +6076,8 @@ body.modal-open,
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacountry: 0.5;
+  filter: alpha(opacountry=50);
 }
 
 .carousel-control.left {
@@ -6104,8 +6104,8 @@ body.modal-open,
 .carousel-control:focus {
   color: #ffffff;
   text-decoration: none;
-  opacity: 0.9;
-  filter: alpha(opacity=90);
+  opacountry: 0.9;
+  filter: alpha(opacountry=90);
 }
 
 .carousel-control .icon-prev,

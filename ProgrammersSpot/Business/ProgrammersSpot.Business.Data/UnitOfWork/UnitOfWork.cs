@@ -18,9 +18,9 @@ namespace ProgrammersSpot.Business.Data.UnitOfWork
         {
             this.context.SaveChanges();
         }
+
         public void Dispose()
         {
-
         }
     }
 }
