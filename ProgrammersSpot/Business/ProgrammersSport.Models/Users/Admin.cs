@@ -11,7 +11,7 @@ namespace ProgrammersSpot.Business.Models.Users
 
         public Admin()
         {
-            this.firmRegistrationRequests = new List<FirmUser>();
+            this.firmRegistrationRequests = new HashSet<FirmUser>();
         }
 
         [Key, ForeignKey("User")]

@@ -14,7 +14,7 @@ namespace ProgrammersSpot.Business.Models.Users
 
         public FirmUser()
         {
-            this.firmReviews = new List<Review>();
+            this.firmReviews = new HashSet<Review>();
         }
 
         [Key, ForeignKey("User")]

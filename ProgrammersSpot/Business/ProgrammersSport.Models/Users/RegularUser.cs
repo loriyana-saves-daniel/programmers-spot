@@ -1,4 +1,5 @@
-﻿using ProgrammersSpot.Business.Common;
+﻿using ProgrammersSport.Business.Models.UploadedImages;
+using ProgrammersSpot.Business.Common;
 using ProgrammersSpot.Business.Models.Projects;
 using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Skills;
@@ -17,11 +18,14 @@ namespace ProgrammersSpot.Business.Models.Users
 
         private ICollection<Skill> skills;
 
+        private ICollection<UploadedImage> uploadedImages;
+
         public RegularUser()
         {
-            this.reviews = new List<Review>();
-            this.projects = new List<Project>();
+            this.reviews = new HashSet<Review>();
+            this.projects = new HashSet<Project>();
             this.skills = new HashSet<Skill>();
+            this.uploadedImages = new HashSet<UploadedImage>();
         }
 
         [Key, ForeignKey("User")]
@@ -56,7 +60,6 @@ namespace ProgrammersSpot.Business.Models.Users
                 this.projects = value;
             }
         }
-        
 
         public virtual ICollection<Review> GivenReviews
         {
@@ -79,6 +82,18 @@ namespace ProgrammersSpot.Business.Models.Users
             set
             {
                 this.skills = value;
+            }
+        }
+
+        public virtual ICollection<UploadedImage> UploadedImages
+        {
+            get
+            {
+                return this.uploadedImages;
+            }
+            set
+            {
+                this.uploadedImages = value;
             }
         }
     }

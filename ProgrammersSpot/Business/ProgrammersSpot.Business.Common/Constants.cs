@@ -19,5 +19,10 @@
 
         public const int MinProjectDescriptionLength = 10;
         public const int MaxProjectDescriptionLength = 1000;
+
+        public const int MaxUploadedImageTitleLength = 50;
+
+        public const int MinCommentLength = 5;
+        public const int MaxCommentLength = 500;
     }
 }
