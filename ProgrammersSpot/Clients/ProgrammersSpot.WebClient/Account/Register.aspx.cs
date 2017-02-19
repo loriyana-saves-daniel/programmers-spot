@@ -36,18 +36,6 @@ namespace ProgrammersSpot.WebClient.Account
                 .Where(x => x.Country.Name == this.Country.SelectedItem.Text).ToList();
                 this.City.DataBind();
                 this.City.SelectedIndex = this.City.Items.IndexOf(this.City.Items.FindByText("Sofia"));
-
-
-                if (this.UserType.SelectedItem.Text != "User")
-                {
-                    this.RegularUserRegisterForm.Visible = false;
-                    this.FirmRegisterForm.Visible = true;
-                }
-                else
-                {
-                    this.RegularUserRegisterForm.Visible = true;
-                    this.FirmRegisterForm.Visible = false;
-                }
             }
         }
 
@@ -105,15 +93,15 @@ namespace ProgrammersSpot.WebClient.Account
 
         protected void UserType_TextChanged(object sender, EventArgs e)
         {
-            if (this.UserType.SelectedItem.Text != "User")
-            {
-                this.RegularUserRegisterForm.Visible = false;
-                this.FirmRegisterForm.Visible = true;
-            }
-            else
+            if (this.UserType.SelectedItem.Text == "User")
             {
                 this.RegularUserRegisterForm.Visible = true;
                 this.FirmRegisterForm.Visible = false;
+            }
+            else
+            {
+                this.RegularUserRegisterForm.Visible = false;
+                this.FirmRegisterForm.Visible = true;
             }
         }
 

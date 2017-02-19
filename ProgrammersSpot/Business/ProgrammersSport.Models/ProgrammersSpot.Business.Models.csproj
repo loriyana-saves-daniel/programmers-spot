@@ -68,6 +68,10 @@
     <Compile Include="Reviews\Review.cs" />
     <Compile Include="Skills\ISkill.cs" />
     <Compile Include="Skills\Skill.cs" />
+    <Compile Include="UploadedImageComments\IUploadedImageComment.cs" />
+    <Compile Include="UploadedImageComments\UploadedImageComment.cs" />
+    <Compile Include="UploadedImages\IUploadedImage.cs" />
+    <Compile Include="UploadedImages\UploadedImage.cs" />
     <Compile Include="UserRoles\Role.cs" />
     <Compile Include="Users\Admin.cs" />
     <Compile Include="Users\Contracts\IAdmin.cs" />

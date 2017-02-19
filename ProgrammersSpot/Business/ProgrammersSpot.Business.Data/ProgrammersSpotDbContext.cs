@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using ProgrammersSport.Business.Models.UploadedImageComments;
+using ProgrammersSport.Business.Models.UploadedImages;
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Models.Locations;
 using ProgrammersSpot.Business.Models.Projects;
@@ -34,6 +36,10 @@ namespace ProgrammersSpot.Business.Data
         public virtual IDbSet<Review> Reviews { get; set; }
 
         public virtual IDbSet<Project> Projects { get; set; }
+
+        public virtual IDbSet<UploadedImage> UploadedImages { get; set; }
+
+        public virtual IDbSet<UploadedImageComment> UploadedImageComments { get; set; }
 
         public virtual IDbSet<Skill> Skills { get; set; }
 

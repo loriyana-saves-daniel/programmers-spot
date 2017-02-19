@@ -12,18 +12,18 @@
             <hr />
             <div class="form-group">
                 <div class="col-md-10">
-				    <asp:DropDownList 
+                    <asp:DropDownList 
                         ID="UserType" 
                         runat="server" 
                         AutoPostBack="True"
                         OnTextChanged="UserType_TextChanged"
                         DataTextField="Name" 
                         DataValueField="Name">
-				    </asp:DropDownList>
+                    </asp:DropDownList>
                 </div>
             </div>
         </div>
-        <div runat="server" ID="RegularUserRegisterForm">
+        <div runat="server" ID="RegularUserRegisterForm" visible="true">
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="FirstName" CssClass="col-md-2 control-label">First name</asp:Label>
                 <div class="col-md-10">
@@ -53,8 +53,8 @@
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Email" 
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The email field is required." />
                     <asp:RegularExpressionValidator runat="server" ControlToValidate="Email" 
-					    ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-					    CssClass="text-danger" Display="Dynamic" ErrorMessage="Invalid Email!" />
+                        ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                        CssClass="text-danger" Display="Dynamic" ErrorMessage="Invalid Email!" />
                 </div>
             </div>
             <div class="form-group">
@@ -80,7 +80,7 @@
             </div>
         </div>
         
-        <div runat="server" ID="FirmRegisterForm">
+        <div runat="server" ID="FirmRegisterForm" visible="false">
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="CompanyName" CssClass="col-md-2 control-label">Company name</asp:Label>
                 <div class="col-md-10">
@@ -95,14 +95,14 @@
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="Country" CssClass="col-md-2 control-label">Country</asp:Label>
                 <div class="col-md-10">
-				    <asp:DropDownList 
+                    <asp:DropDownList 
                         ID="Country" 
                         runat="server" 
                         AutoPostBack="True"
                         OnSelectedIndexChanged ="Country_SelectedIndexChanged"
                         DataTextField="Name" 
                         DataValueField="Name">
-				    </asp:DropDownList>
+                    </asp:DropDownList>
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Country"
                         CssClass="text-danger" ErrorMessage="The country field is required." />
                 </div>
@@ -110,7 +110,7 @@
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="City" CssClass="col-md-2 control-label">City</asp:Label>
                 <div class="col-md-10">
-				    <asp:DropDownList 
+                    <asp:DropDownList 
                         ID="City" 
                         runat="server"
                         DataTextField="Name" 

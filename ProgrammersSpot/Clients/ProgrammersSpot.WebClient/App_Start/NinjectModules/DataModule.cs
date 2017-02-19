@@ -1,5 +1,6 @@
 ﻿using Ninject.Extensions.Conventions;
 using Ninject.Modules;
+using Ninject.Web.Common;
 using ProgrammersSpot.Business.Data;
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Data.Repositories;
@@ -15,7 +16,7 @@ namespace ProgrammersSpot.WebClient.App_Start.NinjectModules
             this.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             this.Bind(typeof(ICountryRepository)).To(typeof(CountryRepository));
             this.Bind(typeof(ICityRepository)).To(typeof(CityRepository));
-            this.Bind<IProgrammersSpotDbContext>().To<ProgrammersSpotDbContext>().InSingletonScope();
+            this.Bind<IProgrammersSpotDbContext>().To<ProgrammersSpotDbContext>().InRequestScope();
             this.Bind<IUnitOfWork>().To<UnitOfWork>();
         }
     }
