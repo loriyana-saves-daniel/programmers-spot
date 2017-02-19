@@ -1,28 +1,36 @@
-﻿div.search-and-sort {
+﻿    .break{
+        margin-top:40px;
+    }
+
+    .break .search-input{
+        width:200px;
+    }
+
+    .break div.search-and-sort {
     width: 100%;
     text-align: center;
     margin-bottom:20px
 }
 
-    div.search-and-sort .btn-search {
-        margin-right: 20px
+    .break div.search-and-sort .btn-search {
+        margin-right: 20px;
     }
 
-    div.search-and-sort .sort-by {
+    .break div.search-and-sort .sort-by {
         margin-right: 10px
     }
 
-div.image {
+    .break div.image {
     background-repeat: no-repeat;
     background-size: cover;
     height: 450px;
 }
 
-    div.image:hover {
+    .break div.image:hover {
         opacity: 0.95
     }
 
-    div.image .likes, div.image .dislikes {
+    .break div.image .likes, div.image .dislikes {
         vertical-align: bottom;
         text-align: left;
         margin-bottom: 20px;
@@ -33,7 +41,7 @@ div.image {
         font-size: 12px
     }
 
-    div.image .likes::before, div.image .dislikes::before {
+    .break div.image .likes::before, div.image .dislikes::before {
       background-size: 30px 30px;
       display: inline-block;
       width: 30px;
@@ -41,26 +49,26 @@ div.image {
       content: "";
     }
     
-    div.image .likes {
+    .break div.image .likes {
         left: 20px;
     }
 
-        div.image .likes::before {
+        .break div.image .likes::before {
           background-image: url("Images/like-img.png");
           margin-left: 15px;
           margin-right: 10px;
         }
 
-    div.image .dislikes {
+    .break div.image .dislikes {
         right: 30px
     }
 
-        div.image .dislikes::before {
+        .break div.image .dislikes::before {
           background-image: url("Images/dislike-img.png");
           margin-right: 10px;
         }
 
-input[type=submit] {
+.break input[type=submit] {
     width: 100%;
     height: 100%;
     opacity: 0;
