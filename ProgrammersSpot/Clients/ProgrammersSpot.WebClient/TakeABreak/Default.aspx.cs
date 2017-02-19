@@ -18,47 +18,45 @@ namespace ProgrammersSpot.WebClient.TakeABreak
     [PresenterBinding(typeof(TakeABreakPresenter))]
     public partial class TakeABreak : MvpPage<TakeABreakViewModel>, ITakeABreakView
     {
-        public event EventHandler<EventArgs> EventBindPageData;
+        public event EventHandler<EventArgs> EventGetImages;
         public event EventHandler<SearchEventArgs> EventSearchImages;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.EventBindPageData(sender, e);
         }
 
         public IQueryable<UploadedImage> ListViewImages_GetData([Control] string sortBy, [QueryString("imgTitle")] string query)
         {
-            if (sortBy == null)
+            if (query == null)
             {
-                return this.Model.UploadedImages;
+                this.EventGetImages?.Invoke(this, new EventArgs());
             }
-
-            if (query != null)
+            else
             {
-                this.EventSearchImages(this, new SearchEventArgs(query));
+                this.EventSearchImages?.Invoke(this, new SearchEventArgs(query));
             }
 
             var images = this.Model.UploadedImages;
             if (sortBy == "DateUploaded")
             {
-                if (!this.CheckBoxIsDescending.Checked)
+                if (this.CheckBoxIsDescending.Checked)
                 {
-                    images = images.OrderBy(i => i.DateUploaded);
+                    images = images.OrderByDescending(i => i.DateUploaded);
                 }
                 else
                 {
-                    images = images.OrderByDescending(i => i.DateUploaded);
+                    images = images.OrderBy(i => i.DateUploaded);
                 }
             }
             else if (sortBy == "LikesCount")
             {
-                if (!this.CheckBoxIsDescending.Checked)
+                if (this.CheckBoxIsDescending.Checked)
                 {
-                    images = images.OrderBy(i => i.LikesCount);
+                    images = images.OrderByDescending(i => i.LikesCount);
                 }
                 else
                 {
-                    images = images.OrderByDescending(i => i.LikesCount);
+                    images = images.OrderBy(i => i.LikesCount);
                 }
             }
 

@@ -16,7 +16,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             Guard.WhenArgument(uploadedImageService, "uploadedImageService").IsNull().Throw();
 
             this.uploadedImageService = uploadedImageService;
-            view.EventBindPageData += this.OnBindPageData;
+            view.EventGetImages += this.OnGetImages;
             view.EventSearchImages += this.OnSearchImages;
         }
 
@@ -25,7 +25,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             this.View.Model.UploadedImages = this.uploadedImageService.GetImagesWithTitle(e.QueryParams);
         }
 
-        private void OnBindPageData(object sender, EventArgs e)
+        private void OnGetImages(object sender, EventArgs e)
         {
             this.View.Model.UploadedImages = this.uploadedImageService.GetAllImages();
         }

@@ -5,9 +5,8 @@ using WebFormsMvp;
 
 namespace ProgrammersSpot.Business.MVP.Views
 {
-    public interface ITakeABreakView : IView<TakeABreakViewModel>
+    public interface IImageDetailsView : IView<ImageDetailsViewModel>
     {
-        event EventHandler<EventArgs> EventGetImages;
-        event EventHandler<SearchEventArgs> EventSearchImages;
+        event EventHandler<FormGetItemEventArgs> EventGetImage;
     }
 }
