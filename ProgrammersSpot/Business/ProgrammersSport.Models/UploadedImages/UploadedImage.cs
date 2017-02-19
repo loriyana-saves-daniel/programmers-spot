@@ -1,6 +1,7 @@
 ﻿using ProgrammersSport.Business.Models.UploadedImageComments;
 using ProgrammersSpot.Business.Common;
 using ProgrammersSpot.Business.Models.Users;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -13,6 +14,7 @@ namespace ProgrammersSport.Business.Models.UploadedImages
         public UploadedImage()
         {
             this.comments = new HashSet<UploadedImageComment>();
+            this.DateUploaded = DateTime.Now;
         }
 
         [Key]
@@ -20,6 +22,8 @@ namespace ProgrammersSport.Business.Models.UploadedImages
         
         [MaxLength(Constants.MaxUploadedImageTitleLength)]
         public string Title { get; set; }
+        
+        public DateTime DateUploaded { get; set; }
 
         [Required]
         public string Src { get; set; }

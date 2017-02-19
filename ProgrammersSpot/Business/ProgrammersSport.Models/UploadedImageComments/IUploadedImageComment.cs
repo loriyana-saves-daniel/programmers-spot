@@ -1,6 +1,7 @@
 ﻿
 using ProgrammersSport.Business.Models.UploadedImages;
 using ProgrammersSpot.Business.Models.Users;
+using System;
 
 namespace ProgrammersSport.Business.Models.UploadedImageComments
 {
@@ -9,6 +10,8 @@ namespace ProgrammersSport.Business.Models.UploadedImageComments
         int Id { get; set; }
 
         string Content { get; set; }
+
+        DateTime DateCreated { get; set; }
 
         bool IsDeleted { get; set; }
         

@@ -214,6 +214,7 @@
     <Content Include="Content\Images\sign-in-with-twitter.png" />
     <Content Include="Content\login.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\takeabreak.css" />
     <Content Include="ErrorPages\400.html" />
     <Content Include="ErrorPages\404.html" />
     <Content Include="ErrorPages\500.html" />
@@ -223,6 +224,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="TakeABreak\ImageDetails.aspx" />
+    <Content Include="TakeABreak\Default.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -411,6 +414,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="TakeABreak\ImageDetails.aspx.cs">
+      <DependentUpon>ImageDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TakeABreak\ImageDetails.aspx.designer.cs">
+      <DependentUpon>ImageDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TakeABreak\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TakeABreak\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
