@@ -13,22 +13,13 @@ namespace ProgrammersSpot.WebClient {
     public partial class SiteMaster {
         
         /// <summary>
-        /// CustomStylesheets control.
+        /// OuterContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder CustomStylesheets;
-        
-        /// <summary>
-        /// HeaderPlaceHolder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeaderPlaceHolder;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder OuterContent;
         
         /// <summary>
         /// MainContent control.
@@ -38,14 +29,5 @@ namespace ProgrammersSpot.WebClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-        
-        /// <summary>
-        /// CustomScripts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder CustomScripts;
     }
 }
