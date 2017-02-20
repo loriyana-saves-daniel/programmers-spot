@@ -48,7 +48,10 @@ namespace ProgrammersSpot.WebClient.TakeABreak
         {
             if (!this.User.Identity.IsAuthenticated)
             {
-                Response.Redirect("~/Account/Login");
+                Response.Redirect(this.ResolveUrl(string.Format(
+                    "~/Account/Login?ReturnUrl={0}{1}", 
+                    HttpUtility.UrlEncode("/TakeABreak/ImageDetails?id="),
+                    this.Model.Image.Id)));
                 return;
             }
 
@@ -67,7 +70,10 @@ namespace ProgrammersSpot.WebClient.TakeABreak
         {
             if (!this.User.Identity.IsAuthenticated)
             {
-                Response.Redirect("~/Account/Login");
+                Response.Redirect(this.ResolveUrl(string.Format(
+                    "~/Account/Login?ReturnUrl={0}{1}",
+                    HttpUtility.UrlEncode("/TakeABreak/ImageDetails?id="),
+                    this.Model.Image.Id)));
                 return;
             }
 

@@ -19,13 +19,16 @@
                 GroupItemCount="4">
                 <LayoutTemplate>
                     <asp:PlaceHolder ID="groupPlaceholder" runat="server" />
-                    <asp:DataPager runat="server" ID="DataPager" PagedControlID="ListViewImages" PageSize="12">
-                        <Fields>
-                            <asp:NumericPagerField ButtonCount="10" CurrentPageLabelCssClass="" NumericButtonCssClass="paging-numeric-btn"
-                                PreviousPageText="<--"
-                                NextPageText="-->" />
-                        </Fields>
-                    </asp:DataPager>
+                    <div class="row paging-row">
+                        <asp:DataPager runat="server" ID="DataPager" PagedControlID="ListViewImages" PageSize="12">
+                            <Fields>
+                                <asp:NumericPagerField ButtonCount="10"
+                                    CurrentPageLabelCssClass="paging-btn" NumericButtonCssClass="paging-btn"
+                                    PreviousPageText="<--"
+                                    NextPageText="-->" />
+                            </Fields>
+                        </asp:DataPager>
+                    </div>
                 </LayoutTemplate>
 
                 <GroupTemplate>

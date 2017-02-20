@@ -5,6 +5,8 @@ using ProgrammersSpot.Business.MVP.ViewModels;
 using ProgrammersSpot.Business.MVP.Views;
 using System;
 using System.Linq;
+using System.Security.Policy;
+using System.Web;
 using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -66,7 +68,7 @@ namespace ProgrammersSpot.WebClient.TakeABreak
         protected void LinkButtonSearch_Click(object sender, EventArgs e)
         {
             string queryParam = string.Format("?imgTitle={0}", this.TextBoxSearch.Text);
-            Response.Redirect("~/TakeABreak" + queryParam);
+            Response.Redirect(this.ResolveUrl("~/TakeABreak" + queryParam));
         }
 
         protected void LinkButtonUploadImage_Click(object sender, EventArgs e)
@@ -77,7 +79,7 @@ namespace ProgrammersSpot.WebClient.TakeABreak
             }
             else
             {
-                Response.Redirect("~/Account/Login");
+                Response.Redirect(this.ResolveUrl(string.Format("~/Account/Login?ReturnUrl={0}", HttpUtility.UrlEncode("/TakeABreak/UploadImage"))));
             }
         }
 
@@ -85,7 +87,7 @@ namespace ProgrammersSpot.WebClient.TakeABreak
         {
             if (!this.User.Identity.IsAuthenticated)
             {
-                Response.Redirect("~/Account/Login");
+                Response.Redirect(this.ResolveUrl(string.Format("~/Account/Login?ReturnUrl=", HttpUtility.UrlEncode("/TakeABreak"))));
                 return;
             }
 
@@ -104,7 +106,7 @@ namespace ProgrammersSpot.WebClient.TakeABreak
         {
             if (!this.User.Identity.IsAuthenticated)
             {
-                Response.Redirect("~/Account/Login");
+                Response.Redirect(this.ResolveUrl(string.Format("~/Account/Login?ReturnUrl=", HttpUtility.UrlEncode("/TakeABreak"))));
                 return;
             }
 

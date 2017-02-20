@@ -3,13 +3,25 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ProgrammersSpot.Business.Identity;
 using ProgrammersSpot.Business.Models.Users;
+using ProgrammersSpot.Business.MVP.ViewModels;
+using ProgrammersSpot.Business.MVP.Views;
 using System;
 using System.Web;
+using WebFormsMvp.Web;
+using ProgrammersSpot.Business.MVP.Args;
+using WebFormsMvp;
+using ProgrammersSpot.Business.MVP.Presenters;
 
 namespace ProgrammersSpot.WebClient.Account
 {
-    public partial class RegisterExternalLogin : System.Web.UI.Page
+    [PresenterBinding(typeof(ExternalRegistrationPresenter))]
+    public partial class RegisterExternalLogin : MvpPage<ExternalRegistrationViewModel>, IExternalRegistrationView
     {
+        public event EventHandler<SocialLoginEventArgs> EventGetUserBySocialLogin;
+        public event EventHandler<RegistrationEventArgs> EventExternalRegisterUser;
+        public event EventHandler<SocialLoginEventArgs> EventAddSocialLogin;
+        public event EventHandler<OwinCtxEventArgs> EventSignIn;
+
         protected string ProviderName
         {
             get { return (string)ViewState["ProviderName"] ?? String.Empty; }
@@ -24,106 +36,110 @@ namespace ProgrammersSpot.WebClient.Account
 
         private void RedirectOnFail()
         {
-            Response.Redirect((User.Identity.IsAuthenticated) ? "~/Account/Manage" : "~/Account/Login");
+            this.Response.Redirect((User.Identity.IsAuthenticated) ? "~/Account/Manage" : "~/Account/Login");
         }
 
         protected void Page_Load()
         {
             // Process the result from an auth provider in the request
-            ProviderName = IdentityHelper.GetProviderNameFromRequest(Request);
-            if (String.IsNullOrEmpty(ProviderName))
+            this.ProviderName = IdentityHelper.GetProviderNameFromRequest(Request);
+            if (String.IsNullOrEmpty(this.ProviderName))
             {
-                RedirectOnFail();
+                this.RedirectOnFail();
                 return;
             }
+
             if (!IsPostBack)
             {
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
                 var loginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo();
                 if (loginInfo == null)
                 {
-                    RedirectOnFail();
+                    this.RedirectOnFail();
                     return;
                 }
-                var user = manager.Find(loginInfo.Login);
-                if (user != null)
+
+                this.EventGetUserBySocialLogin(this, new SocialLoginEventArgs() { OwinCtx = this.Context.GetOwinContext(), UserLoginInfo = loginInfo.Login });
+
+                if (this.Model.User != null)
                 {
-                    signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                    this.EventSignIn(this, new SocialLoginEventArgs() { OwinCtx = this.Context.GetOwinContext() });
                     IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                 }
-                else if (User.Identity.IsAuthenticated)
+                else if (this.User.Identity.IsAuthenticated)
                 {
                     // Apply Xsrf check when linking
-                    var verifiedloginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo(IdentityHelper.XsrfKey, User.Identity.GetUserId());
+                    var verifiedloginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo(IdentityHelper.XsrfKey, this.User.Identity.GetUserId());
                     if (verifiedloginInfo == null)
                     {
-                        RedirectOnFail();
+                        this.RedirectOnFail();
                         return;
                     }
 
-                    var result = manager.AddLogin(User.Identity.GetUserId(), verifiedloginInfo.Login);
-                    if (result.Succeeded)
+                    var socialEventArgs = new SocialLoginEventArgs() { UserId = this.User.Identity.GetUserId(), UserLoginInfo = verifiedloginInfo.Login };
+                    this.EventAddSocialLogin(this, socialEventArgs);
+                    
+                    if (this.Model.Result.Succeeded)
                     {
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                     }
                     else
                     {
-                        AddErrors(result);
-                        return;
+                        this.AddErrors(this.Model.Result);
                     }
                 }
                 else
                 {
-                    email.Text = loginInfo.Email;
+                    this.Email.Text = loginInfo.Email;
                 }
             }
         }        
         
         protected void LogIn_Click(object sender, EventArgs e)
         {
-            CreateAndLoginUser();
-        }
-
-        private void CreateAndLoginUser()
-        {
-            if (!IsValid)
+            if (!this.IsValid)
             {
                 return;
             }
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var signInManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
-            var user = new User() { UserName = email.Text, Email = email.Text };
-            IdentityResult result = manager.Create(user);
-            if (result.Succeeded)
+            
+            var eventArgs = new RegistrationEventArgs()
             {
-                var loginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo();
+                OwinCtx = this.Context.GetOwinContext(),
+                Email = this.Email.Text,
+                FirstName = this.FirstName.Text,
+                LastName = this.LastName.Text,
+                UserType = "User"
+            };
+
+            this.EventExternalRegisterUser(this, eventArgs);
+
+            if (this.Model.Result.Succeeded)
+            {
+                var loginInfo = this.Context.GetOwinContext().Authentication.GetExternalLoginInfo();
                 if (loginInfo == null)
                 {
-                    RedirectOnFail();
+                    this.RedirectOnFail();
                     return;
                 }
-                result = manager.AddLogin(user.Id, loginInfo.Login);
-                if (result.Succeeded)
-                {
-                    signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
 
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // var code = manager.GenerateEmailConfirmationToken(user.Id);
-                    // Send this link via email: IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id)
+                var socialEventArgs = new SocialLoginEventArgs() { UserId = this.Model.User.Id, UserLoginInfo = loginInfo.Login };
+                this.EventAddSocialLogin(this, socialEventArgs);
+                if (this.Model.Result.Succeeded)
+                {
+                    this.EventSignIn(this, new SocialLoginEventArgs() { OwinCtx = this.Context.GetOwinContext() });
 
                     IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                     return;
                 }
             }
-            AddErrors(result);
+
+            this.AddErrors(this.Model.Result);
         }
 
         private void AddErrors(IdentityResult result) 
         {
             foreach (var error in result.Errors) 
             {
-                ModelState.AddModelError("", error);
+                this.ModelState.AddModelError("", error);
             }
         }
     }

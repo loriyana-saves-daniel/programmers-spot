@@ -1,9 +1,6 @@
-﻿using Microsoft.Owin;
-using System;
-
-namespace ProgrammersSpot.Business.MVP.Args
+﻿namespace ProgrammersSpot.Business.MVP.Args
 {
-    public class RegistrationEventArgs : EventArgs
+    public class RegistrationEventArgs : OwinCtxEventArgs
     {
         public string Email { get; set; }
 
@@ -24,8 +21,6 @@ namespace ProgrammersSpot.Business.MVP.Args
         public string ConfirmedPassword { get; set; }
 
         public string UserType { get; set; }
-
-        public IOwinContext OwinCtx { get; set; }
     }
 }
 
