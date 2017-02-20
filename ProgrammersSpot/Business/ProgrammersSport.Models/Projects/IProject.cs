@@ -10,8 +10,6 @@ namespace ProgrammersSpot.Business.Models.Projects
 
         bool IsDeleted { get; set; }
 
-        string Description { get; set; }
-
         string LinkToProject { get; set; }
 
         string AuthorId { get; set; }

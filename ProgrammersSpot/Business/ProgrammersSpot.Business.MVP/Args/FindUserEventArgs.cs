@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProgrammersSpot.Business.MVP.Args
 {
-    public class FindRegularUserEventArgs : EventArgs
+    public class FindUserEventArgs : EventArgs
     {
-        public FindRegularUserEventArgs(string id)
+        public FindUserEventArgs(string id)
         {
             this.Id = id;
         }

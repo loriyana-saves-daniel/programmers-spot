@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Profile" Language="C#"  MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="ProgrammersSpot.WebClient.Account.Profile" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <asp:LoginView runat="server">
+    <asp:LoginView runat="server" ID="LoginView">
           <RoleGroups>
             <asp:RoleGroup Roles="User">
                 <ContentTemplate>
@@ -17,9 +17,9 @@
                                 <asp:Image runat="server" CssClass="img-responsive avatar" ImageUrl="<%# this.Model.ProfileImage %>" />
                                 <div class="info">
                                     <%--<small><i class="fa fa-map-marker"></i> Bulgaria (Sofia)</small>--%>
-                                    <p><i class="fa fa-briefcase"></i> <%: this.Model.FoundRegularUser.JobTitle %>  </p>  
-                                    <a href="#" class="btn-o"> <i class="fa fa-user-plus"></i> Add Friend </a>
-                                    <a href="#"  class="btn-o"> <i class="fa fa-message"></i> Follow </a>
+                                    <p><i class="fa fa-briefcase"></i> <%: this.Model.FoundRegularUser.JobTitle %>  </p>
+                                    <asp:LinkButton runat="server" ID="Edit" Text="<i class='fa fa-pencil'></i> Edit Profile" 
+                                          OnClick="Edit_Click" CssClass="btn-o" />
                                     <div class="social-profiles">
                                         <a href="<%: this.Model.FoundRegularUser.FacebookProfile %>" class="fa fa-facebook"></a>
                                         <a href="<%: this.Model.FoundRegularUser.GitHubProfile %>" class="fa fa-github"></a>
@@ -38,19 +38,23 @@
 			                <div class="link"><i class="fa fa-code"></i>Professional Skills</div>
 			                <ul class="submenu">
 				                <li>
-                                    <%--<a href="#"/>--%>
-                                        <span class="skill">Adobe Photoshop</span> 
-                                        <span class="skill">Corel Draw</span> 
-                                        <span class="skill">CSS</span>
-                                        <span class="skill">Css 3</span> 
-                                        <span class="skill">Graphic Design</span>
-                                        <span class="skill">HTML</span> 
-                                        <span class="skill">HTML5</span> 
-                                        <span class="skill">JavaScript</span> 
-                                        <span class="skill">Twitter bootstrap</span> 
-                                        <span class="skill">bootstrap</span> 
-                                        <span class="skill">User Interface Design</span> 
-                                        <span class="skill">Wordpress</span>
+                                    <asp:Repeater  runat="server" ID="Skills">
+                                        <ItemTemplate>
+                                            <span class="skill"><%# Eval("Name") %></span>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </li>
+		                    </ul>
+                        </li>
+                        <li class="default open">
+			                <div class="link"><i class="fa fa-file-code-o"></i>Projects</div>
+			                <ul class="submenu">
+				                <li>
+                                    <asp:Repeater  runat="server" ID="Projects">
+                                        <ItemTemplate>
+                                            <a class="skill" href="<%# Eval("LinkToProject") %>"><%# Eval("Name") %></a>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </li>
 		                    </ul>
                         </li>
@@ -61,7 +65,47 @@
 
             <asp:RoleGroup Roles="Firm">
                 <ContentTemplate>
-                    FIRM
+                    <div class="regular-user-profile" >
+                    <h2>
+                    <%: this.Model.FoundFirmUser.FirmName + "'s Profile" %>
+                    </h2>
+        
+                    <ul id="profile" class="profile">
+                        <li>
+                            <div class="col col_4 profile-pic">
+                                <asp:Image runat="server" CssClass="img-responsive avatar" ImageUrl="<%# this.Model.ProfileImage %>" />
+                                <div class="info">
+                                    <p><i class="fa fa-map-marker"></i> <%: this.Model.FoundFirmUser.Country.Name %> (<%: this.Model.FoundFirmUser.City.Name %>) </p>
+                                    <asp:LinkButton runat="server" ID="Edit" Text="<i class='fa fa-pencil'></i> Edit Profile" 
+                                          OnClick="Edit_Click" CssClass="btn-o" />
+                                    <div class="social-profiles firm">
+                                        <a href="<%: this.Model.FoundFirmUser.Website %>" class="fa fa-globe"></a>
+                                    </div>
+                                </div>
+                            </div>       
+                        </li>
+		                <li class="default open">
+			                <div class="link"><i class="fa fa-globe"></i>About</div>
+			                <ul class="submenu">
+				                <li>Adress : <%: this.Model.FoundFirmUser.Address %></li>
+				                <li>Employees : <%: this.Model.FoundFirmUser.EmployeesCount %></li>
+			                </ul>
+		                </li>
+		             
+                        <li class="default open">
+			                <div class="link"><i class="fa fa-file-code-o"></i>Reviews</div>
+			                <ul class="submenu">
+				                <li>
+                                    <asp:Repeater  runat="server" ID="Reviews">
+                                        <ItemTemplate>
+                                            <a class="skill"><%# Eval("Content") %></a>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </li>
+		                    </ul>
+                        </li>
+                    </ul>
+                </div>  
                 </ContentTemplate>
             </asp:RoleGroup>
         </RoleGroups>

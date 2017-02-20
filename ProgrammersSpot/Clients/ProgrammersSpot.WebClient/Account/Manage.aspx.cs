@@ -1,12 +1,20 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using ProgrammersSpot.Business.Identity;
+using ProgrammersSpot.Business.MVP.Args;
+using ProgrammersSpot.Business.MVP.Presenters;
+using ProgrammersSpot.Business.MVP.ViewModels;
+using ProgrammersSpot.Business.MVP.Views;
 using System;
 using System.Web;
+using System.Web.UI.WebControls;
+using WebFormsMvp;
+using WebFormsMvp.Web;
 
 namespace ProgrammersSpot.WebClient.Account
 {
-    public partial class Manage : System.Web.UI.Page
+    [PresenterBinding(typeof(ManageUserProfilePresenter))]
+    public partial class Manage : MvpPage<ManageUserProfileViewModel>, IManageUserProfileView
     {
         protected string SuccessMessage
         {
@@ -14,31 +22,20 @@ namespace ProgrammersSpot.WebClient.Account
             private set;
         }
 
+        public event EventHandler<ManageUserProfileEventArgs> AddSkill;
+
+        public event EventHandler<ManageUserProfileEventArgs> AddProject;
+
+        public event EventHandler<EditUserInfoEventArgs> UpdateUserInfo;
+
         private bool HasPassword(ApplicationUserManager manager)
         {
             return manager.HasPassword(User.Identity.GetUserId());
         }
 
-        public bool HasPhoneNumber { get; private set; }
-
-        public bool TwoFactorEnabled { get; private set; }
-
-        public bool TwoFactorBrowserRemembered { get; private set; }
-
-        public int LoginsCount { get; set; }
-
         protected void Page_Load()
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
-            //HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
-
-            // Enable this after setting up two-factor authentientication
-            //PhoneNumber.Text = manager.GetPhoneNumber(User.Identity.GetUserId()) ?? String.Empty;
-
-            TwoFactorEnabled = manager.GetTwoFactorEnabled(User.Identity.GetUserId());
-
-            LoginsCount = manager.GetLogins(User.Identity.GetUserId()).Count;
 
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
 
@@ -51,7 +48,7 @@ namespace ProgrammersSpot.WebClient.Account
                 }
                 else
                 {
-                    CreatePassword.Visible = true;
+                    //CreatePassword.Visible = true;
                     ChangePassword.Visible = false;
                 }
 
@@ -60,7 +57,7 @@ namespace ProgrammersSpot.WebClient.Account
                 if (message != null)
                 {
                     // Strip the query string from action
-                    Form.Action = ResolveUrl("~/Account/Manage");
+                    Form.Action = ResolveUrl("~/Account/ManagePassword");
 
                     SuccessMessage =
                         message == "ChangePwdSuccess" ? "Your password has been changed."
@@ -74,49 +71,53 @@ namespace ProgrammersSpot.WebClient.Account
             }
         }
 
-
-        private void AddErrors(IdentityResult result)
+        protected void Update_Click(object sender, EventArgs e)
         {
-            foreach (var error in result.Errors)
+            var ageTextBox = this.LoginView.FindControl("Age") as TextBox;
+            var jobTitleTextBox = this.LoginView.FindControl("JobTitle") as TextBox;
+            var facebookTextBox = this.LoginView.FindControl("Facebook") as TextBox;
+            var githubTextBox = this.LoginView.FindControl("GitHub") as TextBox;
+
+            var eventArgs = new EditUserInfoEventArgs()
             {
-                ModelState.AddModelError("", error);
-            }
+                Age = ageTextBox.Text,
+                JobTitle = jobTitleTextBox.Text,
+                FacebookProfile = facebookTextBox.Text,
+                GitHubProfile = githubTextBox.Text,
+                UserId = this.User.Identity.GetUserId()
+            };
+
+            this.UpdateUserInfo(this, eventArgs);
+            Response.Redirect("Profile");
         }
 
-        // Remove phonenumber from user
-        protected void RemovePhone_Click(object sender, EventArgs e)
+        protected void AddSkill_Click(object sender, EventArgs e)
         {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var result = manager.SetPhoneNumber(User.Identity.GetUserId(), null);
-            if (!result.Succeeded)
+            var skillTextBox = this.LoginView.FindControl("Skill") as TextBox;
+            var eventArgs = new ManageUserProfileEventArgs()
             {
-                return;
-            }
-            var user = manager.FindById(User.Identity.GetUserId());
-            if (user != null)
-            {
-                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                Response.Redirect("/Account/Manage?m=RemovePhoneNumberSuccess");
-            }
+                SkillName = skillTextBox.Text,
+                UserId = this.User.Identity.GetUserId()
+            };
+
+            this.AddSkill(this, eventArgs);
+            Response.Redirect("Profile");
         }
 
-        // DisableTwoFactorAuthentication
-        protected void TwoFactorDisable_Click(object sender, EventArgs e)
+        protected void AddProject_Click(object sender, EventArgs e)
         {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            manager.SetTwoFactorEnabled(User.Identity.GetUserId(), false);
+            var projectNameTextBox = this.LoginView.FindControl("Project") as TextBox;
+            var projectLinkTextBox = this.LoginView.FindControl("LinkToProject") as TextBox;
 
-            Response.Redirect("/Account/Manage");
-        }
+            var eventArgs = new ManageUserProfileEventArgs()
+            {
+                ProjectName = projectNameTextBox.Text,
+                LinkToProject = projectLinkTextBox.Text,
+                UserId = this.User.Identity.GetUserId()
+            };
 
-        //EnableTwoFactorAuthentication 
-        protected void TwoFactorEnable_Click(object sender, EventArgs e)
-        {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            manager.SetTwoFactorEnabled(User.Identity.GetUserId(), true);
-
-            Response.Redirect("/Account/Manage");
+            this.AddProject(this, eventArgs);
+            Response.Redirect("Profile");
         }
     }
 }

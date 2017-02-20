@@ -1,6 +1,7 @@
 ﻿using ProgrammersSpot.Business.Common;
 using ProgrammersSpot.Business.Models.Users;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProgrammersSpot.Business.Models.Projects
 {
@@ -10,12 +11,10 @@ namespace ProgrammersSpot.Business.Models.Projects
         public int Id { get; set; }
 
         [Required]
+        [Index(IsUnique = true)]
+        [MinLength(Constants.NameMinLength)]
+        [MaxLength(Constants.NameMaxLength)]
         public string Name { get; set; }
-
-        [Required]
-        [MinLength(Constants.MinProjectDescriptionLength)]
-        [MaxLength(Constants.MaxProjectDescriptionLength)]
-        public string Description { get; set; }
 
         [Required]
         public string LinkToProject { get; set; }
