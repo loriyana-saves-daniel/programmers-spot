@@ -88,7 +88,7 @@ namespace ProgrammersSpot.WebClient.TakeABreak
             {
                 ImageId = this.Model.Image.Id,
                 AuthorId = this.User.Identity.GetUserId(),
-                Comment = this.TextBoxComment.Value
+                Comment = this.TextBoxComment.Text
             });
         }
     }

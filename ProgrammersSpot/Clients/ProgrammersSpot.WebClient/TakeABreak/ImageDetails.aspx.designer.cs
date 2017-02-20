@@ -28,7 +28,7 @@ namespace ProgrammersSpot.WebClient.TakeABreak {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea TextBoxComment;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxComment;
         
         /// <summary>
         /// ButtonAddComment control.

@@ -31,10 +31,10 @@
         </ItemTemplate>
     </asp:FormView>
     <div>
-        <textarea runat="server" ID="TextBoxComment" class="add-comment"></textarea>
-        <asp:Button runat="server" ID="ButtonAddComment" OnClick="ButtonAddComment_Click" Text="Add comment" CssClass="btn btn-primary" />
+        <asp:TextBox TextMode="MultiLine" runat="server" ID="TextBoxComment" ValidationGroup="comment" CssClass="add-comment"></asp:TextBox>
+        <asp:Button ValidationGroup="comment" runat="server" ID="ButtonAddComment" OnClick="ButtonAddComment_Click" Text="Add comment" CssClass="btn btn-primary" />
     </div>
-    <asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxComment"
+    <asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxComment" ValidationGroup="comment"
         CssClass="text-danger" Display="Dynamic" ErrorMessage="Your comment must be at least 5 symbols." />
     </div>
 </asp:Content>
