@@ -34,7 +34,8 @@ namespace ProgrammersSpot.Business.Services.Tests.RegistrationServiceTests
                 registrationService.CreateRegularUser(
                     userToAdd.Object.Id,
                     userToAdd.Object.FirstName,
-                    userToAdd.Object.LastName
+                    userToAdd.Object.LastName,
+                    userToAdd.Object.Email
                     )
                 );
         }
@@ -60,12 +61,14 @@ namespace ProgrammersSpot.Business.Services.Tests.RegistrationServiceTests
             userToAdd.Setup(firm => firm.Id).Returns("1");
             userToAdd.Setup(firm => firm.FirstName).Returns("Pesho");
             userToAdd.Setup(firm => firm.LastName).Returns("Peshev");
+            userToAdd.Setup(firm => firm.Email).Returns("pesho@abv.bg");
 
             //Act
             registrationService.CreateRegularUser(
                 userToAdd.Object.Id,
                 userToAdd.Object.FirstName,
-                userToAdd.Object.LastName
+                userToAdd.Object.LastName,
+                userToAdd.Object.Email
                 );
 
             //Assert
