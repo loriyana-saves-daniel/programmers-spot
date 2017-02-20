@@ -7,6 +7,7 @@ using System;
 using System.Linq;
 using System.Web.ModelBinding;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
@@ -17,6 +18,8 @@ namespace ProgrammersSpot.WebClient.TakeABreak
     {
         public event EventHandler<EventArgs> EventGetImages;
         public event EventHandler<SearchEventArgs> EventSearchImages;
+        public event EventHandler<FormGetItemEventArgs> ImageLiked;
+        public event EventHandler<FormGetItemEventArgs> ImageDisliked;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,6 +67,56 @@ namespace ProgrammersSpot.WebClient.TakeABreak
         {
             string queryParam = string.Format("?imgTitle={0}", this.TextBoxSearch.Text);
             Response.Redirect("~/TakeABreak" + queryParam);
+        }
+
+        protected void LinkButtonUploadImage_Click(object sender, EventArgs e)
+        {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/TakeABreak/UploadImage");
+            }
+            else
+            {
+                Response.Redirect("~/Account/Login");
+            }
+        }
+
+        protected void LinkButtonLike_Click(object sender, EventArgs e)
+        {
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Account/Login");
+                return;
+            }
+
+            var linkButton = sender as LinkButton;
+            if (linkButton != null)
+            {
+                int imgId = -1;
+                if (int.TryParse(linkButton.Attributes["imgId"], out imgId))
+                {
+                    this.ImageLiked?.Invoke(this, new FormGetItemEventArgs(imgId));
+                }
+            }
+        }
+
+        protected void LinkButtonDislike_Click(object sender, EventArgs e)
+        {
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Account/Login");
+                return;
+            }
+
+            var linkButton = sender as LinkButton;
+            if (linkButton != null)
+            {
+                int imgId = -1;
+                if (int.TryParse(linkButton.Attributes["imgId"], out imgId))
+                {
+                    this.ImageDisliked?.Invoke(this, new FormGetItemEventArgs(imgId));
+                }
+            }
         }
     }
 }

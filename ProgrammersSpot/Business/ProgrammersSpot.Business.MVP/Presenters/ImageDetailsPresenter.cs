@@ -16,12 +16,31 @@ namespace ProgrammersSpot.Business.MVP.Presenters
     {
         private readonly IUploadedImageService uploadedImageService;
 
-        public ImageDetailsPresenter(IImageDetailsView view, IUploadedImageService uploadedImageService) : base(view)
+        public ImageDetailsPresenter(IImageDetailsView view, IUploadedImageService uploadedImageService) 
+            : base(view)
         {
             Guard.WhenArgument(uploadedImageService, "uploadedImageService").IsNull().Throw();
 
             this.uploadedImageService = uploadedImageService;
             view.EventGetImage += this.OnGetImage;
+            view.ImageCommented += this.OnImageCommented;
+            view.ImageLiked += this.OnImageLiked;
+            view.ImageDisliked += this.OnImageDisliked;
+        }
+
+        private void OnImageDisliked(object sender, FormGetItemEventArgs e)
+        {
+            this.uploadedImageService.DislikeImage(e.Id);
+        }
+
+        private void OnImageLiked(object sender, FormGetItemEventArgs e)
+        {
+            this.uploadedImageService.LikeImage(e.Id);
+        }
+
+        private void OnImageCommented(object sender, ImageCommentEventArgs e)
+        {
+            this.uploadedImageService.CommentImage(e.ImageId, e.Comment, e.AuthorId);
         }
 
         private void OnGetImage(object sender, FormGetItemEventArgs e)

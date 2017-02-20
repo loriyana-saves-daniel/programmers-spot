@@ -1,4 +1,5 @@
 ﻿using ProgrammersSport.Business.Models.UploadedImages;
+using System;
 using System.Linq;
 
 namespace ProgrammersSpot.Business.Services.Contracts
@@ -10,5 +11,11 @@ namespace ProgrammersSpot.Business.Services.Contracts
         IQueryable<UploadedImage> GetImagesWithTitle(string titleKeyword);
 
         UploadedImage GetImageById(int id);
+
+        void LikeImage(int id);
+
+        void DislikeImage(int id);
+
+        void CommentImage(int imgId, string comment, string authorId);
     }
 }

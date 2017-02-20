@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Args\FormGetItemEventArgs.cs" />
     <Compile Include="Args\FindRegularUserEventArgs.cs" />
+    <Compile Include="Args\ImageCommentEventArgs.cs" />
     <Compile Include="Args\RegistrationEventArgs.cs" />
     <Compile Include="Args\SearchEventArgs.cs" />
     <Compile Include="Presenters\ImageDetailsPresenter.cs" />

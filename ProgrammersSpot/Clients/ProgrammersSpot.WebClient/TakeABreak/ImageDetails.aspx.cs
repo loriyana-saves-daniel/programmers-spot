@@ -1,4 +1,5 @@
-﻿using ProgrammersSport.Business.Models.UploadedImages;
+﻿using Microsoft.AspNet.Identity;
+using ProgrammersSport.Business.Models.UploadedImages;
 using ProgrammersSpot.Business.MVP.Args;
 using ProgrammersSpot.Business.MVP.Presenters;
 using ProgrammersSpot.Business.MVP.ViewModels;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Web;
 using System.Web.ModelBinding;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
@@ -18,17 +20,76 @@ namespace ProgrammersSpot.WebClient.TakeABreak
     public partial class ImageDetails : MvpPage<ImageDetailsViewModel>, IImageDetailsView
     {
         public event EventHandler<FormGetItemEventArgs> EventGetImage;
+        public event EventHandler<ImageCommentEventArgs> ImageCommented;
+        public event EventHandler<FormGetItemEventArgs> ImageLiked;
+        public event EventHandler<FormGetItemEventArgs> ImageDisliked;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+            {
+                int id = -1;
+                if (int.TryParse(Request.QueryString["id"], out id))
+                {
+                    this.EventGetImage?.Invoke(this, new FormGetItemEventArgs(id));
+                    return;
+                }
+            }
 
+            Response.StatusCode = 404;
         }
 
-        public UploadedImage FormViewImageDetails_GetItem([QueryString] int id)
+        public UploadedImage FormViewImageDetails_GetItem()
         {
-            this.EventGetImage?.Invoke(this, new FormGetItemEventArgs(id));
-
             return this.Model.Image;
+        }
+
+        protected void LinkButtonLike_Click(object sender, EventArgs e)
+        {
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Account/Login");
+                return;
+            }
+
+            var linkButton = sender as LinkButton;
+            if (linkButton != null)
+            {
+                int imgId = -1;
+                if (int.TryParse(linkButton.Attributes["imgId"], out imgId))
+                {
+                    this.ImageLiked?.Invoke(this, new FormGetItemEventArgs(imgId));
+                }
+            }
+        }
+
+        protected void LinkButtonDislike_Click(object sender, EventArgs e)
+        {
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Account/Login");
+                return;
+            }
+
+            var linkButton = sender as LinkButton;
+            if (linkButton != null)
+            {
+                int imgId = -1;
+                if (int.TryParse(linkButton.Attributes["imgId"], out imgId))
+                {
+                    this.ImageDisliked?.Invoke(this, new FormGetItemEventArgs(imgId));
+                }
+            }
+        }
+
+        protected void ButtonAddComment_Click(object sender, EventArgs e)
+        {
+            this.ImageCommented?.Invoke(sender, new ImageCommentEventArgs()
+            {
+                ImageId = this.Model.Image.Id,
+                AuthorId = this.User.Identity.GetUserId(),
+                Comment = this.TextBoxComment.Value
+            });
         }
     }
 }

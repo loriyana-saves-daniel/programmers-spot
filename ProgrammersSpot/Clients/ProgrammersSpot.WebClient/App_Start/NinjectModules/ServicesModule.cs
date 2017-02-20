@@ -1,5 +1,6 @@
 ﻿using Ninject.Extensions.Conventions;
 using Ninject.Modules;
+using Ninject.Web.Common;
 
 namespace ProgrammersSpot.WebClient.App_Start.NinjectModules
 {
@@ -7,7 +8,11 @@ namespace ProgrammersSpot.WebClient.App_Start.NinjectModules
     {
         public override void Load()
         {
-            this.Bind(x => x.From("ProgrammersSpot.Business.Services").SelectAllClasses().BindDefaultInterface());
+            this.Bind(x =>
+                x.From("ProgrammersSpot.Business.Services")
+                .SelectAllClasses()
+                .BindDefaultInterface()
+                .Configure( c=> c.InRequestScope()));
         }
     }
 }

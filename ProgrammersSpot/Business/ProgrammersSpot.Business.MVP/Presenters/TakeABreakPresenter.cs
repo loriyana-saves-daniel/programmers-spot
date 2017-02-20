@@ -18,6 +18,8 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             this.uploadedImageService = uploadedImageService;
             view.EventGetImages += this.OnGetImages;
             view.EventSearchImages += this.OnSearchImages;
+            view.ImageLiked += this.OnImageLiked;
+            view.ImageDisliked += this.OnImageDisliked;
         }
 
         private void OnSearchImages(object sender, SearchEventArgs e)
@@ -28,6 +30,16 @@ namespace ProgrammersSpot.Business.MVP.Presenters
         private void OnGetImages(object sender, EventArgs e)
         {
             this.View.Model.UploadedImages = this.uploadedImageService.GetAllImages();
+        }
+
+        private void OnImageLiked(object sender, FormGetItemEventArgs e)
+        {
+            this.uploadedImageService.LikeImage(e.Id);
+        }
+
+        private void OnImageDisliked(object sender, FormGetItemEventArgs e)
+        {
+            this.uploadedImageService.DislikeImage(e.Id);
         }
     }
 }

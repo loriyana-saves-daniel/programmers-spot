@@ -49,6 +49,15 @@ namespace ProgrammersSpot.WebClient.TakeABreak {
         protected global::System.Web.UI.WebControls.CheckBox CheckBoxIsDescending;
         
         /// <summary>
+        /// LinkButtonUploadImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonUploadImage;
+        
+        /// <summary>
         /// ListViewImages control.
         /// </summary>
         /// <remarks>

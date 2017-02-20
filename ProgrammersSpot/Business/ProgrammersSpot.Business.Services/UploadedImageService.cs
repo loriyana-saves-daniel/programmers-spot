@@ -5,18 +5,22 @@ using System.Linq;
 using ProgrammersSport.Business.Models.UploadedImages;
 using ProgrammersSpot.Business.Data.Contracts;
 using Bytes2you.Validation;
+using ProgrammersSport.Business.Models.UploadedImageComments;
 
 namespace ProgrammersSpot.Business.Services
 {
     public class UploadedImageService : IUploadedImageService
     {
         private readonly IRepository<UploadedImage> repo;
+        private readonly IUnitOfWork uow;
 
-        public UploadedImageService(IRepository<UploadedImage> repo)
+        public UploadedImageService(IRepository<UploadedImage> repo, IUnitOfWork uow)
         {
             Guard.WhenArgument(repo, "uploadedImageRepo").IsNull().Throw();
+            Guard.WhenArgument(uow, "unitOfWork").IsNull().Throw();
 
             this.repo = repo;
+            this.uow = uow;
         }
 
         public IQueryable<UploadedImage> GetAllImages()
@@ -32,6 +36,30 @@ namespace ProgrammersSpot.Business.Services
         public UploadedImage GetImageById(int id)
         {
             return this.repo.GetById(id);
+        }
+
+        public void LikeImage(int id)
+        {
+            var image = this.repo.GetById(id);
+            image.LikesCount++;
+            this.repo.Update(image);
+            this.uow.SaveChanges();
+        }
+
+        public void DislikeImage(int id)
+        {
+            var image = this.repo.GetById(id);
+            image.DislikesCount++;
+            this.repo.Update(image);
+            this.uow.SaveChanges();
+        }
+
+        public void CommentImage(int imgId, string comment, string authorId)
+        {
+            var image = this.repo.GetById(imgId);
+            image.Comments.Add(new UploadedImageComment() { AuthorId = authorId, Content = comment });
+            this.repo.Update(image);
+            this.uow.SaveChanges();
         }
     }
 }

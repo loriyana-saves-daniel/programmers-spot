@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="break">
-        <div class="search-and-sort">
+        <asp:Panel runat="server" DefaultButton="LinkButtonSearch" class="search-and-sort">
             <asp:TextBox runat="server" ID="TextBoxSearch" type="text" name="imgTitle" CssClass="search-input" class="search-query" placeholder="Search by image title"></asp:TextBox>
             <asp:LinkButton runat="server" ID="LinkButtonSearch" OnClick="LinkButtonSearch_Click" CssClass="button btn-search special" Text="Search"></asp:LinkButton>
             <asp:Label runat="server" Text="Sort by: " />
@@ -11,7 +11,8 @@
                 <asp:ListItem Text="Likes" Value="LikesCount" />
             </asp:DropDownList>
             <asp:CheckBox runat="server" ID="CheckBoxIsDescending" AutoPostBack="true" Checked="true" Text=" Descending" />
-        </div>
+            <asp:LinkButton runat="server" ID="LinkButtonUploadImage" OnClick="LinkButtonUploadImage_Click" CssClass="button btn-primary" Text="Upload an image!"></asp:LinkButton>
+        </asp:Panel>
         <div class="funImages">
             <asp:ListView runat="server" ID="ListViewImages"
                 ItemType="ProgrammersSport.Business.Models.UploadedImages.UploadedImage" SelectMethod="ListViewImages_GetData"
@@ -20,7 +21,7 @@
                     <asp:PlaceHolder ID="groupPlaceholder" runat="server" />
                     <asp:DataPager runat="server" ID="DataPager" PagedControlID="ListViewImages" PageSize="12">
                         <Fields>
-                            <asp:NumericPagerField ButtonCount="10"
+                            <asp:NumericPagerField ButtonCount="10" CurrentPageLabelCssClass="" NumericButtonCssClass="paging-numeric-btn"
                                 PreviousPageText="<--"
                                 NextPageText="-->" />
                         </Fields>
@@ -36,8 +37,8 @@
                 <ItemTemplate>
                     <div class="col-md-3 image" style="background-image: url('<%# Item.Src %>')">
                         <asp:Button runat="server" PostBackUrl='<%# string.Format("~/TakeABreak/ImageDetails.aspx?id={0}", Item.Id) %>' />
-                        <span class="likes"><%# Item.LikesCount %></span>
-                        <span class="dislikes"><%# Item.DislikesCount %></span>
+                        <asp:LinkButton runat="server" ID="LinkButtonLike" imgId="<%# Item.Id %>" OnClick="LinkButtonLike_Click" class="likes"><%# Item.LikesCount %></asp:LinkButton>
+                        <asp:LinkButton runat="server" ID="LinkButtonDislike" imgId="<%# Item.Id %>" OnClick="LinkButtonDislike_Click" class="dislikes"><%# Item.DislikesCount %></asp:LinkButton>
                     </div>
                 </ItemTemplate>
             </asp:ListView>

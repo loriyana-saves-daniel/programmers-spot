@@ -9,5 +9,7 @@ namespace ProgrammersSpot.Business.MVP.Views
     {
         event EventHandler<EventArgs> EventGetImages;
         event EventHandler<SearchEventArgs> EventSearchImages;
+        event EventHandler<FormGetItemEventArgs> ImageLiked;
+        event EventHandler<FormGetItemEventArgs> ImageDisliked;
     }
 }
