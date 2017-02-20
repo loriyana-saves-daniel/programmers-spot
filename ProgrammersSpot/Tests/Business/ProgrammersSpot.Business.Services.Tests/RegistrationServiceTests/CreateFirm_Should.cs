@@ -35,6 +35,7 @@ namespace ProgrammersSpot.Business.Services.Tests.RegistrationServiceTests
                 registrationService.CreateFirm(
                     firmToAdd.Object.Id,
                     firmToAdd.Object.FirmName,
+                    firmToAdd.Object.Email,
                     firmToAdd.Object.Country,
                     firmToAdd.Object.City,
                     firmToAdd.Object.Address
@@ -65,11 +66,13 @@ namespace ProgrammersSpot.Business.Services.Tests.RegistrationServiceTests
             firmToAdd.Setup(firm => firm.Country).Returns(new Country());
             firmToAdd.Setup(firm => firm.City).Returns(new City());
             firmToAdd.Setup(firm => firm.Address).Returns("Al. Malinov");
+            firmToAdd.Setup(firm => firm.Email).Returns("telerik.com");
 
             //Act
             registrationService.CreateFirm(
                 firmToAdd.Object.Id,
                 firmToAdd.Object.FirmName,
+                firmToAdd.Object.Email,
                 firmToAdd.Object.Country,
                 firmToAdd.Object.City,
                 firmToAdd.Object.Address

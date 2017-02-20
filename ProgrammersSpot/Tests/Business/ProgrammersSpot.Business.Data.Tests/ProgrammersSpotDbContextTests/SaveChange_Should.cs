@@ -24,11 +24,12 @@ namespace ProgrammersSpot.Business.Data.Tests.ProgrammersSpotDbContextTests
             var firmId = "3238726382683t33t276";
             var firmName = "Telerik";
             var firmAddress = "Sofia, Al.Malinov";
+            var firmEmail = "telerik.com";
             var mockedCountry = new Mock<Country>();
             var mockedCity = new Mock<City>();
 
             // Act            
-            registrationService.CreateFirm(firmId, firmName, mockedCountry.Object, mockedCity.Object, firmAddress);
+            registrationService.CreateFirm(firmId, firmName, firmEmail, mockedCountry.Object, mockedCity.Object, firmAddress);
 
             // Assert
             mockedUnitOfWork.Verify(x => x.SaveChanges(), Times.Once);
