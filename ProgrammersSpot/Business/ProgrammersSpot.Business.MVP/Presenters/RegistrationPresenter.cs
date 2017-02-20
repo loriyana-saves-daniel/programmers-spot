@@ -1,6 +1,7 @@
 ﻿using Bytes2you.Validation;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using ProgrammersSpot.Business.Identity;
 using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.MVP.Args;
@@ -16,7 +17,9 @@ namespace ProgrammersSpot.Business.MVP.Presenters
         private readonly IRegistrationService registrationService;
         private readonly ILocationService locationService;
 
-        public RegistrationPresenter(IRegistrationView view, IRegistrationService registrationService,
+        public RegistrationPresenter(
+            IRegistrationView view, 
+            IRegistrationService registrationService,
             ILocationService locationService)
             : base(view)
         {

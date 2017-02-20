@@ -9,17 +9,39 @@
             <hr />
             <asp:ValidationSummary runat="server" ShowModelStateErrors="true" CssClass="text-danger" />
             <p class="text-info">
-                You've authenticated with <strong><%: ProviderName %></strong>. Please enter an email below for the current site
+                You've authenticated with <strong><%: ProviderName %></strong>. Please enter the required infprmation below for the current site
                 and click the Log in button.
             </p>
-
+            
             <div class="form-group">
-                <asp:Label runat="server" AssociatedControlID="email" CssClass="col-md-2 control-label">Email</asp:Label>
+                <asp:Label runat="server" AssociatedControlID="FirstName" CssClass="col-md-2 control-label">First name</asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox runat="server" ID="email" CssClass="form-control" TextMode="Email" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="email"
+                    <asp:TextBox runat="server" ID="FirstName" CssClass="form-control" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName"
+                        CssClass="text-danger" Display="Dynamic" ErrorMessage="The first name field is required." />
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="FirstName"
+                        ValidationExpression="[a-zA-Z]{2,20}" CssClass="text-danger"  Display="Dynamic"
+                        ErrorMessage="The first name must be between 2 and 20 sybmols."/>          
+                </div>
+            </div>
+            <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="LastName" CssClass="col-md-2 control-label">Last name</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox runat="server" ID="LastName" CssClass="form-control" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="LastName" 
+                        CssClass="text-danger" Display="Dynamic" ErrorMessage="The last name field is required." />
+                    <asp:RegularExpressionValidator runat="server" ControlToValidate="LastName" 
+                        ValidationExpression="[a-zA-Z]{2,20}" CssClass="text-danger" Display="Dynamic"
+                        ErrorMessage="The last name must be between 2 and 20 sybmols." />
+                </div>
+            </div>
+            <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                         Display="Dynamic" CssClass="text-danger" ErrorMessage="Email is required" />
-                    <asp:ModelErrorMessage runat="server" ModelStateKey="email" CssClass="text-error" />
+                    <asp:ModelErrorMessage runat="server" ModelStateKey="Email" CssClass="text-error" />
                 </div>
             </div>
 

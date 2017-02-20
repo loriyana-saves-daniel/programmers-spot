@@ -63,7 +63,6 @@
 						<h2>Get in touch</h2>
 						<p>We are always open for new ideas</p>
 					</header>
-					<form action="#" method="POST">
 						<div class="container 75%">
 							<div class="row uniform 50%">
 								<div class="6u 12u$(xsmall)">
@@ -81,7 +80,6 @@
 							<li><input type="submit" class="special" value="Submit" /></li>
 							<li><input type="reset" class="alt" value="Reset" /></li>
 						</ul>
-					</form>
 				</div>
 			</section>
 </asp:Content>
