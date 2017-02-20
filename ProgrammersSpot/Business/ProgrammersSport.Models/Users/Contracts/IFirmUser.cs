@@ -10,6 +10,10 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
 
         string FirmName { get; set; }
 
+        string Email { get; set; }
+
+        string AvatarUrl { get; set; }
+
         Country Country { get; set; }
 
         City City { get; set; }

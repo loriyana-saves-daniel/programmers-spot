@@ -13,6 +13,14 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
 
         string LastName { get; set; }
 
+        string Email { get; set; }
+
+        string AvatarUrl { get; set; }
+
+        string FacebookProfile { get; set; }
+
+        string GitHubProfile { get; set; }
+
         int Age { get; set; }
 
         string JobTitle { get; set; }

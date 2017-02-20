@@ -34,10 +34,11 @@ namespace ProgrammersSpot.Business.Services
             return this.userRolesRepo.All();        
         }
 
-        public void CreateFirm(string firmId, string firmName, Country country, City city, string address)
+        public void CreateFirm(string firmId, string firmName, string email, Country country, City city, string address)
         {
             Guard.WhenArgument(firmId, "firmId").IsNullOrEmpty().Throw();
             Guard.WhenArgument(firmName, "firmName").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(email, "email").IsNullOrEmpty().Throw();
             Guard.WhenArgument(country, "country").IsNull().Throw();
             Guard.WhenArgument(city, "city").IsNull().Throw();
             Guard.WhenArgument(address, "address").IsNullOrEmpty().Throw();
@@ -49,6 +50,7 @@ namespace ProgrammersSpot.Business.Services
                     Id = firmId,
                     Country = country,
                     FirmName = firmName,
+                    Email = email,
                     City = city,
                     Address = address
                 });
@@ -57,11 +59,12 @@ namespace ProgrammersSpot.Business.Services
             }
         }
 
-        public void CreateRegularUser(string userId, string firstName, string lastName)
+        public void CreateRegularUser(string userId, string firstName, string lastName, string email)
         {
             Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
             Guard.WhenArgument(firstName, "firstName").IsNullOrEmpty().Throw();
             Guard.WhenArgument(lastName, "lastName").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(email, "email").IsNullOrEmpty().Throw();
 
             using (var uow = this.unitOfWork)
             {
@@ -69,7 +72,8 @@ namespace ProgrammersSpot.Business.Services
                 {
                     Id = userId,
                     FirstName = firstName,
-                    LastName = lastName
+                    LastName = lastName,
+                    Email = email
                 });
 
                 uow.SaveChanges();

@@ -53,13 +53,13 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 
             if (e.UserType == "User")
             {
-                this.registrationService.CreateRegularUser(user.Id, e.FirstName, e.LastName);
+                this.registrationService.CreateRegularUser(user.Id, e.FirstName, e.LastName, e.Email);
             }
             else if (e.UserType == "Firm")
             {
                 var country = this.locationService.GetCountryByName(e.Country);
                 var city = this.locationService.GetCityByName(e.City);
-                this.registrationService.CreateFirm(user.Id, e.FirmName, country, city, e.Address);
+                this.registrationService.CreateFirm(user.Id, e.FirmName, e.Email, country, city, e.Address);
             }
 
             signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);

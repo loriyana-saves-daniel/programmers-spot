@@ -6,6 +6,10 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
     {
         string Id { get; set; }
 
+        string Email { get; set; }
+
+        string AvatarUrl { get; set; }
+
         User User { get; set; }
 
         bool IsDeleted { get; set; }

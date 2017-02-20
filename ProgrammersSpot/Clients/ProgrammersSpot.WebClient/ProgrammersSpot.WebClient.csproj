@@ -216,11 +216,13 @@
     <Content Include="Content\Images\Home\developers.jpg" />
     <Content Include="Content\Images\Home\banner.jpg" />
     <Content Include="Content\Images\Home\overlay.png" />
+    <Content Include="Content\Images\profile.png" />
     <Content Include="Content\Images\sign-in-with-facebook.png" />
     <Content Include="Content\Images\sign-in-with-google.png" />
     <Content Include="Content\Images\sign-in-with-twitter.png" />
     <Content Include="Content\login.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\profile.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\takeabreak.css" />
     <Content Include="ErrorPages\400.html" />

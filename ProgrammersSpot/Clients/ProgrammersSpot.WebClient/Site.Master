@@ -65,7 +65,7 @@
                             </AnonymousTemplate>
                             <LoggedInTemplate>
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a runat="server" href="~/Account/Manage" title="Manage your account">Profile</a></li>
+                                    <li><a runat="server" href="~/Account/Profile" title="My Profile">Profile</a></li>
                                     <li>
                                         <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                     </li>

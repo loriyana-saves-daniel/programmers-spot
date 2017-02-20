@@ -27,6 +27,15 @@ namespace ProgrammersSpot.WebClient.Account
                 {
                     var eventArgs = new FindRegularUserEventArgs(this.User.Identity.GetUserId());
                     this.FindRegularUser(this, eventArgs);
+
+                    if (string.IsNullOrEmpty(this.Model.FoundRegularUser.AvatarUrl))
+                    {
+                        this.Model.ProfileImage = "../Content/Images/profile.png";
+                    }
+                    else
+                    {
+                        this.Model.ProfileImage = this.Model.FoundRegularUser.AvatarUrl;
+                    }
                 }
             }
         }

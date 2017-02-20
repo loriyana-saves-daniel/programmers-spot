@@ -17,6 +17,10 @@ namespace ProgrammersSpot.Business.Models.Users
         [Key, ForeignKey("User")]
         public string Id { get; set; }
 
+        public string Email { get; set; }
+
+        public string AvatarUrl { get; set; }
+
         public virtual User User { get; set; }
 
         public bool IsDeleted { get; set; }

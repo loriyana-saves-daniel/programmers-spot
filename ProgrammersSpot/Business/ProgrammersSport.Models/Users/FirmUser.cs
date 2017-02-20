@@ -22,6 +22,10 @@ namespace ProgrammersSpot.Business.Models.Users
 
         public string FirmName { get; set; }
 
+        public string Email { get; set; }
+
+        public string AvatarUrl { get; set; }
+
         public virtual User User { get; set; }
 
         public int CountryId { get; set; }

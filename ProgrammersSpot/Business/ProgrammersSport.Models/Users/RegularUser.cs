@@ -43,6 +43,14 @@ namespace ProgrammersSpot.Business.Models.Users
         [MaxLength(Constants.NameMaxLength)]
         public string LastName { get; set; }
 
+        public string Email { get; set; }
+
+        public string AvatarUrl { get; set; }
+
+        public string GitHubProfile { get; set; }
+
+        public string FacebookProfile { get; set; }
+
         public int Age { get; set; }
 
         public string JobTitle { get; set; }
