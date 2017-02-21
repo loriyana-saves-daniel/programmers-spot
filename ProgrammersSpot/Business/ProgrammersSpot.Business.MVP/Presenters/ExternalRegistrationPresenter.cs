@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bytes2you.Validation;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using ProgrammersSpot.Business.Identity;
+using ProgrammersSpot.Business.Models.Users;
+using ProgrammersSpot.Business.MVP.Args;
 using ProgrammersSpot.Business.MVP.Views;
 using ProgrammersSpot.Business.Services.Contracts;
 using WebFormsMvp;
-using Bytes2you.Validation;
-using ProgrammersSpot.Business.MVP.Args;
-using Microsoft.AspNet.Identity.Owin;
-using ProgrammersSpot.Business.Identity;
-using Microsoft.AspNet.Identity;
-using ProgrammersSpot.Business.Models.Users;
 
 namespace ProgrammersSpot.Business.MVP.Presenters
 {

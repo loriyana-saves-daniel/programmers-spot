@@ -1,10 +1,9 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using ProgrammersSpot.Business.Common;
 using ProgrammersSpot.Business.Models.Locations;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using ProgrammersSpot.Business.Common;
-using System.Collections.Generic;
 
 namespace ProgrammersSpot.Business.Models.Tests.LocationsTests
 {

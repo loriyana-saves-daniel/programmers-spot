@@ -1,7 +1,6 @@
 ﻿using Bytes2you.Validation;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 using ProgrammersSpot.Business.Identity;
 using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.MVP.Args;

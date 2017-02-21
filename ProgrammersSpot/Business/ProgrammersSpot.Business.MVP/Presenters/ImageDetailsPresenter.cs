@@ -1,14 +1,8 @@
 ﻿using Bytes2you.Validation;
-using ProgrammersSpot.Business.MVP.Views;
-using ProgrammersSpot.Business.Services;
-using ProgrammersSpot.Business.Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebFormsMvp;
 using ProgrammersSpot.Business.MVP.Args;
+using ProgrammersSpot.Business.MVP.Views;
+using ProgrammersSpot.Business.Services.Contracts;
+using WebFormsMvp;
 
 namespace ProgrammersSpot.Business.MVP.Presenters
 {

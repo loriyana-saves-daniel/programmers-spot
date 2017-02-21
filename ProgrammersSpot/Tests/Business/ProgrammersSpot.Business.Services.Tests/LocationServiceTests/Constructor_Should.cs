@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Moq;
 using NUnit.Framework;
-using Moq;
 using ProgrammersSpot.Business.Data.Contracts;
-using ProgrammersSpot.Business.Models.UserRoles;
-using ProgrammersSpot.Business.Models.Users;
-using ProgrammersSpot.Business.Models.Locations;
+using System;
 
 namespace ProgrammersSpot.Business.Services.Tests.LocationServiceTests
 {

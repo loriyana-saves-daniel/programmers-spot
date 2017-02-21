@@ -22,8 +22,8 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="comment">
-                            <h5> <%# Item.Content %> </h5>
-                            <p> Commented by: <a href="#"> <%# Item.Author != null ? Item.Author.FirstName + " " + Item.Author.LastName : "Anonymous" %> </a> </p>
+                            <h5 class="comment-content"> <%# Item.Content %> </h5>
+                            <p class="comment-author"> Commented by: <a href="#"> <%# Item.Author != null ? Item.Author.FirstName + " " + Item.Author.LastName : "Anonymous" %> </a> </p>
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>

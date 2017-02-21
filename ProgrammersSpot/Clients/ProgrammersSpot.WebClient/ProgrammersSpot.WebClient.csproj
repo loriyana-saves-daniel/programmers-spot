@@ -276,6 +276,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="TakeABreak\UploadImage.aspx" />
+    <Content Include="TakeABreak\UserUploadImage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -475,6 +476,13 @@
     </Compile>
     <Compile Include="TakeABreak\UploadImage.aspx.designer.cs">
       <DependentUpon>UploadImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TakeABreak\UserUploadImage.aspx.cs">
+      <DependentUpon>UserUploadImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TakeABreak\UserUploadImage.aspx.designer.cs">
+      <DependentUpon>UserUploadImage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

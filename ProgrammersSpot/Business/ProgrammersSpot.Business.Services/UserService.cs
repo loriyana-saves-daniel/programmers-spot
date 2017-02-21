@@ -1,7 +1,6 @@
 ﻿using Bytes2you.Validation;
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Models.Users;
-using ProgrammersSpot.Business.Models.Users.Contracts;
 using ProgrammersSpot.Business.Services.Contracts;
 using System.Collections.Generic;
 

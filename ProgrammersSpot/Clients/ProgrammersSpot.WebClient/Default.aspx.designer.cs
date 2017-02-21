@@ -7,9 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProgrammersSpot.WebClient {
-    
-    
+namespace ProgrammersSpot.WebClient
+{
+
+
     public partial class _Default {
     }
 }

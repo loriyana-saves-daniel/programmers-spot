@@ -5,7 +5,6 @@ using ProgrammersSpot.Business.MVP.ViewModels;
 using ProgrammersSpot.Business.MVP.Views;
 using System;
 using System.Linq;
-using System.Security.Policy;
 using System.Web;
 using System.Web.ModelBinding;
 using System.Web.UI;
@@ -75,11 +74,11 @@ namespace ProgrammersSpot.WebClient.TakeABreak
         {
             if (this.User.Identity.IsAuthenticated)
             {
-                Response.Redirect("~/TakeABreak/UploadImage");
+                Response.Redirect("~/TakeABreak/UserUploadImage");
             }
             else
             {
-                Response.Redirect(this.ResolveUrl(string.Format("~/Account/Login?ReturnUrl={0}", HttpUtility.UrlEncode("/TakeABreak/UploadImage"))));
+                Response.Redirect(this.ResolveUrl(string.Format("~/Account/Login?ReturnUrl={0}", HttpUtility.UrlEncode("/TakeABreak/UserUploadImage"))));
             }
         }
 

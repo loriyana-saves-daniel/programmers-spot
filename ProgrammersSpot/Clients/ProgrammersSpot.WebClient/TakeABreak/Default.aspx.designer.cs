@@ -7,9 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProgrammersSpot.WebClient.TakeABreak {
-    
-    
+namespace ProgrammersSpot.WebClient.TakeABreak
+{
+
+
     public partial class TakeABreak {
         
         /// <summary>

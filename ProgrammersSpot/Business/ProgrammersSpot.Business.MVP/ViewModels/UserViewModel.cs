@@ -1,5 +1,4 @@
 ﻿using ProgrammersSpot.Business.Models.Users.Contracts;
-using System.Collections.Generic;
 
 namespace ProgrammersSpot.Business.MVP.ViewModels
 {

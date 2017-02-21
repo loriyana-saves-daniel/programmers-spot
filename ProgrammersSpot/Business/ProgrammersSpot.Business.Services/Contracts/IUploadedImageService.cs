@@ -1,5 +1,5 @@
 ﻿using ProgrammersSport.Business.Models.UploadedImages;
-using System;
+using ProgrammersSpot.Business.Models.Users;
 using System.Linq;
 
 namespace ProgrammersSpot.Business.Services.Contracts
@@ -11,6 +11,8 @@ namespace ProgrammersSpot.Business.Services.Contracts
         IQueryable<UploadedImage> GetImagesWithTitle(string titleKeyword);
 
         UploadedImage GetImageById(int id);
+
+        void UploadImage(string ImgTitle, string ImgUrl, RegularUser uploader);
 
         void LikeImage(int id);
 

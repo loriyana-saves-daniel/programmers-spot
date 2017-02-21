@@ -1,16 +1,14 @@
 ﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ProgrammersSpot.Business.Identity;
-using ProgrammersSpot.Business.Models.Users;
+using ProgrammersSpot.Business.MVP.Args;
+using ProgrammersSpot.Business.MVP.Presenters;
 using ProgrammersSpot.Business.MVP.ViewModels;
 using ProgrammersSpot.Business.MVP.Views;
 using System;
 using System.Web;
-using WebFormsMvp.Web;
-using ProgrammersSpot.Business.MVP.Args;
 using WebFormsMvp;
-using ProgrammersSpot.Business.MVP.Presenters;
+using WebFormsMvp.Web;
 
 namespace ProgrammersSpot.WebClient.Account
 {

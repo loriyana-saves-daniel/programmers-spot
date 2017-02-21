@@ -1,11 +1,11 @@
-﻿using ProgrammersSpot.Business.Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Bytes2you.Validation;
+using ProgrammersSport.Business.Models.UploadedImageComments;
 using ProgrammersSport.Business.Models.UploadedImages;
 using ProgrammersSpot.Business.Data.Contracts;
-using Bytes2you.Validation;
-using ProgrammersSport.Business.Models.UploadedImageComments;
+using ProgrammersSpot.Business.Models.Users;
+using ProgrammersSpot.Business.Services.Contracts;
+using System;
+using System.Linq;
 
 namespace ProgrammersSpot.Business.Services
 {
@@ -59,6 +59,20 @@ namespace ProgrammersSpot.Business.Services
             var image = this.repo.GetById(imgId);
             image.Comments.Add(new UploadedImageComment() { AuthorId = authorId, Content = comment });
             this.repo.Update(image);
+            this.uow.SaveChanges();
+        }
+
+        public void UploadImage(string ImgTitle, string ImgUrl, RegularUser uploader)
+        {
+            var image = new UploadedImage()
+            {
+                Title = ImgTitle,
+                Src = ImgUrl,
+                DateUploaded = DateTime.Now,
+                IsDeleted = false
+            };
+
+            uploader.UploadedImages.Add(image);
             this.uow.SaveChanges();
         }
     }

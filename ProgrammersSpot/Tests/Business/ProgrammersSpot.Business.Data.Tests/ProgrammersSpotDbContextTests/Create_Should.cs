@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using ProgrammersSpot.Business.Data.Contracts;
 
 namespace ProgrammersSpot.Business.Data.Tests.ProgrammersSpotDbContextTests

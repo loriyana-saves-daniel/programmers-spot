@@ -3,7 +3,6 @@ using ProgrammersSpot.Business.Common;
 using ProgrammersSpot.Business.Models.Users;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProgrammersSport.Business.Models.UploadedImageComments
 {
