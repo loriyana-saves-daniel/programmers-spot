@@ -61,12 +61,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IFirmService.cs" />
     <Compile Include="Contracts\ILocationService.cs" />
     <Compile Include="Contracts\IProjectService.cs" />
     <Compile Include="Contracts\IRegistrationService.cs" />
     <Compile Include="Contracts\ISkillService.cs" />
     <Compile Include="Contracts\IUploadedImageService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
+    <Compile Include="FirmService.cs" />
     <Compile Include="LocationService.cs" />
     <Compile Include="ProjectService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

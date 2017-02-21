@@ -9,23 +9,45 @@ namespace ProgrammersSpot.Business.MVP.Presenters
     public class ManageUserProfilePresenter : Presenter<IManageUserProfileView>
     {
         private readonly IUserService userService;
+        private readonly IFirmService firmService;
         private readonly ISkillService skillService;
         private readonly IProjectService projectService;
 
-        public ManageUserProfilePresenter(IManageUserProfileView view, ISkillService skillService,
-            IProjectService projectService, IUserService userService) : base(view)
+        public ManageUserProfilePresenter(IManageUserProfileView view, IFirmService firmService,
+            ISkillService skillService, IProjectService projectService, IUserService userService) : base(view)
         {
             Guard.WhenArgument(userService, "userService").IsNull().Throw();
+            Guard.WhenArgument(firmService, "firmService").IsNull().Throw();
             Guard.WhenArgument(skillService, "skillService").IsNull().Throw();
             Guard.WhenArgument(projectService, "projectService").IsNull().Throw();
 
             this.userService = userService;
+            this.firmService = firmService;
             this.skillService = skillService;
             this.projectService = projectService;
 
             this.View.AddSkill += AddSkill;
             this.View.AddProject += AddProject;
             this.View.UpdateUserInfo += UpdateUserInfo;
+            this.View.UpdateFirmInfo += UpdateFirmInfo;
+        }
+
+        private void UpdateFirmInfo(object sender, EditFirmInfoEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(e.Address))
+            {
+                this.firmService.UpdateFirmUserAddress(e.FirmId, e.Address);
+            }
+
+            if (!string.IsNullOrWhiteSpace(e.EmployeesCount))
+            {
+                this.firmService.UpdateFirmUserEmployeesCount(e.FirmId, int.Parse(e.EmployeesCount));
+            }
+
+            if (!string.IsNullOrWhiteSpace(e.Website))
+            {
+                this.firmService.UpdateFirmUserWebsite(e.FirmId, e.Website);
+            }
         }
 
         private void UpdateUserInfo(object sender, EditUserInfoEventArgs e)

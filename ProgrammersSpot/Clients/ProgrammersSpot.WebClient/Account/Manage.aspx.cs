@@ -28,6 +28,8 @@ namespace ProgrammersSpot.WebClient.Account
 
         public event EventHandler<EditUserInfoEventArgs> UpdateUserInfo;
 
+        public event EventHandler<EditFirmInfoEventArgs> UpdateFirmInfo;
+
         private bool HasPassword(ApplicationUserManager manager)
         {
             return manager.HasPassword(User.Identity.GetUserId());
@@ -87,8 +89,12 @@ namespace ProgrammersSpot.WebClient.Account
                 UserId = this.User.Identity.GetUserId()
             };
 
-            this.UpdateUserInfo(this, eventArgs);
-            Response.Redirect("Profile");
+            if (this.User.IsInRole("User"))
+            {
+                this.UpdateUserInfo(this, eventArgs);
+                Response.Redirect("Profile");
+            }
+
         }
 
         protected void AddSkill_Click(object sender, EventArgs e)
@@ -117,6 +123,24 @@ namespace ProgrammersSpot.WebClient.Account
             };
 
             this.AddProject(this, eventArgs);
+            Response.Redirect("Profile");
+        }
+
+        protected void UpdateCompany_Click(object sender, EventArgs e)
+        {
+            var addressTextBox = this.LoginView.FindControl("Address") as TextBox;
+            var employeesCountTextBox = this.LoginView.FindControl("EmployeesCount") as TextBox;
+            var websiteTextBox = this.LoginView.FindControl("Website") as TextBox;
+
+            var eventArgs = new EditFirmInfoEventArgs()
+            {
+                Address = addressTextBox.Text,
+                EmployeesCount = employeesCountTextBox.Text,
+                Website = websiteTextBox.Text,
+                FirmId = this.User.Identity.GetUserId()
+            };
+
+            this.UpdateFirmInfo(this, eventArgs);
             Response.Redirect("Profile");
         }
     }

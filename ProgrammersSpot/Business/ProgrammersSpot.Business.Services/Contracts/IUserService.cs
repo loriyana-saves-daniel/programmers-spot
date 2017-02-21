@@ -9,10 +9,6 @@ namespace ProgrammersSpot.Business.Services.Contracts
     {
         IEnumerable<RegularUser> GetAllRegularUsers();
 
-        IEnumerable<FirmUser> GetAllFirmUsers();
-
-        FirmUser GetFirmUserById(string id);
-
         RegularUser GetRegularUserById(string id);
 
         void AddSkillToRegularUser(string userId, Skill skill);

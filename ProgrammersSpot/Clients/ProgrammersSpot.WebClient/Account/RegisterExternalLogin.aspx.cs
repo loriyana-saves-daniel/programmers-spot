@@ -75,7 +75,12 @@ namespace ProgrammersSpot.WebClient.Account
                         return;
                     }
 
-                    var socialEventArgs = new SocialLoginEventArgs() { UserId = this.User.Identity.GetUserId(), UserLoginInfo = verifiedloginInfo.Login };
+                    var socialEventArgs = new SocialLoginEventArgs()
+                    {
+                        OwinCtx = this.Context.GetOwinContext(),
+                        UserId = this.User.Identity.GetUserId(),
+                        UserLoginInfo = verifiedloginInfo.Login
+                    };
                     this.EventAddSocialLogin(this, socialEventArgs);
                     
                     if (this.Model.Result.Succeeded)
@@ -121,7 +126,13 @@ namespace ProgrammersSpot.WebClient.Account
                     return;
                 }
 
-                var socialEventArgs = new SocialLoginEventArgs() { UserId = this.Model.User.Id, UserLoginInfo = loginInfo.Login };
+                var socialEventArgs = new SocialLoginEventArgs()
+                {
+                    OwinCtx = this.Context.GetOwinContext(),
+                    UserId = this.Model.User.Id,
+                    UserLoginInfo = loginInfo.Login
+                };
+
                 this.EventAddSocialLogin(this, socialEventArgs);
                 if (this.Model.Result.Succeeded)
                 {

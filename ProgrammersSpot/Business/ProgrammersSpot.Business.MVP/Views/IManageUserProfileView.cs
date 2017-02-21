@@ -12,5 +12,7 @@ namespace ProgrammersSpot.Business.MVP.Views
         event EventHandler<ManageUserProfileEventArgs> AddProject;
 
         event EventHandler<EditUserInfoEventArgs> UpdateUserInfo;
+
+        event EventHandler<EditFirmInfoEventArgs> UpdateFirmInfo;
     }
 }

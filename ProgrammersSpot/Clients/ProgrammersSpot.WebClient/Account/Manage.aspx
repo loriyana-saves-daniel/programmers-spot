@@ -17,8 +17,9 @@
                                         <asp:Label runat="server" AssociatedControlID="Age" CssClass="col-md-2 control-label">Age</asp:Label>
                                         <div class="col-md-10">
                                             <asp:TextBox runat="server" ID="Age" CssClass="form-control" />
-                                            <asp:RangeValidator runat="server" ControlToValidate="Age" Type="Integer" 
-                                                MinimumValue="16" MaximumValue="100" Display="Dynamic" ErrorMessage="Invalid age."></asp:RangeValidator>         
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="JobTitle" 
+                                                ValidationExpression="[0-9]{2,3}" CssClass="text-danger" Display="Dynamic"
+                                                ErrorMessage="Invalid age!" />
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -26,7 +27,7 @@
                                         <div class="col-md-10">
                                             <asp:TextBox runat="server" ID="JobTitle" CssClass="form-control" />
                                             <asp:RegularExpressionValidator runat="server" ControlToValidate="JobTitle" 
-                                                ValidationExpression="[a-zA-Z1-9]{2,20}" CssClass="text-danger" Display="Dynamic"
+                                                ValidationExpression="[a-zA-Z0-9]{2,20}" CssClass="text-danger" Display="Dynamic"
                                                 ErrorMessage="The job title must be between 2 and 20 sybmols." />
                                         </div>
                                     </div>
@@ -98,8 +99,7 @@
                                         <div class="col-md-offset-2 col-md-10">
                                             <asp:Button runat="server" OnClick="AddProject_Click" Text="Add Project" CssClass="btn btn-default special" />
                                         </div>
-                                    </div>
-                                
+                                    </div>                     
                                 </section>
                             </div>
                         </div>               
@@ -107,22 +107,54 @@
                 </asp:RoleGroup>
 
                 <asp:RoleGroup Roles="Firm">
-                    <ContentTemplate>
-                        FIRM
+                        <ContentTemplate>
+                        <div>
+                            <div class="form-horizontal">
+                                <h2>Edit your company information</h2>
+                                <hr />
+                                <div runat="server" ID="FirmUserEditProfileForm" visible="true">
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="Address" CssClass="col-md-2 control-label">Address</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="Address" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Address" 
+                                                ValidationExpression="[\s\S]{4,20}"
+                                                CssClass="text-danger" Display="Dynamic" ErrorMessage="Address must be between 4 and 20 symbols." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="EmployeesCount" CssClass="col-md-2 control-label">Employees count</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="EmployeesCount" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="EmployeesCount" 
+                                                ValidationExpression="[0-9]{1,5}" CssClass="text-danger" Display="Dynamic"
+                                                ErrorMessage="Invalid count!" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="Website" CssClass="col-md-2 control-label">Website</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="Website" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Website" 
+                                                ValidationExpression="[\s\S]{2,40}"
+                                                CssClass="text-danger" Display="Dynamic" ErrorMessage="Invalid website!" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <asp:Button runat="server" OnClick="UpdateCompany_Click" Text="Update company info" CssClass="btn btn-default special" />
+                                            <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="Change" Visible="false" ID="ChangePassword" runat="server" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </ContentTemplate>
                 </asp:RoleGroup>
-
-                <asp:RoleGroup Roles="Admin">
-                    <ContentTemplate>
-                        Admin
-                    </ContentTemplate>
-                </asp:RoleGroup>
-            </RoleGroups>
-        
+            </RoleGroups>     
         </asp:LoginView>
     </div>
     
-
     <div class="row change-password">
         <div class="col-md-12">
             <div class="form-horizontal">

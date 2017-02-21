@@ -23,7 +23,7 @@ namespace ProgrammersSpot.WebClient.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (true)
             {
                 if (this.User.IsInRole("User"))
                 {
@@ -51,7 +51,6 @@ namespace ProgrammersSpot.WebClient.Account
 
                     projects.DataBind();
                 }
-
                 else if (this.User.IsInRole("Firm"))
                 {
                     var eventArgs = new FindUserEventArgs(this.User.Identity.GetUserId());

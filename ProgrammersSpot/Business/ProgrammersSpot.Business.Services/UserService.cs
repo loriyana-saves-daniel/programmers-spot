@@ -11,18 +11,14 @@ namespace ProgrammersSpot.Business.Services
     public class UserService : IUserService
     {
         private readonly IRepository<RegularUser> usersRepo;
-        private readonly IRepository<FirmUser> firmsRepo;
         private readonly IUnitOfWork unitOfWork;
 
-        public UserService(IRepository<RegularUser> usersRepo, IRepository<FirmUser> firmsRepo, 
-            IUnitOfWork unitOfWork)
+        public UserService(IRepository<RegularUser> usersRepo, IUnitOfWork unitOfWork)
         {
             Guard.WhenArgument(usersRepo, "usersRepo").IsNull().Throw();
-            Guard.WhenArgument(firmsRepo, "firmsRepo").IsNull().Throw();
             Guard.WhenArgument(unitOfWork, "unitOfWork").IsNull().Throw();
 
             this.usersRepo = usersRepo;
-            this.firmsRepo = firmsRepo;
             this.unitOfWork = unitOfWork;
         }
 
@@ -31,19 +27,9 @@ namespace ProgrammersSpot.Business.Services
             return this.usersRepo.All();
         }
 
-        public IEnumerable<FirmUser> GetAllFirmUsers()
-        {
-            return this.firmsRepo.All();
-        }
-
         public RegularUser GetRegularUserById(string id)
         {
             return this.usersRepo.GetById(id);
-        }
-
-        public FirmUser GetFirmUserById(string id)
-        {
-            return this.firmsRepo.GetById(id);
         }
 
         public void UpdateRegularUserAge(string id, int age)
