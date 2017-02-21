@@ -27,6 +27,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
         {
             Guard.WhenArgument(userService, "userService").IsNull().Throw();
             Guard.WhenArgument(firmService, "firmService").IsNull().Throw();
+            Guard.WhenArgument(imgProcessorService, "imageProcessorService").IsNull().Throw();
             Guard.WhenArgument(fileSaverService, "fileSaverService").IsNull().Throw();
             
             this.userService = userService;

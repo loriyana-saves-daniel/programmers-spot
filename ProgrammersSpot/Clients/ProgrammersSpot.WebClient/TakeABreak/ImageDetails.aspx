@@ -11,7 +11,7 @@
             </header>
             <asp:Image CssClass="uploaded-image" runat="server" ImageUrl="<%# Item.OriginalSrc %>" />
             <p class="likes-dislikes">
-                <span class="left">Uploaded by: <a href="#"><%# Item.Uploader.FirstName + " " + Item.Uploader.LastName %></a> </span>
+                <span class="left">Uploaded by: <a href="#"><%#: Item.Uploader.FirstName + " " + Item.Uploader.LastName %></a> </span>
                 <asp:LinkButton runat="server" ID="LinkButtonLike" imgId="<%# Item.Id %>" OnClick="LinkButtonLike_Click" class="likes"><%# Item.LikesCount %></asp:LinkButton>
                 <asp:LinkButton runat="server" ID="LinkButtonDislike" imgId="<%# Item.Id %>" OnClick="LinkButtonDislike_Click" class="dislikes"><%# Item.DislikesCount %></asp:LinkButton>
                 <asp:HyperLink CssClass="right" runat="server" NavigateUrl="~/TakeABreak">Browse more images</asp:HyperLink>
@@ -19,7 +19,8 @@
             <footer>
                 <asp:Repeater runat="server" ItemType="ProgrammersSpot.Business.Models.UploadedImageComments.UploadedImageComment" DataSource="<%# Item.Comments %>">
                     <HeaderTemplate>
-                        <h1>Comments:</h1>
+                        <h1><%# Item == null ? "No comments"  : "Comments"%></h1>
+                        <h5 class="comment-content">  </h5>
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="comment">

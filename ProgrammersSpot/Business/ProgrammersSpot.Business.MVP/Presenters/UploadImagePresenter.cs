@@ -26,7 +26,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             : base(view)
         {
             Guard.WhenArgument(imageService, "uploadedImageService").IsNull().Throw();
-            Guard.WhenArgument(imageProcessorService, "imageProcessorService").IsNull().Throw();
+            Guard.WhenArgument(imgProcessorService, "imageProcessorService").IsNull().Throw();
             Guard.WhenArgument(userService, "userService").IsNull().Throw();
             Guard.WhenArgument(fileSaverService, "fileSaverService").IsNull().Throw();
 
