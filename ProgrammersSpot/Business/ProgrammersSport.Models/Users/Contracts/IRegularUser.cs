@@ -25,6 +25,8 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
 
         string JobTitle { get; set; }
 
+        int StarsCount { get; set; }
+
         bool IsDeleted { get; set; }
 
         User User { get; set; }
