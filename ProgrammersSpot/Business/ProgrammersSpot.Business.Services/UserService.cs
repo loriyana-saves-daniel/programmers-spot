@@ -10,68 +10,87 @@ namespace ProgrammersSpot.Business.Services
 {
     public class UserService : IUserService
     {
-        private readonly IRepository<RegularUser> usersRepo;
+        private readonly IRepository<RegularUser> regularUsersRepo;
+        private readonly IRepository<User> usersRepo;
         private readonly IUnitOfWork unitOfWork;
 
-        public UserService(IRepository<RegularUser> usersRepo, IUnitOfWork unitOfWork)
+        public UserService(IRepository<RegularUser> regularUsersRepo, IRepository<User> usersRepo, IUnitOfWork unitOfWork)
         {
+            Guard.WhenArgument(regularUsersRepo, "regularUsersRepo").IsNull().Throw();
             Guard.WhenArgument(usersRepo, "usersRepo").IsNull().Throw();
             Guard.WhenArgument(unitOfWork, "unitOfWork").IsNull().Throw();
 
             this.usersRepo = usersRepo;
+            this.regularUsersRepo = regularUsersRepo;
             this.unitOfWork = unitOfWork;
         }
 
-        public IQueryable<RegularUser> GetAllRegularUsers()
-        {
-            return this.usersRepo.All();
-        }
-
-        public RegularUser GetRegularUserById(string id)
+        public User GetUserById(string id)
         {
             return this.usersRepo.GetById(id);
         }
 
+        public void UpdateRegularUserAvatarUrl(string id, string avatarUrl)
+        {
+            var user = this.regularUsersRepo.GetById(id);
+            user.AvatarUrl = avatarUrl;
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.regularUsersRepo.Update(user);
+                unitOfWork.SaveChanges();
+            }
+        }
+
+        public IQueryable<RegularUser> GetAllRegularUsers()
+        {
+            return this.regularUsersRepo.All();
+        }
+
+        public RegularUser GetRegularUserById(string id)
+        {
+            return this.regularUsersRepo.GetById(id);
+        }
+
         public void UpdateRegularUserAge(string id, int age)
         {
-            var user = this.usersRepo.GetById(id);
+            var user = this.regularUsersRepo.GetById(id);
             user.Age = age;
             using (var unitOfWork = this.unitOfWork)
             {
-                this.usersRepo.Update(user);
+                this.regularUsersRepo.Update(user);
                 unitOfWork.SaveChanges();
             }
         }
 
         public void UpdateRegularUserJobTitle(string id, string jobTitle)
         {
-            var user = this.usersRepo.GetById(id);
+            var user = this.regularUsersRepo.GetById(id);
             user.JobTitle = jobTitle;
             using (var unitOfWork = this.unitOfWork)
             {
-                this.usersRepo.Update(user);
+                this.regularUsersRepo.Update(user);
                 unitOfWork.SaveChanges();
             }
         }
 
         public void UpdateRegularUserFacebookProfile(string id, string facebook)
         {
-            var user = this.usersRepo.GetById(id);
+            var user = this.regularUsersRepo.GetById(id);
             user.FacebookProfile = facebook;
             using (var unitOfWork = this.unitOfWork)
             {
-                this.usersRepo.Update(user);
+                this.regularUsersRepo.Update(user);
                 unitOfWork.SaveChanges();
             }
         }
 
         public void UpdateRegularUserGitHubProfile(string id, string gitHub)
         {
-            var user = this.usersRepo.GetById(id);
+            var user = this.regularUsersRepo.GetById(id);
             user.GitHubProfile = gitHub;
             using (var unitOfWork = this.unitOfWork)
             {
-                this.usersRepo.Update(user);
+                this.regularUsersRepo.Update(user);
                 unitOfWork.SaveChanges();
             }
         }

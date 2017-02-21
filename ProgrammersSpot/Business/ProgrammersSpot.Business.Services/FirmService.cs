@@ -67,5 +67,16 @@ namespace ProgrammersSpot.Business.Services
                 unitOfWork.SaveChanges();
             }
         }
+
+        public void UpdateFirmUserAvatarUrl(string id, string avatarUrl)
+        {
+            var user = this.firmsRepo.GetById(id);
+            user.AvatarUrl = avatarUrl;
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.firmsRepo.Update(user);
+                unitOfWork.SaveChanges();
+            }
+        }
     }
 }

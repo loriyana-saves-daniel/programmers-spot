@@ -25,7 +25,8 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             IFileSaverService fileSaverService) 
             : base(view)
         {
-            Guard.WhenArgument(imageService, "imageProcessorService").IsNull().Throw();
+            Guard.WhenArgument(imageService, "uploadedImageService").IsNull().Throw();
+            Guard.WhenArgument(imageProcessorService, "imageProcessorService").IsNull().Throw();
             Guard.WhenArgument(userService, "userService").IsNull().Throw();
             Guard.WhenArgument(fileSaverService, "fileSaverService").IsNull().Throw();
 
@@ -49,14 +50,14 @@ namespace ProgrammersSpot.Business.MVP.Presenters
                 // processing image
                 var processedImgThumbnail = this.imageProcessorService.ProcessImage(
                     photoBytes, 
-                    Constants.TakeABrakeThumbnailImageSize, 
-                    Constants.TakeABrakeThumbnailImageSize, 
+                    Constants.ThumbnailImageSize, 
+                    Constants.ThumbnailImageSize, 
                     Path.GetExtension(fileName), 
                     Constants.ThumbnailImageQualityPercentage);
                 var processedImgOriginal = this.imageProcessorService.ProcessImage(
                     photoBytes,
-                    Constants.TakeABrakeOriginalImageSize,
-                    Constants.TakeABrakeOriginalImageSize,
+                    Constants.LargeImageSize,
+                    Constants.LargeImageSize,
                     Path.GetExtension(fileName),
                     Constants.OriginalImageQualityPercentage);
 
@@ -71,6 +72,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             {
                 this.View.Model.ErrorMessage = ex.Message;
                 this.View.Model.Succeeded = false;
+                return;
             }
             
             // saving image urls to db

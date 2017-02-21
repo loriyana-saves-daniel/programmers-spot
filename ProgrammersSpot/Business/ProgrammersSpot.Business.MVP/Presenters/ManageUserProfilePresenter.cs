@@ -30,6 +30,8 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             this.View.AddProject += AddProject;
             this.View.UpdateUserInfo += UpdateUserInfo;
             this.View.UpdateFirmInfo += UpdateFirmInfo;
+            this.View.UpdateUserAvatarUrl += OnUpdateUserAvatarUrl;
+            this.View.UpdateFirmAvatarUrl += OnUpdateFirmAvatarUrl;
         }
 
         private void UpdateFirmInfo(object sender, EditFirmInfoEventArgs e)
@@ -85,6 +87,16 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             var project = this.projectService.CreateProject(e.ProjectName, e.LinkToProject);
 
             this.userService.AddProjectToRegularUser(e.UserId, project);
+        }
+
+        private void OnUpdateUserAvatarUrl(object sender, UserUploadImageEventArgs e)
+        {
+            this.userService.UpdateRegularUserAvatarUrl(e.UploaderId, e.ImgUrl);
+        }
+
+        private void OnUpdateFirmAvatarUrl(object sender, UserUploadImageEventArgs e)
+        {
+            this.firmService.UpdateFirmUserAvatarUrl(e.UploaderId, e.ImgUrl);
         }
     }
 }

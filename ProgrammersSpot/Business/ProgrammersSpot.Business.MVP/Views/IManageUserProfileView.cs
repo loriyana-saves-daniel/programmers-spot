@@ -14,5 +14,9 @@ namespace ProgrammersSpot.Business.MVP.Views
         event EventHandler<EditUserInfoEventArgs> UpdateUserInfo;
 
         event EventHandler<EditFirmInfoEventArgs> UpdateFirmInfo;
+
+        event EventHandler<UserUploadImageEventArgs> UpdateUserAvatarUrl;
+
+        event EventHandler<UserUploadImageEventArgs> UpdateFirmAvatarUrl;
     }
-}
+}       

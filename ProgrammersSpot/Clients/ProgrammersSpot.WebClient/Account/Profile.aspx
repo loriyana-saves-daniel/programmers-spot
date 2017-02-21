@@ -26,36 +26,36 @@
                                 </div>
                             </div>       
                         </li>
-		                <li class="default open">
-			                <div class="link"><i class="fa fa-globe"></i>About</div>
-			                <ul class="submenu">
-				                <li>Age : <%: this.Model.FoundRegularUser.Age==0 ? "" : this.Model.FoundRegularUser.Age.ToString() %></li>
-				                <li>Email : <%: this.Model.FoundRegularUser.Email %></li>
-			                </ul>
-		                </li>
-		                <li class="default open">
-			                <div class="link"><i class="fa fa-code"></i>Professional Skills</div>
-			                <ul class="submenu">
-				                <li>
+                        <li class="default open">
+                            <div class="link"><i class="fa fa-globe"></i>About</div>
+                            <ul class="submenu">
+                                <li>Age : <%: this.Model.FoundRegularUser.Age==0 ? "" : this.Model.FoundRegularUser.Age.ToString() %></li>
+                                <li>Email : <%: this.Model.FoundRegularUser.Email %></li>
+                            </ul>
+                        </li>
+                        <li class="default open">
+                            <div class="link"><i class="fa fa-code"></i>Professional Skills</div>
+                            <ul class="submenu">
+                                <li>
                                     <asp:Repeater  runat="server" ID="Skills">
                                         <ItemTemplate>
                                             <span class="skill"><%# Eval("Name") %></span>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </li>
-		                    </ul>
+                            </ul>
                         </li>
                         <li class="default open">
-			                <div class="link"><i class="fa fa-file-code-o"></i>Projects</div>
-			                <ul class="submenu">
-				                <li>
+                            <div class="link"><i class="fa fa-file-code-o"></i>Projects</div>
+                            <ul class="submenu">
+                                <li>
                                     <asp:Repeater  runat="server" ID="Projects">
                                         <ItemTemplate>
                                             <a class="skill" href="<%# Eval("LinkToProject") %>"><%# Eval("Name") %></a>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </li>
-		                    </ul>
+                            </ul>
                         </li>
                     </ul>
                 </div>  
@@ -83,25 +83,25 @@
                                 </div>
                             </div>       
                         </li>
-		                <li class="default open">
-			                <div class="link"><i class="fa fa-globe"></i>About</div>
-			                <ul class="submenu">
-				                <li>Adress : <%: this.Model.FoundFirmUser.Address %></li>
-				                <li>Employees : <%: this.Model.FoundFirmUser.EmployeesCount %></li>
-			                </ul>
-		                </li>
-		             
                         <li class="default open">
-			                <div class="link"><i class="fa fa-file-code-o"></i>Reviews</div>
-			                <ul class="submenu">
-				                <li>
+                            <div class="link"><i class="fa fa-globe"></i>About</div>
+                            <ul class="submenu">
+                                <li>Adress : <%: this.Model.FoundFirmUser.Address %></li>
+                                <li>Employees : <%: this.Model.FoundFirmUser.EmployeesCount %></li>
+                            </ul>
+                        </li>
+                     
+                        <li class="default open">
+                            <div class="link"><i class="fa fa-file-code-o"></i>Reviews</div>
+                            <ul class="submenu">
+                                <li>
                                     <asp:Repeater  runat="server" ID="Reviews">
                                         <ItemTemplate>
                                             <a class="skill"><%# Eval("Content") %></a>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </li>
-		                    </ul>
+                            </ul>
                         </li>
                     </ul>
                 </div>  
