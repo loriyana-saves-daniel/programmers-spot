@@ -16,8 +16,8 @@
                                     <div class="form-group">
                                         <asp:Label runat="server" AssociatedControlID="Age" CssClass="col-md-2 control-label">Age</asp:Label>
                                         <div class="col-md-10">
-                                            <asp:TextBox runat="server" ID="Age" CssClass="form-control" />
-                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="JobTitle" 
+                                            <asp:TextBox runat="server" ID="Age" CssClass="form-control" ValidationGroup="Update" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="JobTitle" ValidationGroup="Update"
                                                 ValidationExpression="[0-9]{2,3}" CssClass="text-danger" Display="Dynamic"
                                                 ErrorMessage="Invalid age!" />
                                         </div>
@@ -25,8 +25,8 @@
                                     <div class="form-group">
                                         <asp:Label runat="server" AssociatedControlID="JobTitle" CssClass="col-md-2 control-label">Job Title</asp:Label>
                                         <div class="col-md-10">
-                                            <asp:TextBox runat="server" ID="JobTitle" CssClass="form-control" />
-                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="JobTitle" 
+                                            <asp:TextBox runat="server" ID="JobTitle" CssClass="form-control" ValidationGroup="Update" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="JobTitle" ValidationGroup="Update"
                                                 ValidationExpression="[a-zA-Z0-9]{2,20}" CssClass="text-danger" Display="Dynamic"
                                                 ErrorMessage="The job title must be between 2 and 20 sybmols." />
                                         </div>
@@ -34,8 +34,8 @@
                                     <div class="form-group">
                                         <asp:Label runat="server" AssociatedControlID="Facebook" CssClass="col-md-2 control-label">Facebook</asp:Label>
                                         <div class="col-md-10">
-                                            <asp:TextBox runat="server" ID="Facebook" CssClass="form-control" />
-                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Facebook" 
+                                            <asp:TextBox runat="server" ID="Facebook" CssClass="form-control" ValidationGroup="Update" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Facebook" ValidationGroup="Update"
                                                 ValidationExpression="[\s\S]{2,40}"
                                                 CssClass="text-danger" Display="Dynamic" ErrorMessage="Invalid facebook profile!" />
                                         </div>
@@ -43,15 +43,15 @@
                                     <div class="form-group">
                                         <asp:Label runat="server" AssociatedControlID="GitHub" CssClass="col-md-2 control-label">GitHub</asp:Label>
                                         <div class="col-md-10">
-                                            <asp:TextBox runat="server" ID="GitHub" CssClass="form-control" />
-                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="GitHub" 
+                                            <asp:TextBox runat="server" ID="GitHub" CssClass="form-control" ValidationGroup="Update" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="GitHub" ValidationGroup="Update"
                                                 ValidationExpression="[\s\S]{2,40}"
                                                 CssClass="text-danger" Display="Dynamic" ErrorMessage="Invalid facebook profile!" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <asp:Button runat="server" OnClick="Update_Click" Text="Update profile" CssClass="btn btn-default special" />
+                                            <asp:Button runat="server" CausesValidation="true" OnClick="Update_Click" ValidationGroup="Update" Text="Update profile" CssClass="btn btn-default special" />
                                             <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="Change" Visible="false" ID="ChangePassword" runat="server" />
                                         </div>
                                     </div>
@@ -65,15 +65,17 @@
                                     <div class="form-group">
                                         <asp:Label runat="server" AssociatedControlID="Skill" CssClass="col-md-2 control-label">Skill</asp:Label>
                                         <div class="col-md-10">
-                                            <asp:TextBox runat="server" ID="Skill" CssClass="form-control" />
+                                            <asp:TextBox runat="server" ID="Skill" CssClass="form-control" ValidationGroup="SkillValidation"/>
+                                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Skill" ValidationGroup="SkillValidation" 
+                                                CssClass="text-danger" Display="Dynamic" ErrorMessage="Skill is required!"></asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator runat="server" ControlToValidate="Skill" 
-                                                ValidationExpression="[a-zA-Z]{2,20}"
+                                                ValidationExpression="[/s/S]{2,20}" ValidationGroup="SkillValidation"
                                                 CssClass="text-danger" Display="Dynamic" ErrorMessage="Skill must be between 2 and 20 symbols." />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-offset-2 col-md-10">
-                                            <asp:Button runat="server" OnClick="AddSkill_Click" Text="Add Skill" CssClass="btn btn-default special" />
+                                            <asp:Button runat="server" OnClick="AddSkill_Click"  CausesValidation="true" ValidationGroup="SkillValidation" Text="Add Skill" CssClass="btn btn-default special" />
                                         </div>
                                     </div>
                                    <%-- Projects--%>

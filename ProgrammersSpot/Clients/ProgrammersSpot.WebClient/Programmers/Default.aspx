@@ -46,7 +46,9 @@
                     <div class="col-lg-3 doc-item">
 				        <div class="company animated">
 	                        <figure>
+                                <a href="<%# string.Format("../Account/Profile.aspx?id={0}", Item.Id) %>">            
 								    <img width="670" height="500" src="<%# Item.AvatarUrl %>" class="doc-img animate" alt="company"> 
+                                </a>
 							</figure>
 						    <div class="text-content">
 						        <h5><%# Item.FirstName + " " + Item.LastName %></h5>

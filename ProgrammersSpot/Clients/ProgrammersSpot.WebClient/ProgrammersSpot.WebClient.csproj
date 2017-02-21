@@ -244,6 +244,7 @@
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Programmers\Default.aspx" />
+    <Content Include="Programmers\ProgrammerDetails.aspx" />
     <Content Include="Scripts\my-scripts\user-upload-image.js" />
     <Content Include="TakeABreak\ImageDetails.aspx" />
     <Content Include="TakeABreak\Default.aspx" />
@@ -458,6 +459,13 @@
     </Compile>
     <Compile Include="Programmers\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Programmers\ProgrammerDetails.aspx.cs">
+      <DependentUpon>ProgrammerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Programmers\ProgrammerDetails.aspx.designer.cs">
+      <DependentUpon>ProgrammerDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="TakeABreak\ImageDetails.aspx.cs">
       <DependentUpon>ImageDetails.aspx</DependentUpon>
