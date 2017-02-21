@@ -79,72 +79,88 @@ namespace ProgrammersSpot.WebClient.Account
 
         protected void Update_Click(object sender, EventArgs e)
         {
-            var ageTextBox = this.LoginView.FindControl("Age") as TextBox;
-            var jobTitleTextBox = this.LoginView.FindControl("JobTitle") as TextBox;
-            var facebookTextBox = this.LoginView.FindControl("Facebook") as TextBox;
-            var githubTextBox = this.LoginView.FindControl("GitHub") as TextBox;
-
-            var eventArgs = new EditUserInfoEventArgs()
+            this.Page.Validate("Update");
+            if (this.Page.IsValid)
             {
-                Age = ageTextBox.Text,
-                JobTitle = jobTitleTextBox.Text,
-                FacebookProfile = facebookTextBox.Text,
-                GitHubProfile = githubTextBox.Text,
-                UserId = this.User.Identity.GetUserId()
-            };
+                var ageTextBox = this.LoginView.FindControl("Age") as TextBox;
+                var jobTitleTextBox = this.LoginView.FindControl("JobTitle") as TextBox;
+                var facebookTextBox = this.LoginView.FindControl("Facebook") as TextBox;
+                var githubTextBox = this.LoginView.FindControl("GitHub") as TextBox;
 
-            if (this.User.IsInRole("User"))
-            {
-                this.UpdateUserInfo(this, eventArgs);
-                Response.Redirect("Profile");
-            }
+                var eventArgs = new EditUserInfoEventArgs()
+                {
+                    Age = ageTextBox.Text,
+                    JobTitle = jobTitleTextBox.Text,
+                    FacebookProfile = facebookTextBox.Text,
+                    GitHubProfile = githubTextBox.Text,
+                    UserId = this.User.Identity.GetUserId()
+                };
+
+                if (this.User.IsInRole("User"))
+                {
+                    this.UpdateUserInfo(this, eventArgs);
+                    Response.Redirect("Profile");
+                }
+            }      
         }
 
         protected void AddSkill_Click(object sender, EventArgs e)
         {
-            var skillTextBox = this.LoginView.FindControl("Skill") as TextBox;
-            var eventArgs = new ManageUserProfileEventArgs()
+            this.Page.Validate("Skill");
+            if (Page.IsValid)
             {
-                SkillName = skillTextBox.Text,
-                UserId = this.User.Identity.GetUserId()
-            };
+                var skillTextBox = this.LoginView.FindControl("Skill") as TextBox;
+                var eventArgs = new ManageUserProfileEventArgs()
+                {
+                    SkillName = skillTextBox.Text,
+                    UserId = this.User.Identity.GetUserId()
+                };
 
-            this.AddSkill(this, eventArgs);
-            Response.Redirect("Profile");
+                this.AddSkill(this, eventArgs);
+                Response.Redirect("Profile");
+            }          
         }
 
         protected void AddProject_Click(object sender, EventArgs e)
         {
-            var projectNameTextBox = this.LoginView.FindControl("Project") as TextBox;
-            var projectLinkTextBox = this.LoginView.FindControl("LinkToProject") as TextBox;
-
-            var eventArgs = new ManageUserProfileEventArgs()
+            this.Page.Validate("Project");
+            if (Page.IsValid)
             {
-                ProjectName = projectNameTextBox.Text,
-                LinkToProject = projectLinkTextBox.Text,
-                UserId = this.User.Identity.GetUserId()
-            };
+                var projectNameTextBox = this.LoginView.FindControl("Project") as TextBox;
+                var projectLinkTextBox = this.LoginView.FindControl("LinkToProject") as TextBox;
 
-            this.AddProject(this, eventArgs);
-            Response.Redirect("Profile");
+                var eventArgs = new ManageUserProfileEventArgs()
+                {
+                    ProjectName = projectNameTextBox.Text,
+                    LinkToProject = projectLinkTextBox.Text,
+                    UserId = this.User.Identity.GetUserId()
+                };
+
+                this.AddProject(this, eventArgs);
+                Response.Redirect("Profile");
+            }
         }
 
         protected void UpdateCompany_Click(object sender, EventArgs e)
         {
-            var addressTextBox = this.LoginView.FindControl("Address") as TextBox;
-            var employeesCountTextBox = this.LoginView.FindControl("EmployeesCount") as TextBox;
-            var websiteTextBox = this.LoginView.FindControl("Website") as TextBox;
-
-            var eventArgs = new EditFirmInfoEventArgs()
+            this.Page.Validate("UpdateCompany");
+            if (Page.IsValid)
             {
-                Address = addressTextBox.Text,
-                EmployeesCount = employeesCountTextBox.Text,
-                Website = websiteTextBox.Text,
-                FirmId = this.User.Identity.GetUserId()
-            };
+                var addressTextBox = this.LoginView.FindControl("Address") as TextBox;
+                var employeesCountTextBox = this.LoginView.FindControl("EmployeesCount") as TextBox;
+                var websiteTextBox = this.LoginView.FindControl("Website") as TextBox;
 
-            this.UpdateFirmInfo(this, eventArgs);
-            Response.Redirect("Profile");
+                var eventArgs = new EditFirmInfoEventArgs()
+                {
+                    Address = addressTextBox.Text,
+                    EmployeesCount = employeesCountTextBox.Text,
+                    Website = websiteTextBox.Text,
+                    FirmId = this.User.Identity.GetUserId()
+                };
+
+                this.UpdateFirmInfo(this, eventArgs);
+                Response.Redirect("Profile");
+            }
         }
 
         protected void ButtonUpdateAvatarUrl_Click(object sender, EventArgs e)
