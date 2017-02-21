@@ -27,7 +27,7 @@ namespace ProgrammersSpot.Business.Common
         public const int MinCommentLength = 5;
         public const int MaxCommentLength = 500;
         
-        public const int TakeABrakeThumbnailImageSize = 10;
+        public const int TakeABrakeThumbnailImageSize = 500;
         public const int TakeABrakeOriginalImageSize = 1024;
 
         public const int ImageQualityPercentage = 90;
