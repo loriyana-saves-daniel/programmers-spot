@@ -2,8 +2,8 @@
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <link rel="stylesheet" href="../Content/Kendo/kendo.common.min.css" />
-    <link rel="stylesheet" href="../Content/Kendo/kendo.bootstrap.min.css" />
-    <link rel="stylesheet" href="../Content/Kendo/kendo.bootstrap.mobile.min.css" />
+    <link rel="stylesheet" href="../Content/Kendo/kendo.silver.min.css" />
+    <link rel="stylesheet" href="../Content/Kendo/kendo.silver.mobile.min.css" />
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">

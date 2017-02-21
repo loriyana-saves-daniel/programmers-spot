@@ -58,7 +58,7 @@ namespace ProgrammersSpot.WebClient.Account
             this.Response.ContentType = "application/json";
             if (!this.Model.Succeeded)
             {
-                this.Response.Write(string.Format("{'ErrorMsg' : '{0}'}", Business.Common.Constants.FailedUploadMessage));
+                this.Response.Write(string.Format("{{'ErrorMsg' : '{0}'}}", Business.Common.Constants.FailedUploadMessage));
                 this.Response.End();
             }
             else
