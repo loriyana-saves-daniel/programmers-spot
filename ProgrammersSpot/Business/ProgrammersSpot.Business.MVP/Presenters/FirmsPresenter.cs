@@ -19,8 +19,6 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 
             view.EventGetFirms += this.OnGetFirms;
             view.EventSearchFirms += this.OnSearchFirms;
-            //view.ImageLiked += this.OnImageLiked;
-            //view.ImageDisliked += this.OnImageDisliked;
         }
 
         private void OnSearchFirms(object sender, SearchEventArgs e)
@@ -32,15 +30,5 @@ namespace ProgrammersSpot.Business.MVP.Presenters
         {
             this.View.Model.Firms = this.firmService.GetAllFirmUsers();
         }
-
-        //private void OnImageLiked(object sender, FormGetItemEventArgs e)
-        //{
-        //    this.uploadedImageService.LikeImage(e.Id);
-        //}
-
-        //private void OnImageDisliked(object sender, FormGetItemEventArgs e)
-        //{
-        //    this.uploadedImageService.DislikeImage(e.Id);
-        //}
     }
 }

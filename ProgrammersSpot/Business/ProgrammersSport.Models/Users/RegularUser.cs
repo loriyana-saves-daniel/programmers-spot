@@ -55,6 +55,8 @@ namespace ProgrammersSpot.Business.Models.Users
 
         public string JobTitle { get; set; }
 
+        public int StarsCount { get; set; }
+
         public bool IsDeleted { get; set; }
 
         public virtual ICollection<Project> Projects

@@ -1,35 +1,35 @@
-﻿.companies-main {
+﻿.list-profiles {
     margin-top: 20px;
     text-align: center;
 }
 
-.companies-main .search-input {
+.list-profiles .search-input {
     height: 40px;
     width: 200px;
     margin-right: 10px
 }
 
-.companies-main div.search-and-sort {
+.list-profiles div.search-and-sort {
     width: 100%;
     text-align: center;
     margin-bottom:20px
 }
 
-    .companies-main div.search-and-sort .btn-search {
+    .list-profiles div.search-and-sort .btn-search {
         margin-right: 20px
     }
 
-    .companies-main div.search-and-sort .sort-by {
+    .list-profiles div.search-and-sort .sort-by {
         margin-right: 10px;
         height: 40px
     }
 
-.companies-main div.paging-row {
+.list-profiles div.paging-row {
     width: 100%;
     height: 40px;
 }
 
-.companies-main .paging-btn {
+.list-profiles .paging-btn {
     font-size: 24px;
     background-color: black;
     border-radius: 10px;
@@ -38,7 +38,15 @@
     padding-right: 5px;
 }
 
-.companies-main #MainContent_ListViewFirms_DataPager {
+.list-profiles #MainContent_ListViewFirms_DataPager {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.list-profiles #MainContent_ListViewProgrammers_DataPager {
     width: 100%;
     height: 100%;
     text-align: center;

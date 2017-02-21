@@ -79,6 +79,11 @@ namespace ProgrammersSpot.Business.MVP.Presenters
         {
             var skill = this.skillService.CreateSkill(e.SkillName);
 
+            if (this.skillService.GetSkillByName(e.SkillName) != null)
+            {
+                skill = this.skillService.GetSkillByName(e.SkillName);
+            }
+
             this.userService.AddSkillToRegularUser(e.UserId, skill);
         }
 

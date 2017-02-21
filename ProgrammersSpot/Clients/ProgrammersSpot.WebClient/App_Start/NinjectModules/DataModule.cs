@@ -16,6 +16,7 @@ namespace ProgrammersSpot.WebClient.App_Start.NinjectModules
             this.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
             this.Bind(typeof(ICountryRepository)).To(typeof(CountryRepository));
             this.Bind(typeof(ICityRepository)).To(typeof(CityRepository));
+            this.Bind(typeof(ISkillRepository)).To(typeof(SkillRepository));
             this.Bind<IProgrammersSpotDbContext>().To<ProgrammersSpotDbContext>().InRequestScope();
             this.Bind<IUnitOfWork>().To<UnitOfWork>();
         }
