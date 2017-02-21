@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" Title='<%# Model.Image != null ? Model.Image.Title : "Image Details" %>' AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="ImageDetails.aspx.cs" Inherits="ProgrammersSpot.WebClient.TakeABreak.ImageDetails" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <section class="page-image-details">
     <div class="image-details">
     <asp:FormView runat="server" ID="FormViewImageDetails"
          ItemType="ProgrammersSport.Business.Models.UploadedImages.UploadedImage" SelectMethod="FormViewImageDetails_GetItem">
@@ -8,7 +9,7 @@
             <header>
                 <h2><%#: Item.Title %></h2>
             </header>
-            <asp:Image runat="server" ImageUrl="<%#: Item.Src %>" />
+            <asp:Image CssClass="uploaded-image" runat="server" ImageUrl="<%#: Item.OriginalSrc %>" />
             <p class="likes-dislikes">
                 <span class="left">Uploaded by: <a href="#"><%# Item.Uploader.FirstName + " " + Item.Uploader.LastName %></a> </span>
                 <asp:LinkButton runat="server" ID="LinkButtonLike" imgId="<%# Item.Id %>" OnClick="LinkButtonLike_Click" class="likes"><%# Item.LikesCount %></asp:LinkButton>
@@ -37,4 +38,5 @@
     <asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxComment" ValidationGroup="comment"
         CssClass="text-danger" Display="Dynamic" ErrorMessage="Your comment must be at least 5 symbols." />
     </div>
+    </section>
 </asp:Content>

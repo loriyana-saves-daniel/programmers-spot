@@ -92,6 +92,7 @@ namespace ProgrammersSpot.WebClient.TakeABreak
                 AuthorId = this.User.Identity.GetUserId(),
                 Comment = this.TextBoxComment.Text
             });
+            this.TextBoxComment.Text = "";
         }
     }
 }

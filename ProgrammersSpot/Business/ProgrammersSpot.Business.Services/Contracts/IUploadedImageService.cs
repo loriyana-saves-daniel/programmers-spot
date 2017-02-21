@@ -12,7 +12,7 @@ namespace ProgrammersSpot.Business.Services.Contracts
 
         UploadedImage GetImageById(int id);
 
-        void UploadImage(string ImgTitle, string ImgUrl, RegularUser uploader);
+        void UploadImage(string imgTitle, string thumbnailImgUrl, string originalImgUrl, RegularUser uploader);
 
         void LikeImage(int id);
 

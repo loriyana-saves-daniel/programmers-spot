@@ -31,7 +31,7 @@ namespace ProgrammersSpot.WebClient.TakeABreak
 
             if (!this.Model.Succeeded)
             {
-                this.ErrorMessage.Text = "Unfortunately, the uploading of your image has failed." + Environment.NewLine + "Please, try again later.";
+                this.ErrorMessage.InnerText = Business.Common.Constants.FailedUploadMessage;
             }
             else
             {

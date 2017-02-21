@@ -24,14 +24,18 @@ namespace ProgrammersSpot.WebClient.TakeABreak
             };
             this.EventImageUpload?.Invoke(sender, args);
 
+            Response.ClearContent();
+            Response.Expires = -1;
+            this.Response.ContentType = "application/json";
             if (!this.Model.Succeeded)
             {
-                this.Response.Write(this.Model.ErrorMessage);
+                this.Response.Write(string.Format("{'ErrorMsg' : '{0}'}", Business.Common.Constants.FailedUploadMessage));
+                this.Response.End();
             }
             else
             {
-                this.Response.ContentType = "application/json";
                 this.Response.Write("{}");
+                this.Response.End();
             }
         }
     }

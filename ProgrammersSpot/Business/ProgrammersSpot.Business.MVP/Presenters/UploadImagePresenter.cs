@@ -1,4 +1,5 @@
 ﻿using Bytes2you.Validation;
+using ProgrammersSpot.Business.Common;
 using ProgrammersSpot.Business.MVP.Args;
 using ProgrammersSpot.Business.MVP.Views;
 using ProgrammersSpot.Business.Services.Contracts;
@@ -12,6 +13,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
     public class UploadImagePresenter : Presenter<IUploadImageView>
     {
         private IImageProcessorService imageProcessorService;
+        private IFileSaverService fileSaverService;
         private IUploadedImageService uploadedImageService;
         private IUserService userService;
 
@@ -19,14 +21,17 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             IUploadImageView view, 
             IUploadedImageService imageService,
             IUserService userService,
-            IImageProcessorService imgProcessorService) 
+            IImageProcessorService imgProcessorService,
+            IFileSaverService fileSaverService) 
             : base(view)
         {
-            Guard.WhenArgument(imageService, "imageService").IsNull().Throw();
+            Guard.WhenArgument(imageService, "imageProcessorService").IsNull().Throw();
             Guard.WhenArgument(userService, "userService").IsNull().Throw();
+            Guard.WhenArgument(fileSaverService, "fileSaverService").IsNull().Throw();
 
             this.uploadedImageService = imageService;
             this.userService = userService;
+            this.fileSaverService = fileSaverService;
             this.imageProcessorService = imgProcessorService;
             this.View.EventImageUpload += this.OnImageUpload;
         }
@@ -37,28 +42,44 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             string fileName = e.Image.FileName;
             byte[] photoBytes = new byte[fileLength];
             e.Image.InputStream.Read(photoBytes, 0, fileLength);
-            var processedImg = this.imageProcessorService.ProcessImage(photoBytes, 200, 200, Path.GetExtension(fileName), 70);
-
             var folderName = string.Format("{0:ddMMyy}", DateTime.Now);
-            var dirToSaveIn = Path.Combine(Server.MapPath("../Content/Uploaded"), folderName);
-            Directory.CreateDirectory(dirToSaveIn);
-            
-            using (FileStream file = new FileStream((Path.Combine(dirToSaveIn, fileName)), FileMode.Create, System.IO.FileAccess.Write))
-            {
-                using (processedImg)
-                {
-                    byte[] bytes = new byte[processedImg.Length];
-                    processedImg.Read(bytes, 0, (int)processedImg.Length);
-                    file.Write(bytes, 0, bytes.Length);
-                    file.Flush();
-                }
-            }
 
             try
             {
-                var ImgUrl = "https://www.programmersspot.com/Content/Uploaded/" + folderName + "/" + fileName;
+                // processing image
+                var processedImgThumbnail = this.imageProcessorService.ProcessImage(
+                    photoBytes, 
+                    Constants.TakeABrakeThumbnailImageSize, 
+                    Constants.TakeABrakeThumbnailImageSize, 
+                    Path.GetExtension(fileName), 
+                    Constants.ImageQualityPercentage);
+                var processedImgOriginal = this.imageProcessorService.ProcessImage(
+                    photoBytes,
+                    Constants.TakeABrakeOriginalImageSize,
+                    Constants.TakeABrakeOriginalImageSize,
+                    Path.GetExtension(fileName),
+                    Constants.ImageQualityPercentage);
+
+                // saving images
+                var dirToSaveInThumbnail = Path.Combine(Server.MapPath("../" + Constants.ContentUploadedTakeABreakThumbnailsRelPath), folderName);
+                var dirToSaveInOriginal = Path.Combine(Server.MapPath("../" + Constants.ContentUploadedTakeABreakOriginalsRelPath), folderName);
+
+                fileName = this.fileSaverService.SaveFile(processedImgThumbnail, dirToSaveInThumbnail, fileName);
+                fileName = this.fileSaverService.SaveFile(processedImgOriginal, dirToSaveInOriginal, fileName);
+            }
+            catch (Exception ex)
+            {
+                this.View.Model.ErrorMessage = ex.Message;
+                this.View.Model.Succeeded = false;
+            }
+            
+            // saving image urls to db
+            try
+            {
+                var thumbnailImgUrl = Constants.ProgrammersSpotUrl + Constants.ContentUploadedTakeABreakThumbnailsRelPath + folderName + "/" + fileName;
+                var originalImgUrl = Constants.ProgrammersSpotUrl + Constants.ContentUploadedTakeABreakOriginalsRelPath + folderName + "/" + fileName;
                 var uploader = this.userService.GetRegularUserById(e.UploaderId);
-                this.uploadedImageService.UploadImage(e.ImgTitle, ImgUrl, uploader);
+                this.uploadedImageService.UploadImage(e.ImgTitle, thumbnailImgUrl, originalImgUrl, uploader);
 
                 this.View.Model.Succeeded = true;
             }

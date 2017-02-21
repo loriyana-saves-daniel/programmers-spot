@@ -26,7 +26,10 @@ namespace ProgrammersSport.Business.Models.UploadedImages
         public DateTime DateUploaded { get; set; }
 
         [Required]
-        public string Src { get; set; }
+        public string ThumbnailSrc { get; set; }
+
+        [Required]
+        public string OriginalSrc { get; set; }
 
         public bool IsDeleted { get; set; }
         

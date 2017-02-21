@@ -32,14 +32,14 @@
                 </LayoutTemplate>
 
                 <GroupTemplate>
-                    <div class="row">
+                    <div class="row images-group">
                         <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
                     </div>
                 </GroupTemplate>
 
                 <ItemTemplate>
-                    <div class="col-md-3 image" style="background-image: url('<%# Item.Src %>')">
-                        <asp:Button runat="server" PostBackUrl='<%# string.Format("~/TakeABreak/ImageDetails.aspx?id={0}", Item.Id) %>' />
+                    <div class="col-md-3 image" style="background-image: url('<%# Item.ThumbnailSrc %>')">
+                        <asp:Button CssClass="img-btn" runat="server" PostBackUrl='<%# string.Format("~/TakeABreak/ImageDetails.aspx?id={0}", Item.Id) %>' />
                         <asp:LinkButton runat="server" ID="LinkButtonLike" imgId="<%# Item.Id %>" OnClick="LinkButtonLike_Click" class="likes"><%# Item.LikesCount %></asp:LinkButton>
                         <asp:LinkButton runat="server" ID="LinkButtonDislike" imgId="<%# Item.Id %>" OnClick="LinkButtonDislike_Click" class="dislikes"><%# Item.DislikesCount %></asp:LinkButton>
                     </div>

@@ -31,7 +31,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             try
             {
                 var uploader = this.userService.GetRegularUserById(e.UploaderId);
-                this.uploadedImageService.UploadImage(e.ImgTitle, e.ImgUrl, uploader);
+                this.uploadedImageService.UploadImage(e.ImgTitle, e.ImgUrl, e.ImgUrl, uploader);
 
                 this.View.Model.Succeeded = true;
             }

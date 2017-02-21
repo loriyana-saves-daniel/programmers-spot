@@ -2,15 +2,15 @@
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <link rel="stylesheet" href="../Content/Kendo/kendo.common.min.css" />
-    <link rel="stylesheet" href="../Content/Kendo/kendo.default.min.css" />
-    <link rel="stylesheet" href="../Content/Kendo/kendo.default.mobile.min.css" />
+    <link rel="stylesheet" href="../Content/Kendo/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="../Content/Kendo/kendo.bootstrap.mobile.min.css" />
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script src="../Scripts/kendo.all.min.js"></script>
     <div class="upload-image">
-        <p class="text-danger">
-            <asp:Literal runat="server" ID="ErrorMessage" />
+        <p class="message" runat="server" ID="ErrorMessage">
+            We advise you to upload an image by file, because we will process it to look better in our site.
         </p>
     
         <div class="file-upload k-content">
@@ -27,59 +27,6 @@
             <asp:Button runat="server" ID="Submit" OnClick="Submit_Click" Text="Upload"/>
         </div>
     
-        <script type="text/javascript">
-            $(document).ready(() => {
-                $("#MainContent_Submit").hide();
-
-                $("#file-upload-image").kendoUpload({
-                    async: {
-                        saveUrl: "https://www.programmersspot.com/TakeABreak/UploadImage",
-                        autoUpload: false
-                    },
-                    validation: {
-                        allowedExtensions: [".jpg", ".jpeg", ".png"],
-                        maxFileSize: 4 * 1024 * 1024
-                    },
-                    multiple: false,
-                    localization: {
-                        invalidFileExtension: "The allowed file formats are .jpeg, .jpg and .png.",
-                        select: "Select file..."
-                    },
-                    upload: onUpload
-                });
-
-                $("#upload-by").change((e) => {
-                    if (e.currentTarget.value == "file") {
-                        var upload = $("#file-upload-image").data("kendoUpload");
-                        if (upload) {
-                            upload.enable();
-                        }
-
-                        $("#MainContent_ImageUrl").hide();
-                        $("#MainContent_Submit").hide();
-                    } else {
-                        var upload = $("#file-upload-image").data("kendoUpload");
-                        if (upload) {
-                            upload.disable();
-                        }
-
-                        $("#MainContent_ImageUrl").show();
-                        $("#MainContent_Submit").show();
-                    }
-                });
-
-                function onUpload(e) {
-                    var imgTitle = $('#MainContent_ImageTitle').val();
-                    var xhr = e.XMLHttpRequest;
-                    if (xhr) {
-                        xhr.addEventListener("readystatechange", function (e) {
-                            if (xhr.readyState == 1 /* OPENED */) {
-                                xhr.setRequestHeader("Image-Title", encodeURIComponent(imgTitle));
-                            }
-                        });
-                    }
-                }
-            });
-        </script>
+        <script src="../Scripts/my-scripts/user-upload-image.js"></script>
     </div>
 </asp:Content>

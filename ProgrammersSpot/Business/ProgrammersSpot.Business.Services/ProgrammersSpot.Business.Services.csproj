@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IFileSaverService.cs" />
     <Compile Include="Contracts\IImageProcessorService.cs" />
     <Compile Include="Contracts\IFirmService.cs" />
     <Compile Include="Contracts\ILocationService.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Contracts\ISkillService.cs" />
     <Compile Include="Contracts\IUploadedImageService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
+    <Compile Include="FileSaverService.cs" />
     <Compile Include="ImageProcessorService.cs" />
     <Compile Include="FirmService.cs" />
     <Compile Include="LocationService.cs" />

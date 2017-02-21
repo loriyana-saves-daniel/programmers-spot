@@ -15,7 +15,9 @@ namespace ProgrammersSport.Business.Models.UploadedImages
 
         bool IsDeleted { get; set; }
 
-        string Src { get; set; }
+        string ThumbnailSrc { get; set; }
+
+        string OriginalSrc { get; set; }
 
         RegularUser Uploader { get; set; }
 

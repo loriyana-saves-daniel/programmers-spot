@@ -9,7 +9,7 @@
             <hr />
             <asp:ValidationSummary runat="server" ShowModelStateErrors="true" CssClass="text-danger" />
             <p class="text-info">
-                You've authenticated with <strong><%: ProviderName %></strong>. Please enter the required infprmation below for the current site
+                You've authenticated with <strong><%: ProviderName %></strong>. Please enter the required information below for the current site
                 and click the Log in button.
             </p>
             

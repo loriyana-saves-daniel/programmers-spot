@@ -62,12 +62,13 @@ namespace ProgrammersSpot.Business.Services
             this.uow.SaveChanges();
         }
 
-        public void UploadImage(string ImgTitle, string ImgUrl, RegularUser uploader)
+        public void UploadImage(string ImgTitle, string thumbnailImgUrl, string originalImgUrl, RegularUser uploader)
         {
             var image = new UploadedImage()
             {
                 Title = ImgTitle,
-                Src = ImgUrl,
+                ThumbnailSrc = thumbnailImgUrl,
+                OriginalSrc = originalImgUrl,
                 DateUploaded = DateTime.Now,
                 IsDeleted = false
             };

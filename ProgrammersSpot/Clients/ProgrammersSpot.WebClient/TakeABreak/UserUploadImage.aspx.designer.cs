@@ -7,10 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProgrammersSpot.WebClient.TakeABreak
-{
-
-
+namespace ProgrammersSpot.WebClient.TakeABreak {
+    
+    
     public partial class UserUploadImage {
         
         /// <summary>
@@ -20,7 +19,7 @@ namespace ProgrammersSpot.WebClient.TakeABreak
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ErrorMessage;
         
         /// <summary>
         /// ImageTitle control.

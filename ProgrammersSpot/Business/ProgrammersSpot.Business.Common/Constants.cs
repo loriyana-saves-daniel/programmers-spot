@@ -1,4 +1,6 @@
-﻿namespace ProgrammersSpot.Business.Common
+﻿using System;
+
+namespace ProgrammersSpot.Business.Common
 {
     public class Constants
     {
@@ -24,5 +26,16 @@
 
         public const int MinCommentLength = 5;
         public const int MaxCommentLength = 500;
+        
+        public const int TakeABrakeThumbnailImageSize = 10;
+        public const int TakeABrakeOriginalImageSize = 1024;
+
+        public const int ImageQualityPercentage = 90;
+
+        public const string FailedUploadMessage = "Unfortunately, your uploading  has failed.\r\nPlease, try again later.";
+
+        public const string ProgrammersSpotUrl = "https://www.programmersspot.com/";
+        public const string ContentUploadedTakeABreakThumbnailsRelPath = "Content/Uploaded/TakeABreak/Thumbnails/";
+        public const string ContentUploadedTakeABreakOriginalsRelPath = "Content/Uploaded/TakeABreak/Originals/";
     }
 }

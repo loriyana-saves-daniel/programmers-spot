@@ -1,5 +1,5 @@
 ﻿.break {
-    margin-top: 20px
+    margin-top: 20px;
 }
 
 .break .search-input {
@@ -23,11 +23,19 @@
         height: 40px
     }
 
+
+    .break div.images-group{
+         width: 100%;
+         margin: 0 0 0 0
+    }
+
     .break div.image {
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 450px
-}
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 25%;
+        padding-top:25%;
+    }
+
 
 .break div.image:hover {
     opacity: 0.95
@@ -82,13 +90,17 @@
       background-image: url("Images/dislike-img.png")
     }
 
-.break input[type=submit] {
+.break input[type=submit].img-btn {
     width: 100%;
     height: 100%;
-    opacity: 0
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0
 }
 
 .break div.paging-row {
+    margin-top: 10px;
     width: 100%;
     height: 40px;
 }
@@ -110,8 +122,14 @@
     display: block;
 }
 
+.page-image-details {
+    width: 100%;
+}
+
 .image-details {
-    text-align: center
+    text-align: center;
+    width: 90%;
+    margin: 0 auto
 }
 
     .image-details .likes, .image-details .dislikes {
@@ -175,12 +193,12 @@
     }
 
     .image-details .comment-author {
-        margin-top: 15px;
         margin-bottom: 15px
     }
 
     .image-details .comment-content {
         margin-top: 15px;
+        margin-bottom: 15px
     }
 
     .image-details .footer {
@@ -210,4 +228,9 @@
 
 .upload-image p.upload-by {
     margin-bottom: 10px
+}
+
+.upload-image .message {
+    margin: 20px 0 15px 20px;
+    font-size: 18px
 }

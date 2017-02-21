@@ -37,7 +37,7 @@ namespace ProgrammersSpot.Business.Services
                     {
                         return null;
                     }
-
+                    
                     Size size = new Size(width, height);
 
                     this.imageFactory.Load(inStream)
