@@ -3,6 +3,7 @@ using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Services.Contracts;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProgrammersSpot.Business.Services
 {
@@ -20,7 +21,7 @@ namespace ProgrammersSpot.Business.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<FirmUser> GetAllFirmUsers()
+        public IQueryable<FirmUser> GetAllFirmUsers()
         {
             return this.firmsRepo.All();
         }
@@ -28,6 +29,11 @@ namespace ProgrammersSpot.Business.Services
         public FirmUser GetFirmUserById(string id)
         {
             return this.firmsRepo.GetById(id);
+        }
+
+        public IQueryable<FirmUser> GetFirmsWithName(string nameKeyword)
+        {
+            return this.firmsRepo.All().Where(i => i.FirmName.Contains(nameKeyword));
         }
 
         public void UpdateFirmUserAddress(string id, string address)

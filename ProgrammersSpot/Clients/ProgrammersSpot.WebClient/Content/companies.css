@@ -1,0 +1,153 @@
+﻿.companies-main {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.companies-main .search-input {
+    height: 40px;
+    width: 200px;
+    margin-right: 10px
+}
+
+.companies-main div.search-and-sort {
+    width: 100%;
+    text-align: center;
+    margin-bottom:20px
+}
+
+    .companies-main div.search-and-sort .btn-search {
+        margin-right: 20px
+    }
+
+    .companies-main div.search-and-sort .sort-by {
+        margin-right: 10px;
+        height: 40px
+    }
+
+.companies-main div.paging-row {
+    width: 100%;
+    height: 40px;
+}
+
+.companies-main .paging-btn {
+    font-size: 24px;
+    background-color: black;
+    border-radius: 10px;
+    opacity: 0.7;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.companies-main #MainContent_ListViewFirms_DataPager {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.animate {
+    -webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.companies-group {
+  text-align: center;
+  padding: 35px 0 35px;
+  background: #f0f5f6;
+}
+
+.companies-group h2 {
+    font-weight: normal;
+}
+
+.companies-group .company {
+  background-color: #fff;
+}
+
+.companies-group .company figure {
+  overflow: hidden;
+  width: 100%;
+  height: 196px;
+}
+
+.companies-group img {
+	width: 100%;
+	height: 100%;
+}
+
+.companies-group .company h5 {
+  margin: 0 0 7px;
+  font-size: 18px;
+	font-weight: 700;
+	color: #3a3c41;
+}
+.companies-group .company .text-content {
+  padding: 15px 14px 13px;
+}
+.companies-group.doctors-var-two {
+  text-align: left;
+  background-color: #fff;
+}
+.companies-group.doctors-var-two .slogan-section {
+  text-align: left;
+}
+.companies-group.doctors-var-two .company {
+  background-color: transparent;
+}
+.companies-group.doctors-var-two .company .for-border {
+  display: none;
+}
+.companies-group.doctors-var-two .company .text-content {
+  padding: 20px 0 20px;
+}
+.companies-group.doctors-var-two .text-center {
+  text-align: left;
+}
+
+.companies-group .company h5 small {
+	color: #008fd5;
+	font-weight: bold;
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+.doc-img{
+	 /* Webkit for Chrome and Safari */
+  -webkit-transform: scale(1, 1); // This is the scale for the normal size of the image.
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease-out;
+ 
+  /* Webkit for Mozila Firefox */
+  -moz-transform: scale(1, 1);
+  -moz-transition-duration: 500ms;
+  -moz-transition-timing-function: ease-out;
+ 
+  /* Webkit for IE( Version: 11, 10 ) */
+  -ms-transform: scale(1, 1);
+  -ms-transition-duration: 500ms;
+  -ms-transition-timing-function: ease-out;
+}
+
+.doc-item:hover .doc-img{
+	 /* Webkit for Chrome and Safari */
+     cursor: pointer;
+  -webkit-transform: scale(1.2, 1.2); 
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease-out;
+ 
+  /* Webkit for Mozila Firefox */
+  -moz-transform: scale(1.2, 1.2);
+  -moz-transition-duration: 500ms;
+  -moz-transition-timing-function: ease-out;
+ 
+  /* Webkit for IE( Version: 11, 10 ) */
+  -ms-transform: scale(1.20, 1.20);
+  -ms-transition-duration: 500ms;
+  -ms-transition-timing-function: ease-out;
+
+  opacity: 0.7;
+}

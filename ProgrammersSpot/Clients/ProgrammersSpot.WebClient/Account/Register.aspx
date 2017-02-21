@@ -134,7 +134,7 @@
                 <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
                 <div class="col-md-10">
                     <asp:TextBox runat="server" ID="FirmEmail" CssClass="form-control" TextMode="Email" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="FirmEmail"
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="FirmEmail" Display="Dynamic"
                         CssClass="text-danger" ErrorMessage="The email field is required." />             
                 </div>
             </div>

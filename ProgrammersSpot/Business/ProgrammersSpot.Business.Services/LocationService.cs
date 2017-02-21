@@ -2,7 +2,7 @@
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Models.Locations;
 using ProgrammersSpot.Business.Services.Contracts;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ProgrammersSpot.Business.Services
 {
@@ -23,12 +23,12 @@ namespace ProgrammersSpot.Business.Services
             this.citiesRepo = citiesRepo;
             this.unitOfWork = unitOfWork;
         }
-        public IEnumerable<City> GetAllCities()
+        public IQueryable<City> GetAllCities()
         {
             return this.citiesRepo.All();
         }
 
-        public IEnumerable<Country> GetAllCountries()
+        public IQueryable<Country> GetAllCountries()
         {
             return this.countriesRepo.All();
         }

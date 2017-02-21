@@ -14,9 +14,8 @@
                     <ul id="profile" class="profile">
                         <li>
                             <div class="col col_4 profile-pic">
-                                <asp:Image runat="server" CssClass="img-responsive avatar" ImageUrl="<%# this.Model.ProfileImage %>" />
+                                <asp:Image runat="server" CssClass="img-responsive avatar" ImageUrl="<%# this.Model.FoundRegularUser.AvatarUrl %>" />
                                 <div class="info">
-                                    <%--<small><i class="fa fa-map-marker"></i> Bulgaria (Sofia)</small>--%>
                                     <p><i class="fa fa-briefcase"></i> <%: this.Model.FoundRegularUser.JobTitle %>  </p>
                                     <asp:LinkButton runat="server" ID="Edit" Text="<i class='fa fa-pencil'></i> Edit Profile" 
                                           OnClick="Edit_Click" CssClass="btn-o" />
@@ -73,7 +72,7 @@
                     <ul id="profile" class="profile">
                         <li>
                             <div class="col col_4 profile-pic">
-                                <asp:Image runat="server" CssClass="img-responsive avatar" ImageUrl="<%# this.Model.ProfileImage %>" />
+                                <asp:Image runat="server" CssClass="img-responsive avatar" ImageUrl="<%# this.Model.FoundFirmUser.AvatarUrl %>" />
                                 <div class="info">
                                     <p><i class="fa fa-map-marker"></i> <%: this.Model.FoundFirmUser.Country.Name %> (<%: this.Model.FoundFirmUser.City.Name %>) </p>
                                     <asp:LinkButton runat="server" ID="Edit" Text="<i class='fa fa-pencil'></i> Edit Profile" 

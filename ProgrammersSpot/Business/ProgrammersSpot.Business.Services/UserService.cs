@@ -4,7 +4,7 @@ using ProgrammersSpot.Business.Models.Projects;
 using ProgrammersSpot.Business.Models.Skills;
 using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Services.Contracts;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ProgrammersSpot.Business.Services
 {
@@ -22,7 +22,7 @@ namespace ProgrammersSpot.Business.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<RegularUser> GetAllRegularUsers()
+        public IQueryable<RegularUser> GetAllRegularUsers()
         {
             return this.usersRepo.All();
         }
