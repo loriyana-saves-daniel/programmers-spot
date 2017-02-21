@@ -107,6 +107,7 @@
     <Compile Include="Args\RegistrationEventArgs.cs" />
     <Compile Include="Args\SearchEventArgs.cs" />
     <Compile Include="Args\UploadImageEventArgs.cs" />
+    <Compile Include="Args\UploadProfilePicEventArgs.cs" />
     <Compile Include="Args\UserUploadImageEventArgs.cs" />
     <Compile Include="Presenters\FirmsPresenter.cs" />
     <Compile Include="Presenters\ExternalRegistrationPresenter.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Presenters\RegistrationPresenter.cs" />
     <Compile Include="Presenters\TakeABreakPresenter.cs" />
     <Compile Include="Presenters\UploadImagePresenter.cs" />
+    <Compile Include="Presenters\UploadProfilePicPresenter.cs" />
     <Compile Include="Presenters\UserProfilePresenter.cs" />
     <Compile Include="Presenters\UserUploadImagePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,6 +137,7 @@
     <Compile Include="Views\IProgrammersView.cs" />
     <Compile Include="Views\IRegistrationView.cs" />
     <Compile Include="Views\ITakeABreakView.cs" />
+    <Compile Include="Views\IUploadProfilePicView.cs" />
     <Compile Include="Views\IUserProfileView.cs" />
     <Compile Include="Views\IUploadImageView.cs" />
     <Compile Include="Views\IUserUploadImageView.cs" />

@@ -2,6 +2,12 @@
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
+    <link rel="stylesheet" href="../Content/Kendo/kendo.common.min.css" />
+    <link rel="stylesheet" href="../Content/Kendo/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="../Content/Kendo/kendo.bootstrap.mobile.min.css" />
+</asp:Content>
+
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <div class="manage-profile">
         <asp:LoginView runat="server" ID="LoginView">
@@ -155,8 +161,29 @@
                 </asp:RoleGroup>
             </RoleGroups>     
         </asp:LoginView>
-    </div>
+
+        <div class="row upload-image">
+            <script src="../Scripts/kendo.all.min.js"></script>
+            <p class="text-danger message" runat="server" ID="ErrorMessage">
+            </p>
     
+            <div class="file-upload k-content">
+                <p class="upload-by">
+                    Update by: 
+                    <select name="upload-by" id="upload-by" class="upload-by">
+                        <option selected="selected" value="file">File</option>
+                        <option value="url">Url</option>
+                    </select> 
+                </p>
+                <input name="imgUrl" hidden="hidden" runat="server" id="ImageUrl" type="text" class="img-title" placeholder="Image url..."/>
+                <input name="files" id="file-upload-image" type="file"/>
+                <asp:Button runat="server" ID="ButtonUpdateAvatarUrl" OnClick="ButtonUpdateAvatarUrl_Click" Text="Update"/>
+            </div>
+    
+            <script src="../Scripts/my-scripts/user-upload-image.js"></script>
+        </div>
+    </div>
+
     <div class="row change-password">
         <div class="col-md-12">
             <div class="form-horizontal">

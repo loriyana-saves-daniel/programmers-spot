@@ -30,6 +30,10 @@ namespace ProgrammersSpot.WebClient.Account
 
         public event EventHandler<EditFirmInfoEventArgs> UpdateFirmInfo;
 
+        public event EventHandler<UserUploadImageEventArgs> UpdateUserAvatarUrl;
+
+        public event EventHandler<UserUploadImageEventArgs> UpdateFirmAvatarUrl;
+
         private bool HasPassword(ApplicationUserManager manager)
         {
             return manager.HasPassword(User.Identity.GetUserId());
@@ -94,7 +98,6 @@ namespace ProgrammersSpot.WebClient.Account
                 this.UpdateUserInfo(this, eventArgs);
                 Response.Redirect("Profile");
             }
-
         }
 
         protected void AddSkill_Click(object sender, EventArgs e)
@@ -142,6 +145,26 @@ namespace ProgrammersSpot.WebClient.Account
 
             this.UpdateFirmInfo(this, eventArgs);
             Response.Redirect("Profile");
+        }
+
+        protected void ButtonUpdateAvatarUrl_Click(object sender, EventArgs e)
+        {
+            var args = new UserUploadImageEventArgs()
+            {
+                ImgUrl = this.ImageUrl.Value,
+                UploaderId = this.User.Identity.GetUserId()
+            };
+
+            if (this.User.IsInRole("User"))
+            {
+                this.UpdateUserAvatarUrl(this, args);
+            }
+            else if (this.User.IsInRole("Firm"))
+            {
+                this.UpdateFirmAvatarUrl(this, args);
+            }
+            
+            this.Response.Redirect("~/Account/Profile");
         }
     }
 }

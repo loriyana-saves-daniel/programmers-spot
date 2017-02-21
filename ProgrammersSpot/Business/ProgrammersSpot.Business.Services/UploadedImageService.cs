@@ -42,24 +42,33 @@ namespace ProgrammersSpot.Business.Services
         {
             var image = this.repo.GetById(id);
             image.LikesCount++;
-            this.repo.Update(image);
-            this.uow.SaveChanges();
+            using (var uow = this.uow)
+            {
+                this.repo.Update(image);
+                uow.SaveChanges();
+            }
         }
 
         public void DislikeImage(int id)
         {
             var image = this.repo.GetById(id);
             image.DislikesCount++;
-            this.repo.Update(image);
-            this.uow.SaveChanges();
+            using (var uow = this.uow)
+            {
+                this.repo.Update(image);
+                uow.SaveChanges();
+            }
         }
 
         public void CommentImage(int imgId, string comment, string authorId)
         {
             var image = this.repo.GetById(imgId);
             image.Comments.Add(new UploadedImageComment() { AuthorId = authorId, Content = comment });
-            this.repo.Update(image);
-            this.uow.SaveChanges();
+            using (var uow = this.uow)
+            {
+                this.repo.Update(image);
+                uow.SaveChanges();
+            }
         }
 
         public void UploadImage(string ImgTitle, string thumbnailImgUrl, string originalImgUrl, RegularUser uploader)
@@ -73,8 +82,11 @@ namespace ProgrammersSpot.Business.Services
                 IsDeleted = false
             };
 
-            uploader.UploadedImages.Add(image);
-            this.uow.SaveChanges();
+            using (var uow = this.uow)
+            {
+                uploader.UploadedImages.Add(image);
+                uow.SaveChanges();
+            }
         }
     }
 }

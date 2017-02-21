@@ -16,5 +16,7 @@ namespace ProgrammersSpot.Business.Services.Contracts
         void UpdateFirmUserEmployeesCount(string id, int employeesCount);
 
         void UpdateFirmUserWebsite(string id, string website);
+
+        void UpdateFirmUserAvatarUrl(string id, string avatarUrl);
     }
 }

@@ -11,11 +11,13 @@ namespace ProgrammersSpot.Business.Services.Contracts
 
         RegularUser GetRegularUserById(string id);
 
+        void UpdateRegularUserAge(string id, int age);
+
         void AddSkillToRegularUser(string userId, Skill skill);
 
         void AddProjectToRegularUser(string userId, Project project);
 
-        void UpdateRegularUserAge(string id, int age);
+        void UpdateRegularUserAvatarUrl(string userId, string avatarUrl);
 
         void UpdateRegularUserJobTitle(string id, string jobTitle);
 

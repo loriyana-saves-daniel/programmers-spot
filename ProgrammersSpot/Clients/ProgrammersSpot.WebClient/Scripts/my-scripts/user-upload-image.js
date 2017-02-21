@@ -1,16 +1,29 @@
 ﻿'use strict';
 
-var maxFileSize = 4 * 1024 * 1024, // bytes
+var maxFileSize = 5 * 1024 * 1024, // bytes
     invalidFileExtMsg = "The allowed file formats are .jpeg, .jpg and .png.",
     selectFileMsg = "Select image...";
 
-
 $(document).ready(() => {
-    $("#MainContent_Submit").hide();
+    var saveUrl = "";
+    var redirectUrl = "";
+    var buttonToHide;
+    var url = window.location.toString().toLowerCase();
+    if (url.indexOf("/account/manage") > 0) {
+        saveUrl = "https://www.programmersspot.com/Account/UploadProfilePic";
+        redirectUrl = "https://www.programmersspot.com/Account/Profile";
+        buttonToHide = $("#MainContent_ButtonUpdateAvatarUrl");
+    } else if (url.indexOf("/takeabreak/useruploadimage") > 0) {
+        saveUrl = "https://www.programmersspot.com/TakeABreak/UploadImage";
+        redirectUrl = "https://www.programmersspot.com/TakeABreak";
+        buttonToHide = $("#MainContent_Submit");
+    }
+
+    buttonToHide.hide();
 
     $("#file-upload-image").kendoUpload({
         async: {
-            saveUrl: "https://www.programmersspot.com/TakeABreak/UploadImage",
+            saveUrl: saveUrl,
             autoUpload: false
         },
         validation: {
@@ -36,7 +49,7 @@ $(document).ready(() => {
             }
 
             $("#MainContent_ImageUrl").hide();
-            $("#MainContent_Submit").hide();
+            buttonToHide.hide();
         } else {
             upload = $("#file-upload-image").data("kendoUpload");
             if (upload) {
@@ -44,31 +57,34 @@ $(document).ready(() => {
             }
 
             $("#MainContent_ImageUrl").show();
-            $("#MainContent_Submit").show();
+            buttonToHide.show();
         }
     });
 
     function onUpload(e) {
-        var imgTitle = $('#MainContent_ImageTitle').val();
-        var xhr = e.XMLHttpRequest;
-        if (xhr) {
-            xhr.addEventListener("readystatechange", function (e) {
-                if (xhr.readyState === 1 /* OPENED */) {
-                    xhr.setRequestHeader("Image-Title", encodeURIComponent(imgTitle));
-                }
-            });
+        var inputImgTitle = $('#MainContent_ImageTitle');
+        if (inputImgTitle) {
+            var imgTitle = inputImgTitle.val();
+            var xhr = e.XMLHttpRequest;
+            if (xhr) {
+                xhr.addEventListener("readystatechange", function (e) {
+                    if (xhr.readyState === 1 /* OPENED */) {
+                        xhr.setRequestHeader("Image-Title", encodeURIComponent(imgTitle));
+                    }
+                });
+            }
         }
     }
 
     function onSuccess(e) {
         $('#MainContent_ErrorMessage').text("");
-        window.location.replace("https://www.programmersspot.com/TakeABreak");
+        window.location.replace(redirectUrl);
     }
 
     function onError(e) {
         var response = e.XMLHttpRequest.response;
         if (response.ErrorMsg) {
-            $('#MainContent_ErrorMessage').text(e.XMLHttpRequest.response)
+            $('#MainContent_ErrorMessage').text(e.XMLHttpRequest.response);
         }
     }
 });
