@@ -115,7 +115,7 @@
 	}
 
 	.row > * {
-		float: left;
+		float:left;
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
@@ -1989,7 +1989,6 @@
 	ul {
 		list-style: disc;
 		margin: 0 0 2em 0;
-		padding-left: 1em;
 	}
 
 		ul li {

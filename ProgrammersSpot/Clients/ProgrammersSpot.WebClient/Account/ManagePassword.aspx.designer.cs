@@ -7,10 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProgrammersSpot.WebClient.Account
-{
-
-
+namespace ProgrammersSpot.WebClient.Account {
+    
+    
     public partial class ManagePassword {
         
         /// <summary>

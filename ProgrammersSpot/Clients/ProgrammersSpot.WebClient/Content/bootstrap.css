@@ -1967,8 +1967,8 @@ textarea.input-lg {
 }
 
 .form-horizontal .form-group {
-  margin-right: -15px;
-  margin-left: -15px;
+  /*margin-right: -15px;
+  margin-left: -15px;*/
 }
 
 .form-horizontal .form-group:before,

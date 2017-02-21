@@ -3,76 +3,169 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
+    <div class="manage-profile">
+        <asp:LoginView runat="server" ID="LoginView">
+              <RoleGroups>
+                <asp:RoleGroup Roles="User">
+                    <ContentTemplate>
+                        <div class="edit-user row">
+                            <div class="form-horizontal col-md-6" >
+                                <h2>Edit your profile information</h2>
+                                <hr />
+                                <div runat="server" ID="RegularUserEditProfileForm" visible="true">
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="Age" CssClass="col-md-2 control-label">Age</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="Age" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="JobTitle" 
+                                                ValidationExpression="[0-9]{2,3}" CssClass="text-danger" Display="Dynamic"
+                                                ErrorMessage="Invalid age!" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="JobTitle" CssClass="col-md-2 control-label">Job Title</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="JobTitle" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="JobTitle" 
+                                                ValidationExpression="[a-zA-Z0-9]{2,20}" CssClass="text-danger" Display="Dynamic"
+                                                ErrorMessage="The job title must be between 2 and 20 sybmols." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="Facebook" CssClass="col-md-2 control-label">Facebook</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="Facebook" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Facebook" 
+                                                ValidationExpression="[\s\S]{2,40}"
+                                                CssClass="text-danger" Display="Dynamic" ErrorMessage="Invalid facebook profile!" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="GitHub" CssClass="col-md-2 control-label">GitHub</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="GitHub" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="GitHub" 
+                                                ValidationExpression="[\s\S]{2,40}"
+                                                CssClass="text-danger" Display="Dynamic" ErrorMessage="Invalid facebook profile!" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <asp:Button runat="server" OnClick="Update_Click" Text="Update profile" CssClass="btn btn-default special" />
+                                            <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="Change" Visible="false" ID="ChangePassword" runat="server" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal col-md-6">
+                                <section id="socialLoginForm">
+                                    <h2>Add new skills and projects</h2>
+                                    <hr />
+                                    <%--Skills--%>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="Skill" CssClass="col-md-2 control-label">Skill</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="Skill" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Skill" 
+                                                ValidationExpression="[a-zA-Z]{2,20}"
+                                                CssClass="text-danger" Display="Dynamic" ErrorMessage="Skill must be between 2 and 20 symbols." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <asp:Button runat="server" OnClick="AddSkill_Click" Text="Add Skill" CssClass="btn btn-default special" />
+                                        </div>
+                                    </div>
+                                   <%-- Projects--%>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="Project" CssClass="col-md-2 control-label">Project</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="Project" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Project" 
+                                                ValidationExpression="[a-zA-Z]{2,20}"
+                                                CssClass="text-danger" Display="Dynamic" ErrorMessage="Project name must be between 2 and 20 symbols." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="LinkToProject" CssClass="col-md-2 control-label">Project link</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="LinkToProject" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="LinkToProject" 
+                                                ValidationExpression="[\s\S]{2,40}"
+                                                CssClass="text-danger" Display="Dynamic" ErrorMessage="Link to project must be between 2 and 40 symbols." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <asp:Button runat="server" OnClick="AddProject_Click" Text="Add Project" CssClass="btn btn-default special" />
+                                        </div>
+                                    </div>                     
+                                </section>
+                            </div>
+                        </div>               
+                    </ContentTemplate>
+                </asp:RoleGroup>
 
-    <div>
-        <asp:PlaceHolder runat="server" ID="successMessage" Visible="false" ViewStateMode="Disabled">
-            <p class="text-success"><%: SuccessMessage %></p>
-        </asp:PlaceHolder>
+                <asp:RoleGroup Roles="Firm">
+                        <ContentTemplate>
+                        <div>
+                            <div class="form-horizontal">
+                                <h2>Edit your company information</h2>
+                                <hr />
+                                <div runat="server" ID="FirmUserEditProfileForm" visible="true">
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="Address" CssClass="col-md-2 control-label">Address</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="Address" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Address" 
+                                                ValidationExpression="[\s\S]{4,20}"
+                                                CssClass="text-danger" Display="Dynamic" ErrorMessage="Address must be between 4 and 20 symbols." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="EmployeesCount" CssClass="col-md-2 control-label">Employees count</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="EmployeesCount" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="EmployeesCount" 
+                                                ValidationExpression="[0-9]{1,5}" CssClass="text-danger" Display="Dynamic"
+                                                ErrorMessage="Invalid count!" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Label runat="server" AssociatedControlID="Website" CssClass="col-md-2 control-label">Website</asp:Label>
+                                        <div class="col-md-10">
+                                            <asp:TextBox runat="server" ID="Website" CssClass="form-control" />
+                                            <asp:RegularExpressionValidator runat="server" ControlToValidate="Website" 
+                                                ValidationExpression="[\s\S]{2,40}"
+                                                CssClass="text-danger" Display="Dynamic" ErrorMessage="Invalid website!" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <asp:Button runat="server" OnClick="UpdateCompany_Click" Text="Update company info" CssClass="btn btn-default special" />
+                                            <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="Change" Visible="false" ID="ChangePassword" runat="server" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:RoleGroup>
+            </RoleGroups>     
+        </asp:LoginView>
     </div>
-
-    <div class="row">
+    
+    <div class="row change-password">
         <div class="col-md-12">
             <div class="form-horizontal">
-                <h4>Change your account settings</h4>
                 <hr />
-                <dl class="dl-horizontal">
-                    <dt>Password:</dt>
-                    <dd>
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Change]" Visible="false" ID="ChangePassword" runat="server" />
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Create]" Visible="false" ID="CreatePassword" runat="server" />
-                    </dd>
-                    <dt>External Logins:</dt>
-                    <dd><%: LoginsCount %>
-                        <asp:HyperLink NavigateUrl="/Account/ManageLogins" Text="[Manage]" runat="server" />
-
-                    </dd>
-                    <%--
-                        Phone Numbers can used as a second factor of verification in a two-factor authentication system.
-                        See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                        for details on setting up this ASP.NET application to support two-factor authentication using SMS.
-                        Uncomment the following blocks after you have set up two-factor authentication
-                    --%>
-                    <%--
-                    <dt>Phone Number:</dt>
-                    <% if (HasPhoneNumber)
-                       { %>
-                    <dd>
-                        <asp:HyperLink NavigateUrl="/Account/AddPhoneNumber" runat="server" Text="[Add]" />
-                    </dd>
-                    <% }
-                       else
-                       { %>
-                    <dd>
-                        <asp:Label Text="" ID="PhoneNumber" runat="server" />
-                        <asp:HyperLink NavigateUrl="/Account/AddPhoneNumber" runat="server" Text="[Change]" /> &nbsp;|&nbsp;
-                        <asp:LinkButton Text="[Remove]" OnClick="RemovePhone_Click" runat="server" />
-                    </dd>
-                    <% } %>
-                    --%>
-
-                    <%--<dt>Two-Factor Authentication:</dt>
-                    <dd>
-                        <p>
-                            There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                            for details on setting up this ASP.NET application to support two-factor authentication.
-                        </p>
-                        <% if (TwoFactorEnabled)
-                          { %> --%>
-                        <%--
-                        Enabled
-                        <asp:LinkButton Text="[Disable]" runat="server" CommandArgument="false" OnClick="TwoFactorDisable_Click" />
-                        --%>
-                        <%--<% }
-                          else
-                          { %> --%>
-                        <%--
-                        Disabled
-                        <asp:LinkButton Text="[Enable]" CommandArgument="true" OnClick="TwoFactorEnable_Click" runat="server" />
-                        --%>
-                       <%-- <% } %>
-                    </dd>--%>
-                </dl>
+                <div>
+                    <asp:PlaceHolder runat="server" ID="successMessage" Visible="false" ViewStateMode="Disabled">
+                        <p class="text-success"><%: SuccessMessage %></p>
+                    </asp:PlaceHolder>
+                </div>
+                <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="Change Password" Visible="false" ID="ChangePassword" runat="server" />         
+                </>
             </div>
         </div>
     </div>

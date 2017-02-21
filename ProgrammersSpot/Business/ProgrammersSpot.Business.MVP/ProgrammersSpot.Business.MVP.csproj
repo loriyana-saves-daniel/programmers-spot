@@ -95,9 +95,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Args\EditFirmInfoEventArgs.cs" />
+    <Compile Include="Args\EditUserInfoEventArgs.cs" />
     <Compile Include="Args\SocialLoginEventArgs.cs" />
+    <Compile Include="Args\ManageUserProfileEventArgs.cs" />
     <Compile Include="Args\FormGetItemEventArgs.cs" />
-    <Compile Include="Args\FindRegularUserEventArgs.cs" />
+    <Compile Include="Args\FindUserEventArgs.cs" />
     <Compile Include="Args\ImageCommentEventArgs.cs" />
     <Compile Include="Args\OwinCtxEventArgs.cs" />
     <Compile Include="Args\RegistrationEventArgs.cs" />
@@ -106,25 +109,28 @@
     <Compile Include="Args\UserUploadImageEventArgs.cs" />
     <Compile Include="Presenters\ExternalRegistrationPresenter.cs" />
     <Compile Include="Presenters\ImageDetailsPresenter.cs" />
+    <Compile Include="Presenters\ManageUserProfilePresenter.cs" />
     <Compile Include="Presenters\RegistrationPresenter.cs" />
     <Compile Include="Presenters\TakeABreakPresenter.cs" />
     <Compile Include="Presenters\UploadImagePresenter.cs" />
-    <Compile Include="Presenters\UserPresenter.cs" />
+    <Compile Include="Presenters\UserProfilePresenter.cs" />
     <Compile Include="Presenters\UserUploadImagePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ExternalRegistrationViewModel.cs" />
     <Compile Include="ViewModels\ImageDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ManageUserProfileViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\TakeABreakViewModel.cs" />
     <Compile Include="ViewModels\UploadImageViewModel.cs" />
     <Compile Include="Views\IExternalRegistrationView.cs" />
     <Compile Include="Views\IImageDetailsView.cs" />
-    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\UserProfileViewModel.cs" />
+    <Compile Include="Views\IManageUserProfileView.cs" />
     <Compile Include="Views\IRegistrationView.cs" />
     <Compile Include="Views\ITakeABreakView.cs" />
+    <Compile Include="Views\IUserProfileView.cs" />
     <Compile Include="Views\IUploadImageView.cs" />
     <Compile Include="Views\IUserUploadImageView.cs" />
-    <Compile Include="Views\IUserView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProgrammersSport.Models\ProgrammersSpot.Business.Models.csproj">
