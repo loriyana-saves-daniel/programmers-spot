@@ -7,7 +7,7 @@ namespace ProgrammersSpot.Business.Data.Tests.ProgrammersSpotDbContextTests
     public class Create_Should
     {
         [Test]
-        public void ReturnProgrammersSportDbContextInstance()
+        public void ReturnProgrammersSpotDbContextInstance()
         {
             // Arrange & Act
             var dbContext = ProgrammersSpotDbContext.Create();

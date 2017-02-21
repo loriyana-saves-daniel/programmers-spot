@@ -7,9 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProgrammersSpot.WebClient.Companies {
-    
-    
+namespace ProgrammersSpot.WebClient.Companies
+{
+
+
     public partial class Companies {
         
         /// <summary>

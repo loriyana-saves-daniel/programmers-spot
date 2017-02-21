@@ -52,13 +52,13 @@ namespace ProgrammersSpot.Business.MVP.Presenters
                     Constants.TakeABrakeThumbnailImageSize, 
                     Constants.TakeABrakeThumbnailImageSize, 
                     Path.GetExtension(fileName), 
-                    Constants.ImageQualityPercentage);
+                    Constants.ThumbnailImageQualityPercentage);
                 var processedImgOriginal = this.imageProcessorService.ProcessImage(
                     photoBytes,
                     Constants.TakeABrakeOriginalImageSize,
                     Constants.TakeABrakeOriginalImageSize,
                     Path.GetExtension(fileName),
-                    Constants.ImageQualityPercentage);
+                    Constants.OriginalImageQualityPercentage);
 
                 // saving images
                 var dirToSaveInThumbnail = Path.Combine(Server.MapPath("../" + Constants.ContentUploadedTakeABreakThumbnailsRelPath), folderName);

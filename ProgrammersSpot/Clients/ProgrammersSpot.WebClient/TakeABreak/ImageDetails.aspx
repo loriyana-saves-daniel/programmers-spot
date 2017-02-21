@@ -1,15 +1,15 @@
-﻿<%@ Page Language="C#" Title='<%# Model.Image != null ? Model.Image.Title : "Image Details" %>' AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="ImageDetails.aspx.cs" Inherits="ProgrammersSpot.WebClient.TakeABreak.ImageDetails" %>
+﻿<%@ Page Language="C#" Title='<%# Model.Image.Title != "" ? Model.Image.Title : "Image" %>' AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="ImageDetails.aspx.cs" Inherits="ProgrammersSpot.WebClient.TakeABreak.ImageDetails" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <section class="page-image-details">
     <div class="image-details">
     <asp:FormView runat="server" ID="FormViewImageDetails"
-         ItemType="ProgrammersSport.Business.Models.UploadedImages.UploadedImage" SelectMethod="FormViewImageDetails_GetItem">
+         ItemType="ProgrammersSpot.Business.Models.UploadedImages.UploadedImage" SelectMethod="FormViewImageDetails_GetItem">
         <ItemTemplate>
             <header>
                 <h2><%#: Item.Title %></h2>
             </header>
-            <asp:Image CssClass="uploaded-image" runat="server" ImageUrl="<%#: Item.OriginalSrc %>" />
+            <asp:Image CssClass="uploaded-image" runat="server" ImageUrl="<%# Item.OriginalSrc %>" />
             <p class="likes-dislikes">
                 <span class="left">Uploaded by: <a href="#"><%# Item.Uploader.FirstName + " " + Item.Uploader.LastName %></a> </span>
                 <asp:LinkButton runat="server" ID="LinkButtonLike" imgId="<%# Item.Id %>" OnClick="LinkButtonLike_Click" class="likes"><%# Item.LikesCount %></asp:LinkButton>
@@ -17,7 +17,7 @@
                 <asp:HyperLink CssClass="right" runat="server" NavigateUrl="~/TakeABreak">Browse more images</asp:HyperLink>
             </p>
             <footer>
-                <asp:Repeater runat="server" ItemType="ProgrammersSport.Business.Models.UploadedImageComments.UploadedImageComment" DataSource="<%# Item.Comments %>">
+                <asp:Repeater runat="server" ItemType="ProgrammersSpot.Business.Models.UploadedImageComments.UploadedImageComment" DataSource="<%# Item.Comments %>">
                     <HeaderTemplate>
                         <h1>Comments:</h1>
                     </HeaderTemplate>

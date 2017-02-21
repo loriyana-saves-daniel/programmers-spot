@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ProgrammersSpot.Business.Common
+﻿namespace ProgrammersSpot.Business.Common
 {
     public class Constants
     {
@@ -28,9 +26,10 @@ namespace ProgrammersSpot.Business.Common
         public const int MaxCommentLength = 500;
         
         public const int TakeABrakeThumbnailImageSize = 500;
-        public const int TakeABrakeOriginalImageSize = 1024;
+        public const int TakeABrakeOriginalImageSize = 700;
 
-        public const int ImageQualityPercentage = 90;
+        public const int ThumbnailImageQualityPercentage = 80;
+        public const int OriginalImageQualityPercentage = 100;
 
         public const string FailedUploadMessage = "Unfortunately, your uploading  has failed.\r\nPlease, try again later.";
 

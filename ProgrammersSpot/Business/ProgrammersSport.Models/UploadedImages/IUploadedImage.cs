@@ -1,9 +1,9 @@
-﻿using ProgrammersSport.Business.Models.UploadedImageComments;
+﻿using ProgrammersSpot.Business.Models.UploadedImageComments;
 using ProgrammersSpot.Business.Models.Users;
 using System;
 using System.Collections.Generic;
 
-namespace ProgrammersSport.Business.Models.UploadedImages
+namespace ProgrammersSpot.Business.Models.UploadedImages
 {
     public interface IUploadedImage
     {

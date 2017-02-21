@@ -1,7 +1,7 @@
 ﻿using Bytes2you.Validation;
-using ProgrammersSport.Business.Models.UploadedImageComments;
-using ProgrammersSport.Business.Models.UploadedImages;
 using ProgrammersSpot.Business.Data.Contracts;
+using ProgrammersSpot.Business.Models.UploadedImageComments;
+using ProgrammersSpot.Business.Models.UploadedImages;
 using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Services.Contracts;
 using System;

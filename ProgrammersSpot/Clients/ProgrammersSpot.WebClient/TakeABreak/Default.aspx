@@ -16,7 +16,7 @@
         </asp:Panel>
         <div class="funImages">
             <asp:ListView runat="server" ID="ListViewImages"
-                ItemType="ProgrammersSport.Business.Models.UploadedImages.UploadedImage" SelectMethod="ListViewImages_GetData"
+                ItemType="ProgrammersSpot.Business.Models.UploadedImages.UploadedImage" SelectMethod="ListViewImages_GetData"
                 GroupItemCount="4">
                 <LayoutTemplate>
                     <asp:PlaceHolder ID="groupPlaceholder" runat="server" />

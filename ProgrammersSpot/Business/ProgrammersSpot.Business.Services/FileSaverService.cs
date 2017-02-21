@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ProgrammersSpot.Business.Services.Contracts;
+using System;
 using System.IO;
-using ProgrammersSpot.Business.Services.Contracts;
 
 namespace ProgrammersSpot.Business.Services
 {
