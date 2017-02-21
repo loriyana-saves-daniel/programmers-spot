@@ -1,13 +1,16 @@
 ﻿using ProgrammersSpot.Business.Models.Users;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProgrammersSpot.Business.Services.Contracts
 {
     public interface IFirmService
     {
-        IEnumerable<FirmUser> GetAllFirmUsers();
+        IQueryable<FirmUser> GetAllFirmUsers();
 
         FirmUser GetFirmUserById(string id);
+
+        IQueryable<FirmUser> GetFirmsWithName(string nameKeyword);
 
         void UpdateFirmUserAddress(string id, string address);
 

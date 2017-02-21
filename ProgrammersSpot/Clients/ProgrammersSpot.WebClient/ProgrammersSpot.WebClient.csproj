@@ -207,6 +207,8 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Content\companies.css" />
+    <Content Include="Companies\Default.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -416,6 +418,13 @@
     </Compile>
     <Compile Include="App_Start\NinjectModules\DataModule.cs" />
     <Compile Include="App_Start\NinjectModules\ServicesModule.cs" />
+    <Compile Include="Companies\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Companies\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Factories\WebFormsMvpPresenterFactory.cs" />
     <Compile Include="Factories\Contracts\ICustomPresenterFactory.cs" />
     <Compile Include="App_Start\DbConfig.cs" />

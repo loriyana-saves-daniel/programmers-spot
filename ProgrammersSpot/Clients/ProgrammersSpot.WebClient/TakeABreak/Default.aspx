@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="break">
+        <h2>Just for fun</h2>
         <asp:Panel runat="server" DefaultButton="LinkButtonSearch" class="search-and-sort">
             <asp:TextBox runat="server" ID="TextBoxSearch" type="text" name="imgTitle" CssClass="search-input" class="search-query" placeholder="Search by image title"></asp:TextBox>
             <asp:LinkButton runat="server" ID="LinkButtonSearch" OnClick="LinkButtonSearch_Click" CssClass="button btn-search special" Text="Search"></asp:LinkButton>

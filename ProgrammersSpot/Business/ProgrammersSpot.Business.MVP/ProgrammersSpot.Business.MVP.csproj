@@ -108,6 +108,7 @@
     <Compile Include="Args\SearchEventArgs.cs" />
     <Compile Include="Args\UploadImageEventArgs.cs" />
     <Compile Include="Args\UserUploadImageEventArgs.cs" />
+    <Compile Include="Presenters\FirmsPresenter.cs" />
     <Compile Include="Presenters\ExternalRegistrationPresenter.cs" />
     <Compile Include="Presenters\ImageDetailsPresenter.cs" />
     <Compile Include="Presenters\ManageUserProfilePresenter.cs" />
@@ -117,12 +118,14 @@
     <Compile Include="Presenters\UserProfilePresenter.cs" />
     <Compile Include="Presenters\UserUploadImagePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\FirmsViewModel.cs" />
     <Compile Include="ViewModels\ExternalRegistrationViewModel.cs" />
     <Compile Include="ViewModels\ImageDetailsViewModel.cs" />
     <Compile Include="ViewModels\ManageUserProfileViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\TakeABreakViewModel.cs" />
     <Compile Include="ViewModels\UploadImageViewModel.cs" />
+    <Compile Include="Views\IFirmsView.cs" />
     <Compile Include="Views\IExternalRegistrationView.cs" />
     <Compile Include="Views\IImageDetailsView.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />

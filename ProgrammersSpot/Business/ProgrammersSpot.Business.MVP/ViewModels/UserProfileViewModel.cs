@@ -7,7 +7,5 @@ namespace ProgrammersSpot.Business.MVP.ViewModels
         public IRegularUser FoundRegularUser { get; set; }
 
         public IFirmUser FoundFirmUser { get; set; }
-
-        public string ProfileImage { get; set; }
     }
 }

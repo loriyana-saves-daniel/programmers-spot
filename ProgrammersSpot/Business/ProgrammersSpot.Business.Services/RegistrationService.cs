@@ -4,7 +4,7 @@ using ProgrammersSpot.Business.Models.Locations;
 using ProgrammersSpot.Business.Models.UserRoles;
 using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Services.Contracts;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ProgrammersSpot.Business.Services
 {
@@ -29,7 +29,7 @@ namespace ProgrammersSpot.Business.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<Role> GetAllUserRoles()
+        public IQueryable<Role> GetAllUserRoles()
         {
             return this.userRolesRepo.All();        
         }
@@ -52,7 +52,8 @@ namespace ProgrammersSpot.Business.Services
                     FirmName = firmName,
                     Email = email,
                     City = city,
-                    Address = address
+                    Address = address,
+                    AvatarUrl = "https://www.programmersspot.com/Content/Images/firm.png"
                 });
 
                 uow.SaveChanges();
@@ -73,7 +74,8 @@ namespace ProgrammersSpot.Business.Services
                     Id = userId,
                     FirstName = firstName,
                     LastName = lastName,
-                    Email = email
+                    Email = email,
+                    AvatarUrl = "https://www.programmersspot.com/Content/Images/profile.png"
                 });
 
                 uow.SaveChanges();

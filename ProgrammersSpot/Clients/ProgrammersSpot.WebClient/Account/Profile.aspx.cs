@@ -4,7 +4,6 @@ using ProgrammersSpot.Business.MVP.Presenters;
 using ProgrammersSpot.Business.MVP.ViewModels;
 using ProgrammersSpot.Business.MVP.Views;
 using System;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
@@ -20,49 +19,29 @@ namespace ProgrammersSpot.WebClient.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (true)
+            if (this.User.IsInRole("User"))
             {
-                if (this.User.IsInRole("User"))
-                {
-                    var eventArgs = new FindUserEventArgs(this.User.Identity.GetUserId());
-                    this.FindRegularUser(this, eventArgs);
+                var eventArgs = new FindUserEventArgs(this.User.Identity.GetUserId());
+                this.FindRegularUser(this, eventArgs);
 
-                    if (string.IsNullOrEmpty(this.Model.FoundRegularUser.AvatarUrl))
-                    {
-                        this.Model.ProfileImage = "../Content/Images/profile.png";
-                    }
-                    else
-                    {
-                        this.Model.ProfileImage = this.Model.FoundRegularUser.AvatarUrl;
-                    }
+                var skills = this.LoginView.FindControl("Skills") as Repeater;
 
-                    var skills = this.LoginView.FindControl("Skills") as Repeater;
+                skills.DataSource = this.Model.FoundRegularUser.Skills;
 
-                    skills.DataSource = this.Model.FoundRegularUser.Skills;
+                skills.DataBind();
 
-                    skills.DataBind();
+                var projects = this.LoginView.FindControl("Projects") as Repeater;
 
-                    var projects = this.LoginView.FindControl("Projects") as Repeater;
+                projects.DataSource = this.Model.FoundRegularUser.Projects;
 
-                    projects.DataSource = this.Model.FoundRegularUser.Projects;
-
-                    projects.DataBind();
-                }
-                else if (this.User.IsInRole("Firm"))
-                {
-                    var eventArgs = new FindUserEventArgs(this.User.Identity.GetUserId());
-                    this.FindFirmUser(this, eventArgs);
-
-                    if (string.IsNullOrEmpty(this.Model.FoundFirmUser.AvatarUrl))
-                    {
-                        this.Model.ProfileImage = "../Content/Images/firm.png";
-                    }
-                    else
-                    {
-                        this.Model.ProfileImage = this.Model.FoundFirmUser.AvatarUrl;
-                    }
-                }
+                projects.DataBind();
             }
+            else if (this.User.IsInRole("Firm"))
+            {
+                var eventArgs = new FindUserEventArgs(this.User.Identity.GetUserId());
+                this.FindFirmUser(this, eventArgs);
+            }
+            
         }
 
         protected void Edit_Click(object sender, EventArgs e)

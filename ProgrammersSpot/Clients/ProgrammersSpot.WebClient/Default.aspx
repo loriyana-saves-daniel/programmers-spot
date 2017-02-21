@@ -23,7 +23,7 @@
 							<p>Check out firms rating and programmers' opinions and find the most suitable company for you.</p>
 							<ul class="actions">
 								<li>
-                                    <asp:Button runat="server" CssClass="button alt" PostBackUrl="~/Programmers.aspx" Text="Discover" />
+                                    <asp:Button runat="server" CssClass="button alt" PostBackUrl="~/Companies/" Text="Discover" />
 								</li>
 							</ul>
 						</div>
@@ -35,7 +35,7 @@
 							<p>Go through their profiles, dicover their projects and skills and make connections or just get inspired.</p>
 							<ul class="actions">
 								<li>
-									<asp:Button runat="server" CssClass="button alt" PostBackUrl="~/Companies.aspx" Text="Discover" />
+									<asp:Button runat="server" CssClass="button alt" PostBackUrl="~/Programmers/" Text="Discover" />
 								</li>
 							</ul>
 						</div>

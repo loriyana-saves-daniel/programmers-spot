@@ -1,12 +1,12 @@
 ﻿using ProgrammersSpot.Business.Models.Locations;
 using ProgrammersSpot.Business.Models.UserRoles;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ProgrammersSpot.Business.Services.Contracts
 {
     public interface IRegistrationService
     {
-        IEnumerable<Role> GetAllUserRoles();
+        IQueryable<Role> GetAllUserRoles();
 
         void CreateRegularUser(string userId, string firstName, string lastName, string email);
 

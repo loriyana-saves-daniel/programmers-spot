@@ -1,13 +1,13 @@
 ﻿using ProgrammersSpot.Business.Models.Projects;
 using ProgrammersSpot.Business.Models.Skills;
 using ProgrammersSpot.Business.Models.Users;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ProgrammersSpot.Business.Services.Contracts
 {
     public interface IUserService
     {
-        IEnumerable<RegularUser> GetAllRegularUsers();
+        IQueryable<RegularUser> GetAllRegularUsers();
 
         RegularUser GetRegularUserById(string id);
 
