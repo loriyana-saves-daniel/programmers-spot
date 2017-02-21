@@ -9,8 +9,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script src="../Scripts/kendo.all.min.js"></script>
     <div class="upload-image">
-        <p class="message" runat="server" ID="ErrorMessage">
-            We advise you to upload an image by file, because we will process it to look better in our site.
+        <p class="text-danger message" runat="server" ID="ErrorMessage">
         </p>
     
         <div class="file-upload k-content">

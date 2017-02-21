@@ -2,7 +2,6 @@
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Services.Contracts;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ProgrammersSpot.Business.Services

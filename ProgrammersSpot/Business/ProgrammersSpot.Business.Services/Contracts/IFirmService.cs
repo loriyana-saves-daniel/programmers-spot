@@ -1,5 +1,4 @@
 ﻿using ProgrammersSpot.Business.Models.Users;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ProgrammersSpot.Business.Services.Contracts

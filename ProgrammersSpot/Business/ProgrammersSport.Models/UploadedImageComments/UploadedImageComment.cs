@@ -1,10 +1,10 @@
-﻿using ProgrammersSport.Business.Models.UploadedImages;
-using ProgrammersSpot.Business.Common;
+﻿using ProgrammersSpot.Business.Common;
+using ProgrammersSpot.Business.Models.UploadedImages;
 using ProgrammersSpot.Business.Models.Users;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ProgrammersSport.Business.Models.UploadedImageComments
+namespace ProgrammersSpot.Business.Models.UploadedImageComments
 {
     public class UploadedImageComment : IUploadedImageComment
     {

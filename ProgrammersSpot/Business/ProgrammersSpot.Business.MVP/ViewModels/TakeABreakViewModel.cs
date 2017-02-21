@@ -1,4 +1,4 @@
-﻿using ProgrammersSport.Business.Models.UploadedImages;
+﻿using ProgrammersSpot.Business.Models.UploadedImages;
 using System.Linq;
 
 namespace ProgrammersSpot.Business.MVP.ViewModels

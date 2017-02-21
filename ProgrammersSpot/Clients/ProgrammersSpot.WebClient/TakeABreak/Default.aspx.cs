@@ -1,4 +1,4 @@
-﻿using ProgrammersSport.Business.Models.UploadedImages;
+﻿using ProgrammersSpot.Business.Models.UploadedImages;
 using ProgrammersSpot.Business.MVP.Args;
 using ProgrammersSpot.Business.MVP.Presenters;
 using ProgrammersSpot.Business.MVP.ViewModels;
