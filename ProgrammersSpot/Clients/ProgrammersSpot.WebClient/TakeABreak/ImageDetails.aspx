@@ -16,11 +16,11 @@
                 <asp:LinkButton runat="server" ID="LinkButtonDislike" imgId="<%# Item.Id %>" OnClick="LinkButtonDislike_Click" class="dislikes"><%# Item.DislikesCount %></asp:LinkButton>
                 <asp:HyperLink CssClass="right" runat="server" NavigateUrl="~/TakeABreak">Browse more images</asp:HyperLink>
             </p>
+            <h1><%# Item.Comments.Count == 0 ? "No comments" : "Comments:" %></h1>
             <footer>
                 <asp:Repeater runat="server" ItemType="ProgrammersSpot.Business.Models.UploadedImageComments.UploadedImageComment" DataSource="<%# Item.Comments %>">
                     <HeaderTemplate>
-                        <h1>Comments:</h1>
-                        <h5 class="comment-content">  </h5>
+                        <%--<h1>Comments:</h1>--%>
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="comment">
