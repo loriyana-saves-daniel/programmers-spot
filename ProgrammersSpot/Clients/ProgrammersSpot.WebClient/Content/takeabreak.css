@@ -169,11 +169,15 @@
       background-image: url("Images/dislike-img.png")
     }
 
+    .image-details div.add-comment {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
     .image-details textarea.add-comment {
         width: 600px;
         height: 100px;
         margin-right: 20px;
-        margin-bottom: 20px;
         vertical-align:top;
     }
 

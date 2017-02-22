@@ -208,6 +208,8 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\UploadProfilePic.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Admin\ManageImages.aspx" />
+    <Content Include="Content\admin.css" />
     <Content Include="Content\profiles-list.css" />
     <Content Include="Companies\Default.aspx" />
     <Content Include="Contact.aspx" />
@@ -417,6 +419,13 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageImages.aspx.cs">
+      <DependentUpon>ManageImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageImages.aspx.designer.cs">
+      <DependentUpon>ManageImages.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
