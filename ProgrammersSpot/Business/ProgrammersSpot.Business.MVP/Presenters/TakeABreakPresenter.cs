@@ -9,7 +9,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 {
     public class TakeABreakPresenter : Presenter<ITakeABreakView>
     {
-        private readonly IUploadedImageService uploadedImageService;
+        protected readonly IUploadedImageService uploadedImageService;
 
         public TakeABreakPresenter(ITakeABreakView view, IUploadedImageService uploadedImageService) : base(view)
         {
