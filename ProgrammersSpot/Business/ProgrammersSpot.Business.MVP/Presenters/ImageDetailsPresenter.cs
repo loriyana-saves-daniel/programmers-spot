@@ -8,7 +8,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 {
     public class ImageDetailsPresenter : Presenter<IImageDetailsView>
     {
-        private readonly IUploadedImageService uploadedImageService;
+        protected readonly IUploadedImageService uploadedImageService;
 
         public ImageDetailsPresenter(IImageDetailsView view, IUploadedImageService uploadedImageService) 
             : base(view)
