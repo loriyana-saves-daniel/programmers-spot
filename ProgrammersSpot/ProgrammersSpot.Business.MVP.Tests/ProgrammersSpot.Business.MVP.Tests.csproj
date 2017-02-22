@@ -70,11 +70,14 @@
     <Compile Include="ImageDetailsTests\View_Should.cs" />
     <Compile Include="Mocks\ImageDetailsPresenterMock.cs" />
     <Compile Include="Mocks\TakeABreakPresenterMock.cs" />
+    <Compile Include="Mocks\UserUploadImagePresenterMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TakeABreakTests\Presenter_Constructor_Should.cs" />
     <Compile Include="TakeABreakTests\View_EventGetImages_Should.cs" />
     <Compile Include="TakeABreakTests\View_EventSearchImages_Should.cs" />
     <Compile Include="TakeABreakTests\View_LikedAndDislikedImage_Should.cs" />
+    <Compile Include="UserUploadImageTests\Presenter_Constructor_Should.cs" />
+    <Compile Include="UserUploadImageTests\View_EventUploadImageWithUrl_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

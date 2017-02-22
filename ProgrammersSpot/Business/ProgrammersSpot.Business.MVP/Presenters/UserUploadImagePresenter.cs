@@ -9,8 +9,8 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 {
     public class UserUploadImagePresenter : Presenter<IUserUploadImageView>
     {
-        private IUploadedImageService uploadedImageService;
-        private IUserService userService;
+        protected IUploadedImageService uploadedImageService;
+        protected IUserService userService;
 
         public UserUploadImagePresenter(
             IUserUploadImageView view, 
