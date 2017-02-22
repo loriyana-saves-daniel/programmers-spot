@@ -66,13 +66,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FirmsTests\PresenterConstructor_Should.cs" />
+    <Compile Include="FirmsTests\View_EventSearchFirms_Should.cs" />
     <Compile Include="ImageDetailsTests\Presenter_Constructor_Should.cs" />
     <Compile Include="ImageDetailsTests\View_EventGetImage_Should.cs" />
     <Compile Include="ImageDetailsTests\View_Should.cs" />
+    <Compile Include="Mocks\FirmsPresenterMock.cs" />
     <Compile Include="Mocks\ImageDetailsPresenterMock.cs" />
+    <Compile Include="Mocks\ProgrammersPresenterMock.cs" />
     <Compile Include="Mocks\TakeABreakPresenterMock.cs" />
     <Compile Include="Mocks\UploadImagePresenterMock.cs" />
     <Compile Include="Mocks\UserUploadImagePresenterMock.cs" />
+    <Compile Include="ProgrammersTests\PresenterConstructor_Should.cs" />
+    <Compile Include="ProgrammersTests\View_EventGetProgrammers_Should.cs" />
+    <Compile Include="ProgrammersTests\View_EventSearchProgrammers_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TakeABreakTests\Presenter_Constructor_Should.cs" />
     <Compile Include="TakeABreakTests\View_EventGetImages_Should.cs" />

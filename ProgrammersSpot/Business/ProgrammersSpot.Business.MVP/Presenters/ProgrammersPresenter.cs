@@ -10,8 +10,8 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 {
     public class ProgrammersPresenter : Presenter<IProgrammersView>
     {
-        private readonly IUserService userService;
-        private readonly ISkillService skillService;
+        protected readonly IUserService userService;
+        protected readonly ISkillService skillService;
 
         public ProgrammersPresenter(IProgrammersView view, IUserService userService, 
             ISkillService skillService) : base(view)
