@@ -13,8 +13,8 @@ namespace ProgrammersSpot.Business.MVP.Views
 
         event EventHandler<FirmReviewEventArgs> FirmReviewed;
 
-        //event EventHandler<StarProgrammerEventArgs> ProgrammerStarred;
+        event EventHandler<StarUserEventArgs> FirmStarred;
 
-        //event EventHandler<StarProgrammerEventArgs> ProgrammerUnstarred;
+        event EventHandler<StarUserEventArgs> FirmUnstarred;
     }
 }

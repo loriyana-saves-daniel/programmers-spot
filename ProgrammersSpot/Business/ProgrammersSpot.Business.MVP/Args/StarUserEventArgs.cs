@@ -2,7 +2,7 @@
 
 namespace ProgrammersSpot.Business.MVP.Args
 {
-    public class StarProgrammerEventArgs : EventArgs
+    public class StarUserEventArgs : EventArgs
     {
         public string LoggedUserId { get; set; }
 

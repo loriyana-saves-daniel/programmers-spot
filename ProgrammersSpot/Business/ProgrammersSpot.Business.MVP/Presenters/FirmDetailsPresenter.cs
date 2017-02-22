@@ -23,8 +23,8 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             view.EventGetFirm += this.OnGetFirm;
             view.EventGetLoggedInUser += this.OnGetLoggedInUser;
             view.FirmReviewed += this.OnFirmReviewed;
-            //view.ProgrammerStarred += this.OnProgrammerStarred;
-            //view.ProgrammerUnstarred += this.OnProgrammerUnstarred;
+            view.FirmStarred += this.OnFirmStarred;
+            view.FirmUnstarred += this.OnFirmUnstarred;
         }
 
         private void OnGetFirm(object sender, FindUserEventArgs e)
@@ -40,6 +40,16 @@ namespace ProgrammersSpot.Business.MVP.Presenters
         private void OnFirmReviewed(object sender, FirmReviewEventArgs e)
         {
             this.firmService.MakeFirmReview(e.FirmId, e.Review, e.AuthorId);
+        }
+
+        private void OnFirmUnstarred(object sender, StarUserEventArgs e)
+        {
+            this.userService.UnstarFirm(e.LoggedUserId, e.StarredUserId);
+        }
+
+        private void OnFirmStarred(object sender, StarUserEventArgs e)
+        {
+            this.userService.StarFirm(e.LoggedUserId, e.StarredUserId);
         }
     }
 }

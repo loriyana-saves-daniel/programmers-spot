@@ -28,5 +28,9 @@ namespace ProgrammersSpot.Business.Services.Contracts
         void StarUser(string loggedUserId, string starredUserId);
 
         void UnstarUser(string loggedUserId, string starredUserId);
+
+        void StarFirm(string loggedUserId, string starredFirmId);
+
+        void UnstarFirm(string loggedUserId, string starredFirmId);
     }
 }

@@ -13,13 +13,13 @@ namespace ProgrammersSpot.WebClient.Companies {
     public partial class CompanyDetails {
         
         /// <summary>
-        /// Edit control.
+        /// Star control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Edit;
+        protected global::System.Web.UI.WebControls.LinkButton Star;
         
         /// <summary>
         /// TextBoxComment control.
