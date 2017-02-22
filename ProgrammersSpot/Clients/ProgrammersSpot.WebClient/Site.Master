@@ -82,8 +82,8 @@
                                         <ul class="nav navbar-nav navbar-right">                                   
                                             <li>
                                                 <ul class="nav navbar-nav navbar-right">
-                                                    <li><a runat="server" href="#">Manage users</a></li>
-                                                    <li><a runat="server" href="#">Manage companies</a></li>
+                                                    <li><a runat="server" href="~/Admin/ManageUsers">Manage users</a></li>
+                                                    <li><a runat="server" href="~/Admin/ManageCompanies">Manage companies</a></li>
                                                     <li><a runat="server" href="~/Admin/ManageImages">Manage images</a></li>
                                                 </ul>
                                             </li>

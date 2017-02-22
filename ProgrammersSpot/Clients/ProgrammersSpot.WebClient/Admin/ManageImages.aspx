@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="manage-images">
-        <asp:GridView ID="GridViewImages" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="PrgrammersSpotSqlDataSource" AllowPaging="True" AllowSorting="True" Width="1000px">
+        <asp:GridView ID="GridViewImages" runat="server" CssClass="grid-view" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="PrgrammersSpotSqlDataSource" AllowPaging="True" AllowSorting="True" Width="1000px">
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                 <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" >
