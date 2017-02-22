@@ -3,6 +3,7 @@ using ProgrammersSpot.Business.Common;
 using ProgrammersSpot.Business.Models.Projects;
 using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Skills;
+using ProgrammersSpot.Business.Models.UploadedImages;
 using ProgrammersSpot.Business.Models.Users;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -106,6 +107,17 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
             Assert.AreEqual(user.Age, testAge);
         }
 
+        [TestCase(20)]
+        [TestCase(45)]
+        public void StarsCount_ShouldBeSetAndGottenCorrectly(int count)
+        {
+            // Arrange & Act
+            var user = new RegularUser() { StarsCount = count };
+
+            //Assert
+            Assert.AreEqual(user.StarsCount, count);
+        }
+
         [TestCase("Junior Developer")]
         [TestCase("Senior QA Engineer")]
         public void JobTitle_ShouldBeSetAndGottenCorrectly(string testJobTitle)
@@ -115,6 +127,46 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
 
             //Assert
             Assert.AreEqual(user.JobTitle, testJobTitle);
+        }
+
+        [TestCase("Content/image.png")]
+        public void AvatarUrl_ShouldBeSetAndGottenCorrectly(string avatar)
+        {
+            // Arrange & Act
+            var user = new RegularUser() { AvatarUrl = avatar };
+
+            //Assert
+            Assert.AreEqual(user.AvatarUrl, avatar);
+        }
+
+        [TestCase("pesho@abv.bg")]
+        public void Email_ShouldBeSetAndGottenCorrectly(string email)
+        {
+            // Arrange & Act
+            var user = new RegularUser() { Email = email };
+
+            //Assert
+            Assert.AreEqual(user.Email, email);
+        }
+
+        [TestCase("github.com/pesho")]
+        public void GitHubProfile_ShouldBeSetAndGottenCorrectly(string github)
+        {
+            // Arrange & Act
+            var user = new RegularUser() { GitHubProfile = github };
+
+            //Assert
+            Assert.AreEqual(user.GitHubProfile, github);
+        }
+
+        [TestCase("facebook.com/pesho")]
+        public void FacebookProfile_ShouldBeSetAndGottenCorrectly(string fb)
+        {
+            // Arrange & Act
+            var user = new RegularUser() { FacebookProfile = fb };
+
+            //Assert
+            Assert.AreEqual(user.FacebookProfile, fb);
         }
 
         [TestCase(true)]
@@ -160,6 +212,36 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
         }
 
         [Test]
+        public void RegularUserConstructor_ShouldInitializeStarredUsersCollectionCorrectly()
+        {
+            var user = new RegularUser();
+
+            var starredUsers = user.StarredUsers;
+
+            Assert.That(starredUsers, Is.Not.Null.And.InstanceOf<ICollection<RegularUser>>());
+        }
+
+        [Test]
+        public void RegularUserConstructor_ShouldInitializeStarredFirmsCollectionCorrectly()
+        {
+            var user = new RegularUser();
+
+            var starredFirms = user.StarredFirms;
+
+            Assert.That(starredFirms, Is.Not.Null.And.InstanceOf<ICollection<FirmUser>>());
+        }
+
+        [Test]
+        public void RegularUserConstructor_ShouldInitializeUploadedImagesCollectionCorrectly()
+        {
+            var user = new RegularUser();
+
+            var images = user.UploadedImages;
+
+            Assert.That(images, Is.Not.Null.And.InstanceOf<ICollection<UploadedImage>>());
+        }
+
+        [Test]
         public void RegularUserConstructor_ShouldInitializeProjectsCollectionCorrectly()
         {
             var user = new RegularUser();
@@ -189,6 +271,42 @@ namespace ProgrammersSpot.Business.Models.Tests.UserTests
             var user = new RegularUser { GivenReviews = set };
 
             Assert.AreEqual(user.GivenReviews.First().Id, reviewId);
+        }
+
+        [TestCase("3")]
+        [TestCase("389729872bb7z2b2b2743763v6v3x64734555y")]
+        public void StarredFirmsCollection_ShouldBeSetAndGottenCorrectly(string firmId)
+        {
+            var firm = new FirmUser() { Id = firmId };
+            var set = new List<FirmUser> { firm };
+
+            var user = new RegularUser { StarredFirms = set };
+
+            Assert.AreEqual(user.StarredFirms.First().Id, firmId);
+        }
+
+        [TestCase("3")]
+        [TestCase("389729872bb7z2b2b2743763v6v3x64734555y")]
+        public void StarredUsersCollection_ShouldBeSetAndGottenCorrectly(string userId)
+        {
+            var user = new RegularUser() { Id = userId };
+            var set = new List<RegularUser> { user };
+
+            var user2 = new RegularUser { StarredUsers = set };
+
+            Assert.AreEqual(user2.StarredUsers.First().Id, userId);
+        }
+
+        [TestCase(3)]
+        [TestCase(323232)]
+        public void UploadedImagesCollection_ShouldBeSetAndGottenCorrectly(int imageId)
+        {
+            var image = new UploadedImage() { Id = imageId };
+            var set = new List<UploadedImage> { image };
+
+            var user = new RegularUser { UploadedImages = set };
+
+            Assert.AreEqual(user.UploadedImages.First().Id, imageId);
         }
 
         [TestCase(1)]

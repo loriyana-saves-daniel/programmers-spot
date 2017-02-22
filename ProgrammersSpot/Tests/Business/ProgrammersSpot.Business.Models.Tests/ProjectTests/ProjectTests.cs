@@ -43,36 +43,6 @@ namespace ProgrammersSpot.Business.Models.Tests.ProjectTests
             //Assert.AreEqual(project.Description, content);
         }
 
-        [Test]
-        public void Description_ShouldHaveCorrectMinLength()
-        {
-            // Arrange
-            var descriptionProperty = typeof(Project).GetProperty("Description");
-
-            // Act
-            var minLengthAttribute = descriptionProperty.GetCustomAttributes(typeof(MinLengthAttribute), false)
-                .Cast<MinLengthAttribute>()
-                .FirstOrDefault();
-
-            // Assert
-            Assert.That(minLengthAttribute.Length, Is.Not.Null.And.EqualTo(Constants.MinProjectDescriptionLength));
-        }
-
-        [Test]
-        public void Description_ShouldHaveCorrectMaxLength()
-        {
-            // Arrange
-            var descriptionProperty = typeof(Project).GetProperty("Description");
-
-            // Act
-            var maxLengthAttribute = descriptionProperty.GetCustomAttributes(typeof(MaxLengthAttribute), false)
-                .Cast<MaxLengthAttribute>()
-                .FirstOrDefault();
-
-            // Assert
-            Assert.That(maxLengthAttribute.Length, Is.Not.Null.And.EqualTo(Constants.MaxProjectDescriptionLength));
-        }
-
         [TestCase("yeuyeuye eytruetryetrye retreryeryer")]
         [TestCase("LozenecLozenecLozenecLozenecLozenecLozenecLozenecLozenec")]
         public void LinkToProject_ShouldBeSetAndGottenCorrectly(string link)
