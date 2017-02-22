@@ -130,8 +130,13 @@
 .image-details {
     text-align: center;
     width: 90%;
-    margin: 0 auto
+    margin: 0 auto;
+    margin-top: 60px
 }
+
+    .image-details .uploaded-image {
+        margin-bottom: 20px
+    }
 
     .image-details .likes, .image-details .dislikes {
         text-align: center;

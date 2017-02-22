@@ -19,7 +19,7 @@
             <footer>
                 <asp:Repeater runat="server" ItemType="ProgrammersSpot.Business.Models.UploadedImageComments.UploadedImageComment" DataSource="<%# Item.Comments %>">
                     <HeaderTemplate>
-                        <h1><%# Item == null ? "No comments"  : "Comments"%></h1>
+                        <h1>Comments:</h1>
                         <h5 class="comment-content">  </h5>
                     </HeaderTemplate>
                     <ItemTemplate>

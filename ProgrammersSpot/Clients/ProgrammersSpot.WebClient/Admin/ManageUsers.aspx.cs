@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ProgrammersSpot.WebClient.Admin
 {
@@ -11,7 +6,11 @@ namespace ProgrammersSpot.WebClient.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.User.IsInRole("Admin"))
+            {
+                this.Response.StatusCode = 401;
+                this.Response.End();
+            }
         }
     }
 }

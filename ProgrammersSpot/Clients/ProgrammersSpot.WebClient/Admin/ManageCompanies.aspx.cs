@@ -1,35 +1,43 @@
 ﻿using ProgrammersSpot.Business.Models.Users;
+using ProgrammersSpot.Business.MVP.Args;
+using ProgrammersSpot.Business.MVP.Presenters;
+using ProgrammersSpot.Business.MVP.ViewModels;
+using ProgrammersSpot.Business.MVP.Views;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using WebFormsMvp;
+using WebFormsMvp.Web;
 
 namespace ProgrammersSpot.WebClient.Admin
 {
-    public partial class ManageCompanies : System.Web.UI.Page
+    [PresenterBinding(typeof(ManageCompaniesPresenter))]
+    public partial class ManageCompanies : MvpPage<ManageCompaniesViewModel>, IManageCompaniesView
     {
+        public event EventHandler<EventArgs> EventLoadCompanies;
+        public event EventHandler<UpdateFirmEventArgs> EventUpdateFirm;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.User.IsInRole("Admin"))
+            {
+                this.Response.StatusCode = 401;
+                this.Response.End();
+            }
 
+            this.EventLoadCompanies?.Invoke(this, new EventArgs());
         }
 
-        // The return type can be changed to IEnumerable, however to support
-        // paging and sorting, the following parameters must be added:
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
         public IQueryable<FirmUser> GridViewFirms_GetData()
         {
-            return (new List<FirmUser>() { new FirmUser() { Id=Guid.NewGuid().ToString()} }).AsQueryable();
+            return this.Model.Companies;
         }
-
-        // The id parameter name should match the DataKeyNames value set on the control
-        public void GridViewFirms_UpdateItem(int id)
+        
+        public void GridViewFirms_UpdateItem(FirmUser firm)
         {
-
+            var firmFromDb = this.Model.Companies.First(c => c.Id == firm.Id);
+            firm.CountryId = firmFromDb.CountryId;
+            firm.CityId = firmFromDb.CityId;
+            this.EventUpdateFirm?.Invoke(this, new UpdateFirmEventArgs() { FirmToUpdate = firm });
         }
     }
 }

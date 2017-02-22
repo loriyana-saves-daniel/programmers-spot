@@ -2,7 +2,6 @@
 using ProgrammersSpot.Business.Data.Contracts;
 using ProgrammersSpot.Business.Models.Skills;
 using ProgrammersSpot.Business.Services.Contracts;
-using System.Linq;
 
 namespace ProgrammersSpot.Business.Services
 {

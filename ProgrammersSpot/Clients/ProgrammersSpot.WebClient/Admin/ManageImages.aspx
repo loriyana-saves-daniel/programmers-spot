@@ -4,34 +4,33 @@
     <div class="manage-images">
         <asp:GridView ID="GridViewImages" runat="server" CssClass="grid-view" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="PrgrammersSpotSqlDataSource" AllowPaging="True" AllowSorting="True" Width="1000px">
             <Columns>
-                <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                <asp:CommandField ShowEditButton="True">
+                <ItemStyle VerticalAlign="Top" />
+                </asp:CommandField>
                 <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" >
                 <ItemStyle VerticalAlign="Top" />
                 </asp:BoundField>
-                <asp:BoundField DataField="DateUploaded" HeaderText="DateUploaded" SortExpression="DateUploaded" ReadOnly="True" >
+                <asp:BoundField DataField="DateUploaded" HeaderText="Upload date" SortExpression="DateUploaded" ReadOnly="True" >
                 <ItemStyle VerticalAlign="Top" />
                 </asp:BoundField>
-                <asp:ImageField DataImageUrlField="ThumbnailSrc" HeaderText="ThumbnailImg">
+                <asp:ImageField DataImageUrlField="ThumbnailSrc" HeaderText="Thumbnail image">
                     <ControlStyle Height="300px" Width="300px" />
                     <ItemStyle Width="300px" Wrap="False" />
                 </asp:ImageField>
-                <asp:ImageField DataImageUrlField="OriginalSrc" HeaderText="LargeImg">
+                <asp:ImageField DataImageUrlField="OriginalSrc" HeaderText="Large image">
                     <ControlStyle Height="300px" Width="300px" />
                     <ItemStyle Width="300px" />
                 </asp:ImageField>
                 <asp:BoundField DataField="UploaderId" HeaderText="UploaderId" SortExpression="UploaderId" ReadOnly="True" >
                 <ItemStyle VerticalAlign="Top" />
                 </asp:BoundField>
-                <asp:BoundField DataField="LikesCount" HeaderText="LikesCount" SortExpression="LikesCount" >
+                <asp:BoundField DataField="LikesCount" HeaderText="Likes" SortExpression="LikesCount" >
                 <ItemStyle VerticalAlign="Top" />
                 </asp:BoundField>
-                <asp:BoundField DataField="DislikesCount" HeaderText="DislikesCount" SortExpression="DislikesCount" >
+                <asp:BoundField DataField="DislikesCount" HeaderText="Dislikes" SortExpression="DislikesCount" >
                 <ItemStyle VerticalAlign="Top" />
                 </asp:BoundField>
                 <asp:BoundField DataField="IsDeleted" HeaderText="IsDeleted" SortExpression="IsDeleted" />
-                <asp:CommandField ShowEditButton="True">
-                <ItemStyle VerticalAlign="Top" />
-                </asp:CommandField>
             </Columns>
             <EditRowStyle Width="1000px" />
             <RowStyle Height="0px" VerticalAlign="Top" Width="1000px" />

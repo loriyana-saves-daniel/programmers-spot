@@ -22,5 +22,7 @@ namespace ProgrammersSpot.Business.Services.Contracts
         void UpdateFirmUserAvatarUrl(string id, string avatarUrl);
 
         void MakeFirmReview(string firmId, string review, string authorId);
+
+        void UpdateFirmUser(FirmUser user);
     }
 }
