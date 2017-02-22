@@ -29,10 +29,13 @@ namespace ProgrammersSpot.WebClient.TakeABreak
                 return;
             }
 
+            var file = this.Request.Files[0];
             var args = new UploadImageEventArgs()
             {
                 ImgTitle = this.Request.Headers["image-title"],
-                Image = this.Request.Files[0],
+                ContentLength = file.ContentLength,
+                InputStream = file.InputStream,
+                FileName = file.FileName,
                 UploaderId = this.User.Identity.GetUserId()
             };
             this.EventImageUpload?.Invoke(sender, args);

@@ -23,17 +23,17 @@ namespace ProgrammersSpot.Business.MVP.Tests.UserUploadImageTests
             //Arrange
             var viewMock = new Mock<IUserUploadImageView>();
             viewMock.Setup(v => v.Model).Returns(new UploadImageViewModel());
-            var uploadedImageService = new Mock<IUploadedImageService>();
-            var userService = new Mock<IUserService>();
+            var uploadedImageServiceMock = new Mock<IUploadedImageService>();
+            var userServiceMock = new Mock<IUserService>();
             string anyString = It.IsAny<string>();
 
-            var presenter = new UserUploadImagePresenter(viewMock.Object, uploadedImageService.Object, userService.Object);
+            var presenter = new UserUploadImagePresenter(viewMock.Object, uploadedImageServiceMock.Object, userServiceMock.Object);
 
             //Act
             viewMock.Raise(v => v.UploadImageWithUrl += null, new UserUploadImageEventArgs());
 
             //Assert
-            uploadedImageService.Verify(s => s.UploadImage(anyString, anyString, anyString, null), Times.Once);
+            uploadedImageServiceMock.Verify(s => s.UploadImage(anyString, anyString, anyString, null), Times.Once);
         }
 
         [Test]
@@ -42,11 +42,11 @@ namespace ProgrammersSpot.Business.MVP.Tests.UserUploadImageTests
             //Arrange
             var viewMock = new Mock<IUserUploadImageView>();
             viewMock.Setup(v => v.Model).Returns(new UploadImageViewModel());
-            var uploadedImageService = new Mock<IUploadedImageService>();
-            var userService = new Mock<IUserService>();
+            var uploadedImageServiceMock = new Mock<IUploadedImageService>();
+            var userServiceMock = new Mock<IUserService>();
             string anyString = It.IsAny<string>();
 
-            var presenter = new UserUploadImagePresenter(viewMock.Object, uploadedImageService.Object, userService.Object);
+            var presenter = new UserUploadImagePresenter(viewMock.Object, uploadedImageServiceMock.Object, userServiceMock.Object);
 
             //Act
             viewMock.Raise(v => v.UploadImageWithUrl += null, new UserUploadImageEventArgs());

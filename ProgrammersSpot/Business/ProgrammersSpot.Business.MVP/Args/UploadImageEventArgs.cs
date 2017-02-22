@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web;
 
 namespace ProgrammersSpot.Business.MVP.Args
@@ -7,7 +8,11 @@ namespace ProgrammersSpot.Business.MVP.Args
     {
         public string ImgTitle { get; set; }
 
-        public HttpPostedFile Image;
+        public int ContentLength { get; set; }
+
+        public string FileName { get; set; }
+
+        public Stream InputStream { get; set; }
         
         public string UploaderId { get; set; }
     }

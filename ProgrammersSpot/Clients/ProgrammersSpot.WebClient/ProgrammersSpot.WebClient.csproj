@@ -235,6 +235,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\takeabreak.css" />
     <Content Include="ErrorPages\400.html" />
+    <Content Include="ErrorPages\401.html" />
     <Content Include="ErrorPages\404.html" />
     <Content Include="ErrorPages\500.html" />
     <Content Include="fonts\fontawesome-webfont.svg" />

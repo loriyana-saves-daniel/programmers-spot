@@ -12,10 +12,10 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 {
     public class UploadImagePresenter : Presenter<IUploadImageView>
     {
-        private IImageProcessorService imageProcessorService;
-        private IFileSaverService fileSaverService;
-        private IUploadedImageService uploadedImageService;
-        private IUserService userService;
+        protected IImageProcessorService imageProcessorService;
+        protected IFileSaverService fileSaverService;
+        protected IUploadedImageService uploadedImageService;
+        protected IUserService userService;
 
         public UploadImagePresenter(
             IUploadImageView view, 
@@ -39,10 +39,10 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 
         private void OnImageUpload(object sender, UploadImageEventArgs e)
         {
-            int fileLength = e.Image.ContentLength;
-            string fileName = e.Image.FileName;
+            int fileLength = e.ContentLength;
+            string fileName = e.FileName;
             byte[] photoBytes = new byte[fileLength];
-            e.Image.InputStream.Read(photoBytes, 0, fileLength);
+            e.InputStream.Read(photoBytes, 0, fileLength);
             var folderName = string.Format("{0:ddMMyy}", DateTime.Now);
 
             try

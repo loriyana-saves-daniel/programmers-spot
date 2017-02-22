@@ -45,9 +45,12 @@ namespace ProgrammersSpot.WebClient.Account
                 return;
             }
 
+            var file = this.Request.Files[0];
             var args = new UploadProfilePicEventArgs()
             {
-                Image = this.Request.Files[0],
+                ContentLength = file.ContentLength,
+                FileName = file.FileName,
+                InputStream = file.InputStream,
                 UserRole = userRole,
                 UploaderId = this.User.Identity.GetUserId()
             };

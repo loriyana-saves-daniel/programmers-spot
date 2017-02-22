@@ -48,6 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web" />
     <Reference Include="WebFormsMvp, Version=1.4.5.0, Culture=neutral, PublicKeyToken=537f18701145dff0" />
   </ItemGroup>
   <Choose>
@@ -70,12 +71,15 @@
     <Compile Include="ImageDetailsTests\View_Should.cs" />
     <Compile Include="Mocks\ImageDetailsPresenterMock.cs" />
     <Compile Include="Mocks\TakeABreakPresenterMock.cs" />
+    <Compile Include="Mocks\UploadImagePresenterMock.cs" />
     <Compile Include="Mocks\UserUploadImagePresenterMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TakeABreakTests\Presenter_Constructor_Should.cs" />
     <Compile Include="TakeABreakTests\View_EventGetImages_Should.cs" />
     <Compile Include="TakeABreakTests\View_EventSearchImages_Should.cs" />
     <Compile Include="TakeABreakTests\View_LikedAndDislikedImage_Should.cs" />
+    <Compile Include="UploadImage\Presenter_Constructor_Should.cs" />
+    <Compile Include="UploadImage\View_EventImageUpload_Should.cs" />
     <Compile Include="UserUploadImageTests\Presenter_Constructor_Should.cs" />
     <Compile Include="UserUploadImageTests\View_EventUploadImageWithUrl_Should.cs" />
   </ItemGroup>
@@ -86,6 +90,10 @@
     <ProjectReference Include="..\Business\ProgrammersSport.Models\ProgrammersSpot.Business.Models.csproj">
       <Project>{c4b33a7f-213d-4713-afc8-7b3e29b8aa3d}</Project>
       <Name>ProgrammersSpot.Business.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business\ProgrammersSpot.Business.Common\ProgrammersSpot.Business.Common.csproj">
+      <Project>{59aa86b4-6a88-4fc0-96ca-c4ac22ac12b3}</Project>
+      <Name>ProgrammersSpot.Business.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Business\ProgrammersSpot.Business.MVP\ProgrammersSpot.Business.MVP.csproj">
       <Project>{07c56e35-9fe4-4700-b115-09c3238aac79}</Project>

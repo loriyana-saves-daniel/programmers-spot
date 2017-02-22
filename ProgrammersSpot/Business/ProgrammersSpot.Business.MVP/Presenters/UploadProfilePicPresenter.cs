@@ -39,12 +39,12 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 
         private void OnImageUpload(object sender, UploadProfilePicEventArgs e)
         {
-            int fileLength = e.Image.ContentLength;
-            string fileName = "avatar" + Path.GetExtension(e.Image.FileName);
+            int fileLength = e.ContentLength;
+            string fileName = "avatar" + Path.GetExtension(e.FileName);
             var folderName = e.UploaderId;
 
             byte[] photoBytes = new byte[fileLength];
-            e.Image.InputStream.Read(photoBytes, 0, fileLength);
+            e.InputStream.Read(photoBytes, 0, fileLength);
 
             // saving image
             try
