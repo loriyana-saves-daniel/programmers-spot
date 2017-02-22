@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using ProgrammersSpot.Business.Data.Contracts;
+using ProgrammersSpot.Business.Models.Reviews;
 using ProgrammersSpot.Business.Models.Users;
 using ProgrammersSpot.Business.Services.Contracts;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace ProgrammersSpot.Business.Services
             return this.firmsRepo.All();
         }
 
+        public IQueryable<FirmUser> GetAllApprovedFirmUsers()
+        {
+            return this.firmsRepo.All().Where(f => f.IsApproved == true);
+        }
+
         public FirmUser GetFirmUserById(string id)
         {
             return this.firmsRepo.GetById(id);
@@ -32,7 +38,7 @@ namespace ProgrammersSpot.Business.Services
 
         public IQueryable<FirmUser> GetFirmsWithName(string nameKeyword)
         {
-            return this.firmsRepo.All().Where(i => i.FirmName.Contains(nameKeyword));
+            return this.firmsRepo.All().Where(f => f.FirmName.Contains(nameKeyword));
         }
 
         public void UpdateFirmUserAddress(string id, string address)
@@ -75,6 +81,18 @@ namespace ProgrammersSpot.Business.Services
             using (var unitOfWork = this.unitOfWork)
             {
                 this.firmsRepo.Update(user);
+                unitOfWork.SaveChanges();
+            }
+        }
+
+        public void MakeFirmReview(string firmId, string review, string authorId)
+        {
+            var firm = this.GetFirmUserById(firmId);
+            firm.FirmReviews.Add(new Review() { AuthorId = authorId, Content = review });
+
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.firmsRepo.Update(firm);
                 unitOfWork.SaveChanges();
             }
         }

@@ -307,6 +307,38 @@
  }
 
 
+.regular-user-profile div.add-comment {
+        margin-top: 30px;
+    }
 
+    .regular-user-profile textarea.add-comment {
+        width: 600px;
+        height: 100px;
+        margin-right: 20px;
+        vertical-align:top;
+        margin-bottom:40px;
+    }
+
+    .regular-user-profile .comment {
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey;
+        border-radius: 15px;
+        width: 50%;
+        margin: 0 auto
+    }
+
+    .regular-user-profile .comment-author {
+        margin-bottom: 15px
+    }
+
+    .regular-user-profile .comment-content {
+        margin-top: 15px;
+        margin-bottom: 15px
+    }
+
+    .regular-user-profile .reviews-section {
+        text-align:center;
+        margin-top:30px;
+    }
 
 

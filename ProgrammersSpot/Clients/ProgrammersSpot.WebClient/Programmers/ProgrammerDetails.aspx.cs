@@ -30,17 +30,21 @@ namespace ProgrammersSpot.WebClient.Programmers
                 }
                                
                 this.EventGetProgrammer?.Invoke(this, new FindUserEventArgs(id));
-                this.EventGetLoggedInUser?.Invoke(this, new FindUserEventArgs(this.User.Identity.GetUserId()));
 
-                if (this.Model.LoggedInUser.StarredUsers.Contains(this.Model.Programmer))
+                if (this.User.Identity.IsAuthenticated)
                 {
-                    this.Star.Text = "<i class='fa fa-star'></i> Unstar";
-                }
-                else
-                {
-                    this.Star.Text = "<i class='fa fa-star'></i> Star";
-                }
+                    this.EventGetLoggedInUser?.Invoke(this, new FindUserEventArgs(this.User.Identity.GetUserId()));
 
+                    if (this.Model.LoggedInUser.StarredUsers.Contains(this.Model.Programmer))
+                    {
+                        this.Star.Text = "<i class='fa fa-star'></i> Unstar";
+                    }
+                    else
+                    {
+                        this.Star.Text = "<i class='fa fa-star'></i> Star";
+                    }
+                }
+                
                 this.Skills.DataSource = this.Model.Programmer.Skills;
                 this.Skills.DataBind();
 
