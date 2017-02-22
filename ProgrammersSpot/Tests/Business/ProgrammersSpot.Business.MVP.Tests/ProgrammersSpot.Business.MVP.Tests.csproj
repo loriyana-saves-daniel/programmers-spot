@@ -94,19 +94,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business\ProgrammersSport.Models\ProgrammersSpot.Business.Models.csproj">
+    <ProjectReference Include="..\..\..\Business\ProgrammersSport.Models\ProgrammersSpot.Business.Models.csproj">
       <Project>{c4b33a7f-213d-4713-afc8-7b3e29b8aa3d}</Project>
       <Name>ProgrammersSpot.Business.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Business\ProgrammersSpot.Business.Common\ProgrammersSpot.Business.Common.csproj">
+    <ProjectReference Include="..\..\..\Business\ProgrammersSpot.Business.Common\ProgrammersSpot.Business.Common.csproj">
       <Project>{59aa86b4-6a88-4fc0-96ca-c4ac22ac12b3}</Project>
       <Name>ProgrammersSpot.Business.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Business\ProgrammersSpot.Business.MVP\ProgrammersSpot.Business.MVP.csproj">
+    <ProjectReference Include="..\..\..\Business\ProgrammersSpot.Business.MVP\ProgrammersSpot.Business.MVP.csproj">
       <Project>{07c56e35-9fe4-4700-b115-09c3238aac79}</Project>
       <Name>ProgrammersSpot.Business.MVP</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Business\ProgrammersSpot.Business.Services\ProgrammersSpot.Business.Services.csproj">
+    <ProjectReference Include="..\..\..\Business\ProgrammersSpot.Business.Services\ProgrammersSpot.Business.Services.csproj">
       <Project>{d81ad7ca-7f30-4467-acfe-7d4de5ec2562}</Project>
       <Name>ProgrammersSpot.Business.Services</Name>
     </ProjectReference>

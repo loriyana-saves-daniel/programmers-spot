@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.Services.Tests", "Tests\Business\ProgrammersSpot.Business.Services.Tests\ProgrammersSpot.Business.Services.Tests.csproj", "{7BCF7C07-ED7B-4C93-9DB0-46E59A8410AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.MVP.Tests", "ProgrammersSpot.Business.MVP.Tests\ProgrammersSpot.Business.MVP.Tests.csproj", "{A0D87CF9-5F7E-4E89-B615-3B661E59185A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammersSpot.Business.MVP.Tests", "Tests\Business\ProgrammersSpot.Business.MVP.Tests\ProgrammersSpot.Business.MVP.Tests.csproj", "{A0D87CF9-5F7E-4E89-B615-3B661E59185A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
