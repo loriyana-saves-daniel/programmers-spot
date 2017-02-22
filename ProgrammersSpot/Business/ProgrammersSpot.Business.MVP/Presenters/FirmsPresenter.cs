@@ -28,7 +28,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 
         private void OnGetFirms(object sender, EventArgs e)
         {
-            this.View.Model.Firms = this.firmService.GetAllFirmUsers();
+            this.View.Model.Firms = this.firmService.GetAllApprovedFirmUsers();
         }
     }
 }

@@ -58,7 +58,6 @@
                             </ul>
                         </li>
                     </ul>
-                </div>  
                 </ContentTemplate>
             </asp:RoleGroup>
 
@@ -90,20 +89,21 @@
                                 <li>Employees : <%: this.Model.FoundFirmUser.EmployeesCount %></li>
                             </ul>
                         </li>
-                     
-                        <li class="default open">
-                            <div class="link"><i class="fa fa-file-code-o"></i>Reviews</div>
-                            <ul class="submenu">
-                                <li>
-                                    <asp:Repeater  runat="server" ID="Reviews">
-                                        <ItemTemplate>
-                                            <a class="skill"><%# Eval("Content") %></a>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
+                    <div class="reviews-section">
+                        <h1><%# this.Model.FoundFirmUser.FirmReviews.Count == 0 ? "No reviews" : "Reviews:" %></h1>
+                        <asp:Repeater runat="server" ItemType="ProgrammersSpot.Business.Models.Reviews.Review" DataSource="<%# this.Model.FoundFirmUser.FirmReviews %>">
+                            <HeaderTemplate>
+                                <h5 class="comment-content">  </h5>
+                            </HeaderTemplate>
+                            <ItemTemplate>      
+                                <div class="comment">
+                                    <h5 class="comment-content"> <%# Item.Content %> </h5>
+                                    <p class="comment-author"> Author: <a href="#"> <%# Item.Author != null ? Item.Author.FirstName + " " + Item.Author.LastName : "Anonymous" %> </a> </p>
+                                </div>
+                           </ItemTemplate>
+                       </asp:Repeater>
+                    </div>  
                 </div>  
                 </ContentTemplate>
             </asp:RoleGroup>

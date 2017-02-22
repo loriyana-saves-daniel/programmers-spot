@@ -7,6 +7,8 @@ namespace ProgrammersSpot.Business.Services.Contracts
     {
         IQueryable<FirmUser> GetAllFirmUsers();
 
+        IQueryable<FirmUser> GetAllApprovedFirmUsers();
+
         FirmUser GetFirmUserById(string id);
 
         IQueryable<FirmUser> GetFirmsWithName(string nameKeyword);
@@ -18,5 +20,7 @@ namespace ProgrammersSpot.Business.Services.Contracts
         void UpdateFirmUserWebsite(string id, string website);
 
         void UpdateFirmUserAvatarUrl(string id, string avatarUrl);
+
+        void MakeFirmReview(string firmId, string review, string authorId);
     }
 }

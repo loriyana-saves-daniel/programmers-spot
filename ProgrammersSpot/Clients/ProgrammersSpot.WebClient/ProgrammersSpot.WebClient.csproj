@@ -211,6 +211,7 @@
     <Content Include="Admin\ManageCompanies.aspx" />
     <Content Include="Admin\ManageImages.aspx" />
     <Content Include="Admin\ManageUsers.aspx" />
+    <Content Include="Companies\CompanyDetails.aspx" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\profiles-list.css" />
     <Content Include="Companies\Default.aspx" />
@@ -453,6 +454,13 @@
     </Compile>
     <Compile Include="App_Start\NinjectModules\DataModule.cs" />
     <Compile Include="App_Start\NinjectModules\ServicesModule.cs" />
+    <Compile Include="Companies\CompanyDetails.aspx.cs">
+      <DependentUpon>CompanyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Companies\CompanyDetails.aspx.designer.cs">
+      <DependentUpon>CompanyDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Companies\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
