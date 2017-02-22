@@ -36,5 +36,7 @@ namespace ProgrammersSpot.Business.Models.Users.Contracts
         ICollection<Project> Projects { get; set; }
 
         ICollection<Skill> Skills { get; set; }
+
+        ICollection<RegularUser> StarredUsers { get; set; }
     }
 }

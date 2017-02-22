@@ -20,12 +20,15 @@ namespace ProgrammersSpot.Business.Models.Users
 
         private ICollection<UploadedImage> uploadedImages;
 
+        private ICollection<RegularUser> starredUsers;
+
         public RegularUser()
         {
             this.reviews = new HashSet<Review>();
             this.projects = new HashSet<Project>();
             this.skills = new HashSet<Skill>();
             this.uploadedImages = new HashSet<UploadedImage>();
+            this.starredUsers = new HashSet<RegularUser>();
         }
 
         [Key, ForeignKey("User")]
@@ -104,6 +107,18 @@ namespace ProgrammersSpot.Business.Models.Users
             set
             {
                 this.uploadedImages = value;
+            }
+        }
+
+        public virtual ICollection<RegularUser> StarredUsers
+        {
+            get
+            {
+                return this.starredUsers;
+            }
+            set
+            {
+                this.starredUsers = value;
             }
         }
     }

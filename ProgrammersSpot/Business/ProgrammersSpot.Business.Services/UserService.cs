@@ -116,5 +116,37 @@ namespace ProgrammersSpot.Business.Services
                 unitOfWork.SaveChanges();
             }
         }
+
+        public void StarUser(string loggedUserId, string starredUserId)
+        {
+            var loggedUser = this.GetRegularUserById(loggedUserId);
+            var starredUser = this.GetRegularUserById(starredUserId);
+
+            starredUser.StarsCount++;
+            loggedUser.StarredUsers.Add(starredUser);
+
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.regularUsersRepo.Update(starredUser);
+                this.regularUsersRepo.Update(loggedUser);
+                unitOfWork.SaveChanges();
+            }
+        }
+
+        public void UnstarUser(string loggedUserId, string starredUserId)
+        {
+            var loggedUser = this.GetRegularUserById(loggedUserId);
+            var starredUser = this.GetRegularUserById(starredUserId);
+
+            starredUser.StarsCount--;
+            loggedUser.StarredUsers.Remove(starredUser);
+
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.regularUsersRepo.Update(starredUser);
+                this.regularUsersRepo.Update(loggedUser);
+                unitOfWork.SaveChanges();
+            }
+        }
     }
 }
