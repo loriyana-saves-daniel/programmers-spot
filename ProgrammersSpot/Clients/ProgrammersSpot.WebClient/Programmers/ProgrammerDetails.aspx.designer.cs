@@ -7,9 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProgrammersSpot.WebClient.Programmers {
-    
-    
+namespace ProgrammersSpot.WebClient.Programmers
+{
+
+
     public partial class ProgrammerDetails {
         
         /// <summary>

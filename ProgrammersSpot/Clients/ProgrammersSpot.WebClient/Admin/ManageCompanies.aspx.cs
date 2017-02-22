@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ProgrammersSpot.WebClient.Admin
 {
@@ -15,21 +12,14 @@ namespace ProgrammersSpot.WebClient.Admin
 
         }
 
-        // The return type can be changed to IEnumerable, however to support
-        // paging and sorting, the following parameters must be added:
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
         public IQueryable<FirmUser> GridViewFirms_GetData()
         {
-            return (new List<FirmUser>() { new FirmUser() { Id=Guid.NewGuid().ToString()} }).AsQueryable();
+            return (new List<FirmUser>() { new FirmUser() { Id=Guid.NewGuid().ToString() , AvatarUrl = ""} }).AsQueryable();
         }
-
-        // The id parameter name should match the DataKeyNames value set on the control
-        public void GridViewFirms_UpdateItem(int id)
+        
+        public void GridViewFirms_UpdateItem(FirmUser user)
         {
-
+            
         }
     }
 }

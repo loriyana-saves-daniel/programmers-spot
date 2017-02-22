@@ -7,9 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProgrammersSpot.WebClient.Admin {
-    
-    
+namespace ProgrammersSpot.WebClient.Admin
+{
+
+
     public partial class ManageCompanies {
         
         /// <summary>
