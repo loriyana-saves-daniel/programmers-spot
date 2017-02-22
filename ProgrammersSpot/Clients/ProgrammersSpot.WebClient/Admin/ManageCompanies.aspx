@@ -6,11 +6,11 @@
         CssClass ="grid-view" ShowHeader="true" GridLines="Both" AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField DataField="FirmName" HeaderText="Firm name" InsertVisible="False" ReadOnly="False" SortExpression="FirmName" />
-            <asp:BoundField DataField="Email" HeaderText="Email" InsertVisible="False" ReadOnly="False" SortExpression="Email" />
             <asp:ImageField DataImageUrlField="AvatarUrl" HeaderText="Avatar">
                 <ControlStyle Height="200px" Width="200px" />
                 <ItemStyle Width="200px" Wrap="False" />
             </asp:ImageField>
+            <asp:BoundField DataField="Email" HeaderText="Email" InsertVisible="False" ReadOnly="False" SortExpression="Email" />
             <asp:BoundField DataField="Address" HeaderText="Address" InsertVisible="False" ReadOnly="False" SortExpression="Address" />
             <asp:BoundField DataField="EmployeesCount" HeaderText="Employees" InsertVisible="False" ReadOnly="False" SortExpression="EmployeesCount" />
             <asp:BoundField DataField="Rating" HeaderText="Rating" InsertVisible="False" ReadOnly="False" SortExpression="Rating" />

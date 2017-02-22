@@ -78,5 +78,27 @@ namespace ProgrammersSpot.Business.Services
                 unitOfWork.SaveChanges();
             }
         }
+
+        public void UpdateFirmUser(FirmUser user)
+        {
+            var userToUpdate = this.firmsRepo.GetById(user.Id);
+            if (userToUpdate != null)
+            {
+                userToUpdate.FirmName = user.FirmName;
+                userToUpdate.AvatarUrl = user.AvatarUrl;
+                userToUpdate.Email = user.Email;
+                userToUpdate.Address = user.Address;
+                userToUpdate.EmployeesCount = user.EmployeesCount;
+                userToUpdate.Rating = user.Rating;
+                userToUpdate.Website = user.Website;
+                userToUpdate.IsApproved = user.IsApproved;
+                userToUpdate.IsDeleted = user.IsDeleted;
+                using (var unitOfWork = this.unitOfWork)
+                {
+                    this.firmsRepo.Update(userToUpdate);
+                    unitOfWork.SaveChanges();
+                }
+            }
+        }
     }
 }

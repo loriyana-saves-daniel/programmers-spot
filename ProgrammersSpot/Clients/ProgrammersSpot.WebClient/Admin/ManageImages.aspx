@@ -4,6 +4,9 @@
     <div class="manage-images">
         <asp:GridView ID="GridViewImages" runat="server" CssClass="grid-view" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="PrgrammersSpotSqlDataSource" AllowPaging="True" AllowSorting="True" Width="1000px">
             <Columns>
+                <asp:CommandField ShowEditButton="True">
+                <ItemStyle VerticalAlign="Top" />
+                </asp:CommandField>
                 <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" >
                 <ItemStyle VerticalAlign="Top" />
                 </asp:BoundField>
@@ -28,9 +31,6 @@
                 <ItemStyle VerticalAlign="Top" />
                 </asp:BoundField>
                 <asp:BoundField DataField="IsDeleted" HeaderText="IsDeleted" SortExpression="IsDeleted" />
-                <asp:CommandField ShowEditButton="True">
-                <ItemStyle VerticalAlign="Top" />
-                </asp:CommandField>
             </Columns>
             <EditRowStyle Width="1000px" />
             <RowStyle Height="0px" VerticalAlign="Top" Width="1000px" />
