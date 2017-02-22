@@ -25,12 +25,12 @@ namespace ProgrammersSpot.Business.Services
 
         public IQueryable<UploadedImage> GetAllImages()
         {
-            return this.repo.All().OrderBy(i => i.DateUploaded);
+            return this.repo.All().Where(i => !i.IsDeleted).OrderBy(i => i.DateUploaded);
         }
 
         public IQueryable<UploadedImage> GetImagesWithTitle(string titleKeyword)
         {
-            return this.repo.All().Where(i => i.Title.Contains(titleKeyword));
+            return this.repo.All().Where(i => !i.IsDeleted && i.Title.Contains(titleKeyword));
         }
 
         public UploadedImage GetImageById(int id)

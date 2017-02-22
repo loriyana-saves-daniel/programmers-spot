@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <section class="page-image-details">
     <div class="image-details">
-    <asp:FormView runat="server" ID="FormViewImageDetails"
+    <asp:FormView runat="server" ID="FormViewImageDetails" CssClass="image-details"
          ItemType="ProgrammersSpot.Business.Models.UploadedImages.UploadedImage" SelectMethod="FormViewImageDetails_GetItem">
         <ItemTemplate>
             <header>
@@ -32,7 +32,7 @@
             </footer>
         </ItemTemplate>
     </asp:FormView>
-    <div>
+    <div class="add-comment">
         <asp:TextBox TextMode="MultiLine" runat="server" ID="TextBoxComment" ValidationGroup="comment" CssClass="add-comment"></asp:TextBox>
         <asp:Button ValidationGroup="comment" runat="server" ID="ButtonAddComment" OnClick="ButtonAddComment_Click" Text="Add comment" CssClass="btn btn-primary" />
     </div>

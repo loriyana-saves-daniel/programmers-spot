@@ -24,6 +24,7 @@ namespace ProgrammersSpot.Business.Services
                 MemoryStream outStream = new MemoryStream();
                 using (this.imageFactory)
                 {
+                    fileFormat = fileFormat.ToLower();
                     ISupportedImageFormat format = null;
                     if (fileFormat == ".jpg" || fileFormat == ".jpeg")
                     {
