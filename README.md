@@ -13,4 +13,6 @@
 |Daniel Isov |__Daniel_Isov__            	|
 |Loriyana Doncheva |__Loriyanaa__    	 	|
 
-# programmers-spot
+# programmerSSpot
+
+### This project is a Web Application built with ASP.NET Web Forms. Its' purpose is for programmers to be able to present themselves and to find good opportunities.
