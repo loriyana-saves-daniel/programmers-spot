@@ -66,9 +66,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ImageDetailsTests\Presenter_Constructor_Should.cs" />
-    <Compile Include="ImageDetailsTests\View_EventGetImages_Should.cs" />
-    <Compile Include="ImageDetailsTests\View_EventSearchImages_Should.cs" />
-    <Compile Include="ImageDetailsTests\View_LikedAndDislikedImage_Should.cs" />
+    <Compile Include="ImageDetailsTests\View_EventGetImage_Should.cs" />
+    <Compile Include="ImageDetailsTests\View_Should.cs" />
     <Compile Include="Mocks\ImageDetailsPresenterMock.cs" />
     <Compile Include="Mocks\TakeABreakPresenterMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

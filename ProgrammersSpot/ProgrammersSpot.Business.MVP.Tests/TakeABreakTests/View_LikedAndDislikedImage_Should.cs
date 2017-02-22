@@ -17,7 +17,7 @@ namespace ProgrammersSpot.Business.MVP.Tests.TakeABreakTests
     public class View_LikedAndDislikedImage_Should
     {
         [Test]
-        public void CallUploadedImageServiceOnce_WhenLikedImageEventIsRaised()
+        public void CallUploadedImageServiceLikeImageOnce_WhenLikedImageEventIsRaised()
         {
             //Arrange
             var viewMock = new Mock<ITakeABreakView>();
@@ -32,7 +32,7 @@ namespace ProgrammersSpot.Business.MVP.Tests.TakeABreakTests
         }
 
         [Test]
-        public void CallUploadedImageServiceOnce_WhenDislikedImageEventIsRaised()
+        public void CallUploadedImageServiceDislikeImageOnce_WhenDislikedImageEventIsRaised()
         {
             //Arrange
             var viewMock = new Mock<ITakeABreakView>();
