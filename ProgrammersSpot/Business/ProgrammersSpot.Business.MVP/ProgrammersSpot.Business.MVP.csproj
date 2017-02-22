@@ -106,6 +106,7 @@
     <Compile Include="Args\OwinCtxEventArgs.cs" />
     <Compile Include="Args\RegistrationEventArgs.cs" />
     <Compile Include="Args\SearchEventArgs.cs" />
+    <Compile Include="Args\StarProgrammerEventArgs.cs" />
     <Compile Include="Args\UploadImageEventArgs.cs" />
     <Compile Include="Args\UploadProfilePicEventArgs.cs" />
     <Compile Include="Args\UserUploadImageEventArgs.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Presenters\ExternalRegistrationPresenter.cs" />
     <Compile Include="Presenters\ImageDetailsPresenter.cs" />
     <Compile Include="Presenters\ManageUserProfilePresenter.cs" />
+    <Compile Include="Presenters\ProgrammerDetailsPresenter.cs" />
     <Compile Include="Presenters\ProgrammersPresenter.cs" />
     <Compile Include="Presenters\RegistrationPresenter.cs" />
     <Compile Include="Presenters\TakeABreakPresenter.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="ViewModels\ExternalRegistrationViewModel.cs" />
     <Compile Include="ViewModels\ImageDetailsViewModel.cs" />
     <Compile Include="ViewModels\ManageUserProfileViewModel.cs" />
+    <Compile Include="ViewModels\ProgrammerDetailsViewModel.cs" />
     <Compile Include="ViewModels\ProgrammersViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\TakeABreakViewModel.cs" />
@@ -134,6 +137,7 @@
     <Compile Include="Views\IImageDetailsView.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
     <Compile Include="Views\IManageUserProfileView.cs" />
+    <Compile Include="Views\IProgrammerDetailsView.cs" />
     <Compile Include="Views\IProgrammersView.cs" />
     <Compile Include="Views\IRegistrationView.cs" />
     <Compile Include="Views\ITakeABreakView.cs" />

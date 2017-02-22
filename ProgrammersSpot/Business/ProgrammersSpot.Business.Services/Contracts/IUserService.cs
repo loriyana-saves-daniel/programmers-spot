@@ -24,5 +24,9 @@ namespace ProgrammersSpot.Business.Services.Contracts
         void UpdateRegularUserFacebookProfile(string id, string facebook);
 
         void UpdateRegularUserGitHubProfile(string id, string gitHub);
+
+        void StarUser(string loggedUserId, string starredUserId);
+
+        void UnstarUser(string loggedUserId, string starredUserId);
     }
 }
