@@ -12,8 +12,8 @@
                     <asp:Image runat="server" CssClass="img-responsive avatar" ImageUrl="<%# this.Model.Firm.AvatarUrl %>" />
                     <div class="info">
                         <p><i class="fa fa-map-marker"></i> <%: this.Model.Firm.Country.Name %> (<%: this.Model.Firm.City.Name %>) </p>
-                        <asp:LinkButton runat="server" ID="Edit" Text="<i class='fa fa-star'></i> Rate" 
-                                 CssClass="btn-o" />
+                        <asp:LinkButton runat="server" ID="Star" firmId="<%# this.Model.Firm.Id %>" Text="<i class='fa fa-star'></i> Star" 
+                                OnClick="Star_Click" CssClass="btn-o" />
                         <div class="social-profiles firm">
                             <a href="<%: this.Model.Firm.Website %>" class="fa fa-globe"></a>
                         </div>

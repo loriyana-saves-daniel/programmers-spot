@@ -107,7 +107,7 @@
     <Compile Include="Args\OwinCtxEventArgs.cs" />
     <Compile Include="Args\RegistrationEventArgs.cs" />
     <Compile Include="Args\SearchEventArgs.cs" />
-    <Compile Include="Args\StarProgrammerEventArgs.cs" />
+    <Compile Include="Args\StarUserEventArgs.cs" />
     <Compile Include="Args\UpdateFirmEventArgs.cs" />
     <Compile Include="Args\UploadImageEventArgs.cs" />
     <Compile Include="Args\UploadProfilePicEventArgs.cs" />

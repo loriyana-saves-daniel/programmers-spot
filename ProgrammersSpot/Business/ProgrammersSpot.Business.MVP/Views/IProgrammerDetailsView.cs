@@ -11,8 +11,8 @@ namespace ProgrammersSpot.Business.MVP.Views
 
         event EventHandler<FindUserEventArgs> EventGetLoggedInUser;
 
-        event EventHandler<StarProgrammerEventArgs> ProgrammerStarred;
+        event EventHandler<StarUserEventArgs> ProgrammerStarred;
 
-        event EventHandler<StarProgrammerEventArgs> ProgrammerUnstarred;
+        event EventHandler<StarUserEventArgs> ProgrammerUnstarred;
     }
 }

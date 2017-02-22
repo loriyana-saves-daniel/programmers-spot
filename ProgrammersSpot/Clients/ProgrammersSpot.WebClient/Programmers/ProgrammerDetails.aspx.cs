@@ -16,8 +16,8 @@ namespace ProgrammersSpot.WebClient.Programmers
     {
         public event EventHandler<FindUserEventArgs> EventGetProgrammer;
         public event EventHandler<FindUserEventArgs> EventGetLoggedInUser;
-        public event EventHandler<StarProgrammerEventArgs> ProgrammerStarred;
-        public event EventHandler<StarProgrammerEventArgs> ProgrammerUnstarred;
+        public event EventHandler<StarUserEventArgs> ProgrammerStarred;
+        public event EventHandler<StarUserEventArgs> ProgrammerUnstarred;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,7 +31,7 @@ namespace ProgrammersSpot.WebClient.Programmers
                                
                 this.EventGetProgrammer?.Invoke(this, new FindUserEventArgs(id));
 
-                if (this.User.Identity.IsAuthenticated)
+                if (this.User.Identity.IsAuthenticated && this.User.IsInRole("User"))
                 {
                     this.EventGetLoggedInUser?.Invoke(this, new FindUserEventArgs(this.User.Identity.GetUserId()));
 
@@ -67,33 +67,35 @@ namespace ProgrammersSpot.WebClient.Programmers
                     this.Model.Programmer.Id)));
                 return;
             }
-
-            var linkButton = sender as LinkButton;
-            if (linkButton != null)
+            else if (this.User.IsInRole("User"))
             {
-                if(linkButton.Text == "<i class='fa fa-star'></i> Star")
+                var linkButton = sender as LinkButton;
+                if (linkButton != null)
                 {
-                    string userId = linkButton.Attributes["programmerId"];
-                    this.ProgrammerStarred?.Invoke(this, new StarProgrammerEventArgs
+                    if (linkButton.Text == "<i class='fa fa-star'></i> Star")
                     {
-                        LoggedUserId = this.User.Identity.GetUserId(),
-                        StarredUserId = userId
-                    });
+                        string userId = linkButton.Attributes["programmerId"];
+                        this.ProgrammerStarred?.Invoke(this, new StarUserEventArgs
+                        {
+                            LoggedUserId = this.User.Identity.GetUserId(),
+                            StarredUserId = userId
+                        });
 
-                    linkButton.Text = "<i class='fa fa-star'></i> Unstar";
+                        linkButton.Text = "<i class='fa fa-star'></i> Unstar";
+                    }
+                    else if (linkButton.Text == "<i class='fa fa-star'></i> Unstar")
+                    {
+                        string userId = linkButton.Attributes["programmerId"];
+                        this.ProgrammerUnstarred?.Invoke(this, new StarUserEventArgs
+                        {
+                            LoggedUserId = this.User.Identity.GetUserId(),
+                            StarredUserId = userId
+                        });
+
+                        linkButton.Text = "<i class='fa fa-star'></i> Star";
+                    }
                 }
-                else if(linkButton.Text == "<i class='fa fa-star'></i> Unstar")
-                {
-                    string userId = linkButton.Attributes["programmerId"];
-                    this.ProgrammerUnstarred?.Invoke(this, new StarProgrammerEventArgs
-                    {
-                        LoggedUserId = this.User.Identity.GetUserId(),
-                        StarredUserId = userId
-                    });
-
-                    linkButton.Text = "<i class='fa fa-star'></i> Star";
-                }           
-            }
+            }      
         }
     }
 }

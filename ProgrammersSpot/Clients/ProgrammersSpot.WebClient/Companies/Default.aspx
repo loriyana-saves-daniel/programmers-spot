@@ -51,7 +51,7 @@
 							</figure>
 						    <div class="text-content">
 						        <h5><%# Item.FirmName %></h5>
-						        <h5><small><%# Item.Rating %></small></h5>
+						        <h5><small><i class="fa fa-star">Stars: </i><%# Item.Rating %></small></h5>
 						    </div>
 						</div>
 					</div>

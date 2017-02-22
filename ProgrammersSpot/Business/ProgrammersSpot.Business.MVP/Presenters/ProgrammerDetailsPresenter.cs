@@ -23,12 +23,12 @@ namespace ProgrammersSpot.Business.MVP.Presenters
             view.ProgrammerUnstarred += this.OnProgrammerUnstarred;
         }
 
-        private void OnProgrammerUnstarred(object sender, StarProgrammerEventArgs e)
+        private void OnProgrammerUnstarred(object sender, StarUserEventArgs e)
         {
             this.userService.UnstarUser(e.LoggedUserId, e.StarredUserId);
         }
 
-        private void OnProgrammerStarred(object sender, StarProgrammerEventArgs e)
+        private void OnProgrammerStarred(object sender, StarUserEventArgs e)
         {
             this.userService.StarUser(e.LoggedUserId, e.StarredUserId);
         }

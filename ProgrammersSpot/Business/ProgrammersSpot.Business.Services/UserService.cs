@@ -11,16 +11,20 @@ namespace ProgrammersSpot.Business.Services
     public class UserService : IUserService
     {
         private readonly IRepository<RegularUser> regularUsersRepo;
+        private readonly IRepository<FirmUser> firmUsersRepo;
         private readonly IRepository<User> usersRepo;
         private readonly IUnitOfWork unitOfWork;
 
-        public UserService(IRepository<RegularUser> regularUsersRepo, IRepository<User> usersRepo, IUnitOfWork unitOfWork)
+        public UserService(IRepository<RegularUser> regularUsersRepo, IRepository<User> usersRepo, 
+            IRepository<FirmUser> firmUsersRepo, IUnitOfWork unitOfWork)
         {
             Guard.WhenArgument(regularUsersRepo, "regularUsersRepo").IsNull().Throw();
+            Guard.WhenArgument(firmUsersRepo, "firmUsersRepo").IsNull().Throw();
             Guard.WhenArgument(usersRepo, "usersRepo").IsNull().Throw();
             Guard.WhenArgument(unitOfWork, "unitOfWork").IsNull().Throw();
 
             this.usersRepo = usersRepo;
+            this.firmUsersRepo = firmUsersRepo;
             this.regularUsersRepo = regularUsersRepo;
             this.unitOfWork = unitOfWork;
         }
@@ -144,6 +148,38 @@ namespace ProgrammersSpot.Business.Services
             using (var unitOfWork = this.unitOfWork)
             {
                 this.regularUsersRepo.Update(starredUser);
+                this.regularUsersRepo.Update(loggedUser);
+                unitOfWork.SaveChanges();
+            }
+        }
+
+        public void StarFirm(string loggedUserId, string starredFirmId)
+        {
+            var loggedUser = this.GetRegularUserById(loggedUserId);
+            var starredUser = this.firmUsersRepo.GetById(starredFirmId);
+
+            starredUser.Rating++;
+            loggedUser.StarredFirms.Add(starredUser);
+
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.firmUsersRepo.Update(starredUser);
+                this.regularUsersRepo.Update(loggedUser);
+                unitOfWork.SaveChanges();
+            }
+        }
+
+        public void UnstarFirm(string loggedUserId, string starredFirmId)
+        {
+            var loggedUser = this.GetRegularUserById(loggedUserId);
+            var starredUser = this.firmUsersRepo.GetById(starredFirmId);
+
+            starredUser.Rating--;
+            loggedUser.StarredFirms.Remove(starredUser);
+
+            using (var unitOfWork = this.unitOfWork)
+            {
+                this.firmUsersRepo.Update(starredUser);
                 this.regularUsersRepo.Update(loggedUser);
                 unitOfWork.SaveChanges();
             }
