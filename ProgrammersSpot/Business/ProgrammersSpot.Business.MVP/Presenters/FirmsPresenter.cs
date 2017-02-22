@@ -9,7 +9,7 @@ namespace ProgrammersSpot.Business.MVP.Presenters
 {
     public class FirmsPresenter : Presenter<IFirmsView>
     {
-        private readonly IFirmService firmService;
+        protected readonly IFirmService firmService;
 
         public FirmsPresenter(IFirmsView view, IFirmService firmService) : base(view)
         {
