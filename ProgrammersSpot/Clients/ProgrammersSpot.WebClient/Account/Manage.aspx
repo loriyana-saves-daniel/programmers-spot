@@ -33,7 +33,7 @@
                                         <div class="col-md-10">
                                             <asp:TextBox runat="server" ID="JobTitle" CssClass="form-control" ValidationGroup="Update"  />
                                             <asp:RegularExpressionValidator runat="server" ControlToValidate="JobTitle" ValidationGroup="Update" 
-                                                ValidationExpression="[a-zA-Z0-9]{2,20}" CssClass="text-danger" Display="Dynamic"
+                                                ValidationExpression="[\s\S]{2,20}" CssClass="text-danger" Display="Dynamic"
                                                 ErrorMessage="The job title must be between 2 and 20 sybmols." />
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@
                                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Skill"   
                                                 CssClass="text-danger" Display="Dynamic" ErrorMessage="Skill is required!" ValidationGroup="Skill"></asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator runat="server" ControlToValidate="Skill" ValidationGroup="Skill"
-                                                ValidationExpression="[/s/S]{2,20}"  
+                                                ValidationExpression="[\s\S]{2,20}"  
                                                 CssClass="text-danger" Display="Dynamic" ErrorMessage="Skill must be between 2 and 20 symbols." />
                                         </div>
                                     </div>

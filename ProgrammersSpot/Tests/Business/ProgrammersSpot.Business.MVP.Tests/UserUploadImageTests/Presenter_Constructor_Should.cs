@@ -1,14 +1,10 @@
-﻿using Moq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using ProgrammersSpot.Business.MVP.Presenters;
 using ProgrammersSpot.Business.MVP.Tests.Mocks;
 using ProgrammersSpot.Business.MVP.Views;
 using ProgrammersSpot.Business.Services.Contracts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Moq;
 
 namespace ProgrammersSpot.Business.MVP.Tests.UserUploadImageTests
 {

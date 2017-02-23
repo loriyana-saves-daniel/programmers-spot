@@ -2,14 +2,8 @@
 using NUnit.Framework;
 using ProgrammersSpot.Business.MVP.Args;
 using ProgrammersSpot.Business.MVP.Presenters;
-using ProgrammersSpot.Business.MVP.ViewModels;
 using ProgrammersSpot.Business.MVP.Views;
 using ProgrammersSpot.Business.Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProgrammersSpot.Business.MVP.Tests.TakeABreakTests
 {
