@@ -49,3 +49,21 @@ input[type="select"] {
     font-weight:bold;
     font-size:20px;
 }
+
+a.navbar-brand {
+    padding: 0 15px 15px 15px;
+    vertical-align: top
+}
+
+.logo-image {
+    width: 25px;
+    height: 25px;
+    margin-top: 0;
+    margin-right: 5px
+}
+
+span.logo-text {
+    display: inline-block;
+    margin-top: 20px
+}
+
