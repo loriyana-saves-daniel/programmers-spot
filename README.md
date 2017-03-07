@@ -15,4 +15,5 @@
 
 # programmerSSpot
 
-### This project is a Web Application built with ASP.NET Web Forms. Its' purpose is for programmers to be able to present themselves and to find good opportunities.
+### This project is a Web Application built with ASP.NET Web Forms. Its' purpose is for programmers to be able to present themselves, share opinions on different software companies and find good opportunities. ProgrammerSSpot can also be helpful to software companies when the are looking for developers.
+
