@@ -7,7 +7,7 @@
 
 [Description](https://github.com/TelerikAcademy/ASP.NET-Web-Forms/blob/master/Teamwork/README.md)
 
-###:mortar_board:Team Members
+### Team Members
 | Name              | Academy Username      	|
 |-------------------|-------------------|
 |Daniel Isov |__Daniel_Isov__            	|
